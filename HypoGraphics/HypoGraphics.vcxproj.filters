@@ -7,14 +7,30 @@
     <Filter Include="Hypo\Graphics">
       <UniqueIdentifier>{4526D516-B1E6-504D-7A21-9ACAE6A09529}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Hypo\Graphics\Application.h">
+      <Filter>Hypo\Graphics</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hypo\Graphics\Exports.h">
       <Filter>Hypo\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\graphicspch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hypo\Graphics\Application.cpp">
+      <Filter>Hypo\Graphics</Filter>
+    </ClCompile>
     <ClCompile Include="src\graphicspch.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
   </ItemGroup>
 </Project>

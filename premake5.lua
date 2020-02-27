@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["spdlog"] = "vendor/spdlog/include"
 IncludeDir["ImGui"] = "vendor/imgui"
 IncludeDir["glm"] = "vendor/glm/include"
+IncludeDir["GSL"] = "vendor/GSL/include"
 
 IncludeDir["GLFW"] = "HypoWindow/vendor/GLFW/include"
 
@@ -116,7 +117,8 @@ project "HypoWindow"
 		"%{IncludeDir.glad}",
 		"%{IncludeDir.HypoSystem}",
 		"%{IncludeDir.HypoWindow}",
-		"%{IncludeDir.Hypo3D}"
+		"%{IncludeDir.Hypo3D}",
+		"%{IncludeDir.GSL}"
 	}
 	defines
 	{
@@ -175,7 +177,8 @@ project "HypoGraphics"
 		"%{IncludeDir.HypoSystem}",
 		"%{IncludeDir.HypoWindow}",
 		"%{IncludeDir.HypoGraphics}",
-		"%{IncludeDir.Hypo3D}"
+		"%{IncludeDir.Hypo3D}",
+		"%{IncludeDir.GSL}"
 	}
 	defines
 	{
@@ -234,7 +237,8 @@ project "Hypo3D"
 		"%{IncludeDir.HypoSystem}",
 		"%{IncludeDir.HypoWindow}",
 		"%{IncludeDir.HypoGrahpics}",
-		"%{IncludeDir.Hypo3D}"
+		"%{IncludeDir.Hypo3D}",
+		"%{IncludeDir.GSL}"
 	}
 	defines
 	{
@@ -292,6 +296,7 @@ project "Sandbox"
 		"%{IncludeDir.HypoSystem}",
 		"%{IncludeDir.Graphics}",
 		"%{IncludeDir.Hypo3D}",
+		"%{IncludeDir.GSL}"
 
 
 	}

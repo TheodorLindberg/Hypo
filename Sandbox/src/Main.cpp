@@ -144,15 +144,7 @@ int main()
 		}
 		
 		window->BeginImGui();
-		/*static bool show = true;
-		ImGui::ShowDemoWindow(&show);
-
-		ImGui::Begin("Spheres");
-		ImGui::DragFloat("RadiusInner", &innerRadius, 0.005, 0, outerRadius);
-		ImGui::DragFloat("RadiusOuter", &outerRadius, 0.005, 0, innerRadius);
-		ImGui::ColorPicker4("ColorInner", reinterpret_cast<float*>(&innerColor));
-		ImGui::ColorPicker4("ColorOuter", reinterpret_cast<float*>(&outerColor));
-		ImGui::End();*/
+		
 		window->EndImGui();
 		// ------
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
