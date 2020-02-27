@@ -1,13 +1,27 @@
 #pragma once
-#include "Hypo/Core.h"
+
+//#include "Exports.h"
 #include "spdlog/spdlog.h"
+//#include "Exports.h"
+#pragma once
+#include "Hypo/Config.h"
+
+#ifdef HYPO_MAIN_EXPORTS
+
+#define HYPO_MAIN_API HYPO_API_EXPORTS
+
+#else
+
+#define HYPO_MAIN_API HYPO_API_IMPORTS
+
+#endif // HYPO_MAIN_EXPORTS
 
 namespace Hypo
 {
-	class HYPO_API Log
+	class HYPO_MAIN_API Log
 	{
 	public:
-		struct HYPO_API LogCount
+		struct LogCount
 		{
 			unsigned int traces = 0;
 			unsigned int debugs = 0;

@@ -18,6 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Exports.h" />
     <ClInclude Include="src\Hypo\Context\GraphicsContext.h">
       <Filter>Hypo\Context</Filter>
     </ClInclude>

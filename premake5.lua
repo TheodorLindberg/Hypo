@@ -63,7 +63,8 @@ project "HypoMain"
 	defines
 	{
 		"_CRT_SECURE_NO_WARNINGS",
-		"HYPO_MAIN_EXPORT"
+		"HYPO_PLATFORM_WINDOWS",
+		"HYPO_MAIN_EXPORTS"
 	}
 
 	cppdialect "C++17"
@@ -117,7 +118,7 @@ project "HypoWindow"
 	{
 		"HYPO_PLATFORM_WINDOWS",
 		"_CRT_SECURE_NO_WARNINGS",
-		"HYPO_WINDOW_EXPORT"
+		"HYPO_WINDOW_EXPORTS"
 	}
 
 	cppdialect "C++17"
@@ -177,13 +178,13 @@ project "Hypo3D"
 	{
 		"HYPO_PLATFORM_WINDOWS",
 		"_CRT_SECURE_NO_WARNINGS",
-		"HYPO_WINDOW_EXPORT"
+		"HYPO_3D_EXPORTS"
 	}
 
 	cppdialect "C++17"
 	systemversion "latest"
 	filter "configurations:Debug"
-		runtime "Debug"3
+		runtime "Debug"
 		symbols "On"
 	filter "configurations:Release"
 		runtime "Release"

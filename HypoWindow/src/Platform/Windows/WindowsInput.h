@@ -1,10 +1,10 @@
 #pragma once
 
 #include "Hypo/Input.h"
-
+#include "Exports.h"
 namespace Hypo {
 
-	class WindowsInput : public Input
+	class HYPO_WINDOW_API WindowsInput : public Input
 	{
 	protected:
 		virtual bool IsKeyPressedImpl(int keycode) override;

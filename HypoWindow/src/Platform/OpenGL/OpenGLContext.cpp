@@ -5,6 +5,8 @@
 
 #include "Hypo/Util/Log.h"
 #include "OpenGLContext.h"
+#include "HypoMain/src/Exports.h"
+
 
 namespace Hypo
 {
@@ -18,6 +20,7 @@ namespace Hypo
 			const void* userParam)
 	{
 		if (severity == 0x9146/* DEBUG_SEVERITY_HIGH */) {
+
 			HYPO_CORE_CRITICAL("GL Critical Error: type = {0}, message = {1}", type, message);
 		}
 		else if (severity == 0x9147 /* DEBUG_SEVERITY_MEDIUM */) {

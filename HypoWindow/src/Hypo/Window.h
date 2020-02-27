@@ -2,8 +2,7 @@
 #include <string>
 #include <functional>
 
-#include "Hypo/Core.h"
-#include "Hypo/Config.h"
+#include "Exports.h"
 #include "Hypo/Events/Event.h"
 #include "Context/GraphicsContext.h"
 
@@ -45,7 +44,7 @@ namespace Hypo
 		}
 	};
 
-	class Window
+	class HYPO_WINDOW_API Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;

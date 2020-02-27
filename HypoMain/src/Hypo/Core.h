@@ -1,13 +1,25 @@
 #pragma once
 
+
+
+#ifndef HYPO_STATIC
+#define HYPO_BUILD_DLL
+#endif
+
+
+#ifdef HYPO_BUILD_DLL
+	#define HYPO_API_EXPORTS __declspec(dllexport)
+	#define HYPO_API_IMPORTS __declspec(dllimport)
+#elif HYPO_STATIC
+	#define HYPO_API_EXPORTS
+	#define HYPO_API_IMPORTS
+#else
+	#error Build option not set
+#endif
+
+
+
 #ifdef HYPO_PLATFORM_WINDOWS
-	#ifdef HYPO_BUILD_DLL
-		#define HYPO_MAIN_API __declspec(dllexport)
-	#elif HYPO_STATIC
-		#define HYPO_MAIN_API
-	#else
-		#define HYPO_MAIN_API __declspec(dllimport)
-	#endif
 #else
 	#error Hypo only supports Windows!
 #endif

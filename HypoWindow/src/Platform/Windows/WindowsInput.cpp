@@ -10,8 +10,6 @@ namespace Hypo {
 
 	bool WindowsInput::IsKeyPressedImpl(int keycode)
 	{
-
-		
 		auto window = static_cast<GLFWwindow*>(Window::GetActiveWindow()->GetNativeWindow());
 		auto state = glfwGetKey(window, keycode);
 		return state == GLFW_PRESS || state == GLFW_REPEAT;

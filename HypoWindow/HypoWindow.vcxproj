@@ -79,7 +79,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>windowpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_WINDOW_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\GLFW\include;..;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;..\HypoMain\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -97,7 +97,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>windowpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_WINDOW_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\GLFW\include;..;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;..\HypoMain\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -119,7 +119,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>windowpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_WINDOW_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\GLFW\include;..;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;..\HypoMain\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -137,6 +137,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Exports.h" />
     <ClInclude Include="src\Hypo\Context\GraphicsContext.h" />
     <ClInclude Include="src\Hypo\Context\RenderState.h" />
     <ClInclude Include="src\Hypo\Input.h" />

@@ -15,6 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Exports.h" />
     <ClInclude Include="src\Hypo\Config.h">
       <Filter>Hypo</Filter>
     </ClInclude>

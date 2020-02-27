@@ -5,7 +5,7 @@
 #include <queue>
 
 
-#include "Hypo/Config.h"
+#include "Exports.h"
 #include "Hypo/Events/Event.h"
 #include "Hypo/Context/GraphicsContext.h"
 
@@ -15,7 +15,7 @@ namespace Hypo
 {
 	struct ContextSettings;
 
-	class HYPO_API WindowsWindow : public Window
+	class HYPO_WINDOW_API WindowsWindow : public Window
 	{
 	public:
 		WindowsWindow(const WindowProps& props, const ContextSettings& contextSettings);
