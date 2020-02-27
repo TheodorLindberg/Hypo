@@ -5,6 +5,8 @@ namespace Hypo
 {
 	class OpenGLBuffer
 	{
+	public:
+		OpenGLBuffer() = default;
 		~OpenGLBuffer();
 		
 		template<int type>

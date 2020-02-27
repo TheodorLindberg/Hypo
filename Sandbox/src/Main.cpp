@@ -6,6 +6,8 @@
 #include "glad/glad.h"
 #include <iostream>
 
+#include "Hypo/Graphics/Buffers.h"
+
 #include <../../HypoWindow/vendor/GLFW/include/GLFW/glfw3.h>
 
 
@@ -26,10 +28,10 @@ const char* fragmentShaderSource = "#version 330 core\n"
 int main()
 {
 	Hypo::Log::Init();
-	
 	Hypo::Window* window = Hypo::Window::Create();
 	
 
+	Hypo::init(window->GetGladProc());
 	const int status = gladLoadGLLoader((GLADloadproc)window->GetGladProc());
 
 	HYPO_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -84,16 +86,19 @@ int main()
 		0, 1, 3,  // first Triangle
 		1, 2, 3   // second Triangle
 	};
-	unsigned int VBO, VAO, EBO;
+	unsigned int VAO, EBO;
 	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VBO);
+
+	auto vertexBuffer = Hypo::VertexBuffer::Create(gsl::span<float>(vertices), false);
+
+	
+	
 	glGenBuffers(1, &EBO);
 	// bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
 	glBindVertexArray(VAO);
 
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
+	vertexBuffer->Bind();
+	
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 

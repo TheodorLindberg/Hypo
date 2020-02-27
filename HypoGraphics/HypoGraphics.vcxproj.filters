@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Hypo\Graphics\Application.h">
+    <ClInclude Include="src\Hypo\Graphics\Buffers.h">
       <Filter>Hypo\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Hypo\Graphics\Exports.h">
@@ -24,13 +24,21 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexBuffer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\graphicspch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Hypo\Graphics\Application.cpp">
+    <ClCompile Include="src\Hypo\Graphics\Buffers.cpp">
       <Filter>Hypo\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\graphicspch.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
   </ItemGroup>
 </Project>
