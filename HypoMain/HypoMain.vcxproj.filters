@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Hypo">
+      <UniqueIdentifier>{659C867C-51D3-870D-FABF-6D10E6D5030F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\DataTypes">
+      <UniqueIdentifier>{C3ABD975-AF79-CD7B-980D-3EA2847AA9E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\Events">
+      <UniqueIdentifier>{A9C4ED88-157A-667E-9E6E-60550A235D82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\Util">
+      <UniqueIdentifier>{D23A2414-3EA5-D88A-87E3-8930F38CB6DF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Hypo\Config.h">
+      <Filter>Hypo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Core.h">
+      <Filter>Hypo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\DataTypes\ObjPtr.h">
+      <Filter>Hypo\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\DataTypes\ObjPtrMemoryManager.h">
+      <Filter>Hypo\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\DataTypes\Rect.h">
+      <Filter>Hypo\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\DataTypes\Vec.h">
+      <Filter>Hypo\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Events\ApplicationEvents.h">
+      <Filter>Hypo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Events\Event.h">
+      <Filter>Hypo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Events\Keyboard.h">
+      <Filter>Hypo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Events\KeyboardEvents.h">
+      <Filter>Hypo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Events\MouseEvents.h">
+      <Filter>Hypo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Hypo.h">
+      <Filter>Hypo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Util\Log.h">
+      <Filter>Hypo\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mainpch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Hypo\Util\Log.cpp">
+      <Filter>Hypo\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mainpch.cpp" />
+  </ItemGroup>
+</Project>
