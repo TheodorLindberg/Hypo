@@ -137,24 +137,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Exports.h" />
     <ClInclude Include="src\Hypo\Config.h" />
     <ClInclude Include="src\Hypo\Core.h" />
-    <ClInclude Include="src\Hypo\DataTypes\ObjPtr.h" />
-    <ClInclude Include="src\Hypo\DataTypes\ObjPtrMemoryManager.h" />
-    <ClInclude Include="src\Hypo\DataTypes\Rect.h" />
-    <ClInclude Include="src\Hypo\DataTypes\Vec.h" />
-    <ClInclude Include="src\Hypo\Events\ApplicationEvents.h" />
-    <ClInclude Include="src\Hypo\Events\Event.h" />
-    <ClInclude Include="src\Hypo\Events\Keyboard.h" />
-    <ClInclude Include="src\Hypo\Events\KeyboardEvents.h" />
-    <ClInclude Include="src\Hypo\Events\MouseEvents.h" />
     <ClInclude Include="src\Hypo\Hypo.h" />
-    <ClInclude Include="src\Hypo\Util\Log.h" />
+    <ClInclude Include="src\Hypo\System\DataTypes\ObjPtr.h" />
+    <ClInclude Include="src\Hypo\System\DataTypes\ObjPtrMemoryManager.h" />
+    <ClInclude Include="src\Hypo\System\DataTypes\Rect.h" />
+    <ClInclude Include="src\Hypo\System\DataTypes\Vec.h" />
+    <ClInclude Include="src\Hypo\System\Events\ApplicationEvents.h" />
+    <ClInclude Include="src\Hypo\System\Events\Event.h" />
+    <ClInclude Include="src\Hypo\System\Events\Keyboard.h" />
+    <ClInclude Include="src\Hypo\System\Events\KeyboardEvents.h" />
+    <ClInclude Include="src\Hypo\System\Events\MouseEvents.h" />
+    <ClInclude Include="src\Hypo\System\Exports.h" />
+    <ClInclude Include="src\Hypo\System\Util\Log.h" />
     <ClInclude Include="src\mainpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Hypo\Util\Log.cpp" />
+    <ClCompile Include="src\Hypo\System\Util\Log.cpp" />
     <ClCompile Include="src\mainpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

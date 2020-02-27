@@ -2,10 +2,9 @@
 
 #include "WindowsWindow.h"
 #include <GLFW/glfw3.h>
-#include "Hypo/Util/Log.h"
-#include "Hypo/Context/GraphicsContext.h"
 
 #include "Platform/OpenGL/OpenGLContext.h"
+#include "Hypo/System/Util/Log.h"
 
 namespace Hypo
 {

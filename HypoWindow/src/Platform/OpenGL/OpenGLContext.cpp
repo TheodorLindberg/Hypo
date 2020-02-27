@@ -3,9 +3,9 @@
 
 #include "../../HypoWindow/vendor/GLFW/include/GLFW/glfw3.h"
 
-#include "Hypo/Util/Log.h"
+#include "Hypo/System/Util/Log.h"
 #include "OpenGLContext.h"
-#include "HypoMain/src/Exports.h"
+#include "Hypo/Window/Exports.h"
 
 
 namespace Hypo

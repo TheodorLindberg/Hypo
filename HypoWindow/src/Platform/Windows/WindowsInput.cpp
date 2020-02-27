@@ -2,7 +2,7 @@
 #include "WindowsInput.h"
 
 #include <GLFW/glfw3.h>
-#include "Hypo/Window.h"
+#include "Hypo/Window/Window.h"
 
 namespace Hypo {
 

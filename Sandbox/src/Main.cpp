@@ -1,9 +1,8 @@
 #include "Hypo/Hypo.h"
-#include "Hypo/Util/Log.h"
 #include "Hypo/Config.h"
-#include "Hypo/Events/Event.h"
-#include "Hypo/Window.h"
 #include "imgui.h"
+#include "Hypo/System/Util/Log.h"
+#include "Hypo/Window/Window.h"
 
 int main()
 {

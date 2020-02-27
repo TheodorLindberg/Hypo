@@ -1,13 +1,9 @@
 #pragma once
 #include "Hypo/Core.h"
-#include "Hypo/Window.h"
 #include <memory>
 #include <queue>
 
-
-#include "Exports.h"
-#include "Hypo/Events/Event.h"
-#include "Hypo/Context/GraphicsContext.h"
+#include "Hypo/Window/Window.h"
 
 struct GLFWwindow;
 

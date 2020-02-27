@@ -4,8 +4,11 @@
     <Filter Include="Hypo">
       <UniqueIdentifier>{659C867C-51D3-870D-FABF-6D10E6D5030F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Hypo\Context">
-      <UniqueIdentifier>{F9AB03FD-E50E-93A1-8E94-CB577AD65E24}</UniqueIdentifier>
+    <Filter Include="Hypo\Window">
+      <UniqueIdentifier>{AC2504B2-18DB-7CA7-A1CF-767E0D8473AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\Window\Context">
+      <UniqueIdentifier>{408C7D46-ACED-5A54-355B-A106A1BB9113}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
@@ -18,18 +21,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Exports.h" />
-    <ClInclude Include="src\Hypo\Context\GraphicsContext.h">
-      <Filter>Hypo\Context</Filter>
+    <ClInclude Include="src\Hypo\Window\Context\GraphicsContext.h">
+      <Filter>Hypo\Window\Context</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hypo\Context\RenderState.h">
-      <Filter>Hypo\Context</Filter>
+    <ClInclude Include="src\Hypo\Window\Context\RenderState.h">
+      <Filter>Hypo\Window\Context</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hypo\Input.h">
-      <Filter>Hypo</Filter>
+    <ClInclude Include="src\Hypo\Window\Exports.h">
+      <Filter>Hypo\Window</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hypo\Window.h">
-      <Filter>Hypo</Filter>
+    <ClInclude Include="src\Hypo\Window\Input.h">
+      <Filter>Hypo\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Window\Window.h">
+      <Filter>Hypo\Window</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
       <Filter>Platform\OpenGL</Filter>

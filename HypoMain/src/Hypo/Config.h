@@ -2,8 +2,8 @@
 #include "Core.h"
 #include <vector>
 #include <stdint.h>
-#include "Hypo/DataTypes/Vec.h"
-#include "Hypo/DataTypes/Rect.h"
+#include "Hypo/System/DataTypes/Vec.h"
+#include "Hypo/System/DataTypes/Rect.h"
 
 #define S_PI 3.14159265359
 

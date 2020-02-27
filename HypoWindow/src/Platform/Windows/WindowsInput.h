@@ -1,7 +1,7 @@
 #pragma once
+#include "Hypo/Window/Input.h"
+#include "Hypo/Window/Exports.h"
 
-#include "Hypo/Input.h"
-#include "Exports.h"
 namespace Hypo {
 
 	class HYPO_WINDOW_API WindowsInput : public Input

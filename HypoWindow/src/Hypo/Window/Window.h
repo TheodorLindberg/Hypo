@@ -3,7 +3,7 @@
 #include <functional>
 
 #include "Exports.h"
-#include "Hypo/Events/Event.h"
+#include "Hypo/System/Events/Event.h"
 #include "Context/GraphicsContext.h"
 
 namespace Hypo

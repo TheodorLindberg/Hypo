@@ -1,6 +1,6 @@
 #pragma once
 #include "Hypo/Core.h"
-#include "Hypo/Context/RenderState.h"
+#include "Hypo/Window/Context/RenderState.h"
 #include "Hypo/Config.h"
 
 namespace Hypo

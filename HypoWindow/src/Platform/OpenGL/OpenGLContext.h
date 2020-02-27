@@ -1,11 +1,13 @@
 #pragma once
-#include "Hypo/Core.h"
-#include "Hypo/Context/GraphicsContext.h"
-#include "../../../../HypoWindow/vendor/GLFW/include/GLFW/glfw3.h"
 
+#include "Hypo/Window/Exports.h"
+#include "../../../../HypoWindow/vendor/GLFW/include/GLFW/glfw3.h"
+#include "Hypo/Window/Context/GraphicsContext.h"
+#include "Hypo/Window/Context/RenderState.h"
 
 namespace Hypo
 {
+
 	class OpenGLContext : public GraphicsContext
 	{
 

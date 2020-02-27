@@ -24,6 +24,7 @@ IncludeDir["assimp"] = "Hypo3D/vendor/assimp/include"
 
 IncludeDir["HypoMain"] = "HypoMain/src"
 IncludeDir["HypoWindow"] = "HypoWindow/src"
+IncludeDir["Hypo3D"] = "Hypo3D/src"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 	
@@ -112,7 +113,9 @@ project "HypoWindow"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.glad}",
-		"%{IncludeDir.HypoMain}"
+		"%{IncludeDir.HypoMain}",
+		"%{IncludeDir.HypoWindow}",
+		"%{IncludeDir.Hypo3D}"
 	}
 	defines
 	{
@@ -172,7 +175,8 @@ project "Hypo3D"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.HypoMain}",
-		"%{IncludeDir.HypoWindow}"
+		"%{IncludeDir.HypoWindow}",
+		"%{IncludeDir.Hypo3D}"
 	}
 	defines
 	{
@@ -192,9 +196,7 @@ project "Hypo3D"
 
 	filter "configurations:Dist"
 		runtime "Release"
-		optimize "On"
-
-
+		optimize "On"	
 
 
 project "Sandbox"
