@@ -88,7 +88,7 @@ namespace Hypo
 			{
 				glDisable(GL_CULL_FACE);
 			}
-			else if (cullFace != CullFace::Disabled && m_GLState.Culling == CullFace::Disabled)
+			else
 			{
 				glEnable(GL_CULL_FACE);
 				int mode = 0;

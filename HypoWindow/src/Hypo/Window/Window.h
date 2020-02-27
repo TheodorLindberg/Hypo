@@ -63,7 +63,9 @@ namespace Hypo
 
 		virtual Vec2U GetSize() const = 0;
 		virtual Vec2I GetPosition() const = 0;
-
+		
+		virtual void* GetGladProc() { return nullptr; };
+		
 		//Setters
 		virtual void SetSize(Vec2U newSize) = 0;
 		virtual void SetPosition(Vec2I newPosition) = 0;

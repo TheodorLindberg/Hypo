@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>hypo3dpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_3D_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\stb_image\include;..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoMain\src;..\HypoWindow\src;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\stb_image\include;..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoSystem\src;..\HypoWindow\src;..;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -99,7 +99,7 @@
       <PrecompiledHeaderFile>hypo3dpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_3D_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\stb_image\include;..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoMain\src;..\HypoWindow\src;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\stb_image\include;..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoSystem\src;..\HypoWindow\src;..;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -122,7 +122,7 @@
       <PrecompiledHeaderFile>hypo3dpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_3D_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\stb_image\include;..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoMain\src;..\HypoWindow\src;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\stb_image\include;..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoSystem\src;..\HypoWindow\src;..;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -155,11 +155,11 @@
     <ProjectReference Include="..\vendor\imgui\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\HypoMain\HypoMain.vcxproj">
-      <Project>{AA2AC45D-96F7-1E69-BF10-0D11AB3C54F7}</Project>
+    <ProjectReference Include="..\HypoSystem\HypoSystem.vcxproj">
+      <Project>{CA5F30EF-B617-723C-1F1F-4B980BF60C2D}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\HypoWindow\HypoWindow.vcxproj">
-      <Project>{9D7960F7-8931-A244-F238-7BA0DE0F3D35}</Project>
+    <ProjectReference Include="..\HypoGraphics\HypoGraphics.vcxproj">
+      <Project>{763A9624-629D-25C9-0B23-5E7FF764F14B}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

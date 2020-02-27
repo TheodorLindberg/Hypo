@@ -22,9 +22,10 @@ IncludeDir["stb_image"] = "Hypo3D/vendor/stb_image/include"
 IncludeDir["glad"] = "Hypo3D/vendor/glad/include"
 IncludeDir["assimp"] = "Hypo3D/vendor/assimp/include"
 
-IncludeDir["HypoMain"] = "HypoMain/src"
+IncludeDir["HypoSystem"] = "HypoSystem/src"
 IncludeDir["HypoWindow"] = "HypoWindow/src"
 IncludeDir["Hypo3D"] = "Hypo3D/src"
+IncludeDir["Graphics"] = "HypoGraphics/src"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 	
@@ -34,8 +35,8 @@ include "HypoWindow/vendor/GLFW"
 include "vendor/imgui"
 
 group ""
-project "HypoMain"
-	location "HypoMain"
+project "HypoSystem"
+	location "HypoSystem"
     kind "SharedLib"
     language "C++"
     staticruntime "on"
@@ -43,8 +44,8 @@ project "HypoMain"
 	targetdir ("bin/" .. outputdir)
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	
-	pchheader "mainpch.h"
-	pchsource "HypoMain/src/mainpch.cpp"
+	pchheader "systempch.h"
+	pchsource "HypoSystem/src/systempch.cpp"
 	links
 	{
 
@@ -65,7 +66,7 @@ project "HypoMain"
 	{
 		"_CRT_SECURE_NO_WARNINGS",
 		"HYPO_PLATFORM_WINDOWS",
-		"HYPO_MAIN_EXPORTS"
+		"HYPO_SYSTEM_EXPORTS"
 	}
 
 	cppdialect "C++17"
@@ -97,7 +98,7 @@ project "HypoWindow"
 		"GLFW",
 		"glad",
 		"ImGui",
-		"HypoMain"
+		"HypoSystem"
 	}
     files
 	{
@@ -113,7 +114,7 @@ project "HypoWindow"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.glad}",
-		"%{IncludeDir.HypoMain}",
+		"%{IncludeDir.HypoSystem}",
 		"%{IncludeDir.HypoWindow}",
 		"%{IncludeDir.Hypo3D}"
 	}
@@ -139,6 +140,62 @@ project "HypoWindow"
 
 
 
+project "HypoGraphics"
+	location "HypoGraphics"
+	kind "SharedLib"
+	language "C++"
+	staticruntime "on"
+	
+	targetdir ("bin/" .. outputdir)
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	
+	pchheader "graphicspch.h"
+	pchsource "HypoGraphics/src/graphicspch.cpp"
+	links
+	{
+		"GLFW",
+		"glad",
+		"ImGui",
+		"HypoSystem",
+	}
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp",
+	}
+	includedirs
+	{
+		"%{prj.name}/src",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.spdlog}",
+		"%{IncludeDir.glad}",
+		"%{IncludeDir.HypoSystem}",
+		"%{IncludeDir.HypoWindow}",
+		"%{IncludeDir.HypoGraphics}",
+		"%{IncludeDir.Hypo3D}"
+	}
+	defines
+	{
+		"HYPO_PLATFORM_WINDOWS",
+		"_CRT_SECURE_NO_WARNINGS",
+		"HYPO_GRAPHICS_EXPORTS"
+	}
+
+	cppdialect "C++17"
+	systemversion "latest"
+	filter "configurations:Debug"
+		runtime "Debug"
+		symbols "On"
+	filter "configurations:Release"
+		runtime "Release"
+		optimize "On"
+
+	filter "configurations:Dist"
+		runtime "Release"
+		optimize "On"
 
 project "Hypo3D"
 	location "Hypo3D"
@@ -157,8 +214,8 @@ project "Hypo3D"
 		"opengl32.lib",
 		"ImGui",
 		"Hypo3D/vendor/assimp/assimp.lib",
-		"HypoMain",
-		"HypoWindow"
+		"HypoSystem",
+		"HypoGraphics"
 	}
 	files
 	{
@@ -174,8 +231,9 @@ project "Hypo3D"
 		"%{IncludeDir.assimp}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.spdlog}",
-		"%{IncludeDir.HypoMain}",
+		"%{IncludeDir.HypoSystem}",
 		"%{IncludeDir.HypoWindow}",
+		"%{IncludeDir.HypoGrahpics}",
 		"%{IncludeDir.Hypo3D}"
 	}
 	defines
@@ -210,8 +268,11 @@ project "Sandbox"
 
 	links
 	{
-		"HypoMain",
-		"HypoWindow"
+		"HypoSystem",
+		"HypoWindow",
+		"HypoGraphics",
+		"Hypo3D",
+		"glad"
 	}
 	files
 	{
@@ -225,9 +286,11 @@ project "Sandbox"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glad}",
 
 		"%{IncludeDir.HypoWindow}",
-		"%{IncludeDir.HypoMain}",
+		"%{IncludeDir.HypoSystem}",
+		"%{IncludeDir.Graphics}",
 		"%{IncludeDir.Hypo3D}",
 
 

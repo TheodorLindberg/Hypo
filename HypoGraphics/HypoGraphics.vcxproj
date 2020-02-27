@@ -15,10 +15,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9D7960F7-8931-A244-F238-7BA0DE0F3D35}</ProjectGuid>
+    <ProjectGuid>{763A9624-629D-25C9-0B23-5E7FF764F14B}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>HypoWindow</RootNamespace>
+    <RootNamespace>HypoGraphics</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -56,31 +56,31 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\bin\Debug-windows-x86_64\</OutDir>
-    <IntDir>..\bin-int\Debug-windows-x86_64\HypoWindow\</IntDir>
-    <TargetName>HypoWindow</TargetName>
+    <IntDir>..\bin-int\Debug-windows-x86_64\HypoGraphics\</IntDir>
+    <TargetName>HypoGraphics</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\Release-windows-x86_64\</OutDir>
-    <IntDir>..\bin-int\Release-windows-x86_64\HypoWindow\</IntDir>
-    <TargetName>HypoWindow</TargetName>
+    <IntDir>..\bin-int\Release-windows-x86_64\HypoGraphics\</IntDir>
+    <TargetName>HypoGraphics</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\Dist-windows-x86_64\</OutDir>
-    <IntDir>..\bin-int\Dist-windows-x86_64\HypoWindow\</IntDir>
-    <TargetName>HypoWindow</TargetName>
+    <IntDir>..\bin-int\Dist-windows-x86_64\HypoGraphics\</IntDir>
+    <TargetName>HypoGraphics</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>windowpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>graphicspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_WINDOW_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\GLFW\include;..;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;..\HypoSystem\src;src;..\Hypo3D\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;..\HypoWindow\vendor\GLFW\include;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;..\HypoSystem\src;..\HypoWindow\src;..;..\Hypo3D\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -89,16 +89,16 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ImportLibrary>..\bin\Debug-windows-x86_64\HypoWindow.lib</ImportLibrary>
+      <ImportLibrary>..\bin\Debug-windows-x86_64\HypoGraphics.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>windowpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>graphicspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_WINDOW_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\GLFW\include;..;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;..\HypoSystem\src;src;..\Hypo3D\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;..\HypoWindow\vendor\GLFW\include;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;..\HypoSystem\src;..\HypoWindow\src;..;..\Hypo3D\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -111,16 +111,16 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>..\bin\Release-windows-x86_64\HypoWindow.lib</ImportLibrary>
+      <ImportLibrary>..\bin\Release-windows-x86_64\HypoGraphics.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>windowpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>graphicspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_WINDOW_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\GLFW\include;..;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;..\HypoSystem\src;src;..\Hypo3D\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;..\HypoWindow\vendor\GLFW\include;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;..\HypoSystem\src;..\HypoWindow\src;..;..\Hypo3D\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -133,34 +133,24 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>..\bin\Dist-windows-x86_64\HypoWindow.lib</ImportLibrary>
+      <ImportLibrary>..\bin\Dist-windows-x86_64\HypoGraphics.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Hypo\Window\Context\GraphicsContext.h" />
-    <ClInclude Include="src\Hypo\Window\Context\RenderState.h" />
-    <ClInclude Include="src\Hypo\Window\Exports.h" />
-    <ClInclude Include="src\Hypo\Window\Input.h" />
-    <ClInclude Include="src\Hypo\Window\Window.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
-    <ClInclude Include="src\windowpch.h" />
+    <ClInclude Include="src\Hypo\Graphics\Exports.h" />
+    <ClInclude Include="src\graphicspch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
-    <ClCompile Include="src\windowpch.cpp">
+    <ClCompile Include="src\graphicspch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
-      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\Hypo3D\vendor\glad\glad.vcxproj">
       <Project>{DD62977C-C999-980D-7286-7E105E9C140F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HypoWindow\vendor\GLFW\GLFW.vcxproj">
+      <Project>{154b857c-0182-860d-aa6e-6c109684020f}</Project>
     </ProjectReference>
     <ProjectReference Include="..\vendor\imgui\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Hypo">
+      <UniqueIdentifier>{659C867C-51D3-870D-FABF-6D10E6D5030F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\Graphics">
+      <UniqueIdentifier>{4526D516-B1E6-504D-7A21-9ACAE6A09529}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Hypo\Graphics\Exports.h">
+      <Filter>Hypo\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphicspch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\graphicspch.cpp" />
+  </ItemGroup>
+</Project>

@@ -1,4 +1,4 @@
-#include "mainpch.h"
+#include "systempch.h"
 
 #pragma warning( push )
 #pragma warning(disable: 26451)
@@ -26,7 +26,7 @@ namespace Hypo
 		std::string logOutputDir = "../logs";
 
 		auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
-		console_sink->set_pattern("%^[%H:%M:%S:%e] [%n] [%l] %n%v%$");
+		console_sink->set_pattern("%^[%H:%M:%S:%Ke] [%n] [%l] %n%v%$");
 		time_t curr_time;
 		tm * curr_tm;
 		char date_string[100];

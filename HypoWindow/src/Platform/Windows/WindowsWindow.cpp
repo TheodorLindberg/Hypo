@@ -142,6 +142,11 @@ namespace Hypo
 		return m_Window;
 	}
 
+	void* WindowsWindow::GetGladProc()
+	{
+		return glfwGetProcAddress;
+	}
+
 	void  WindowsWindow::Init(const WindowProps& props, const ContextSettings& contextSettings)
 	{
 		m_Data.Title = props.Title;

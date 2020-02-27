@@ -62,6 +62,9 @@ namespace Hypo
 		bool IsVSync() const override;
 		void* GetNativeWindow() const override;
 		GraphicsContext* GetGraphicsContext() const override { return m_Context.get(); };
+
+		virtual void* GetGladProc() override;
+		
 	private:
 		void Init(const WindowProps& props, const ContextSettings& contextSettings);
 		void InitEventCallbacks();

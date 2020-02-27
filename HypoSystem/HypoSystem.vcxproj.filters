@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Hypo">
+      <UniqueIdentifier>{659C867C-51D3-870D-FABF-6D10E6D5030F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\System">
+      <UniqueIdentifier>{D90BD4A9-45C1-4C9F-CEB5-46763A6A43A3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\System\DataTypes">
+      <UniqueIdentifier>{37FCFF07-A368-BB02-6C5C-5360D887DD6A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\System\Events">
+      <UniqueIdentifier>{9DC9BCB6-89AD-7D0C-F20D-785FDE10688E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\System\Util">
+      <UniqueIdentifier>{C672C594-B26B-E4E6-DB9D-C96BC7F5C3F2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Hypo\Config.h">
+      <Filter>Hypo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Core.h">
+      <Filter>Hypo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Hypo.h">
+      <Filter>Hypo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\DataTypes\ObjPtr.h">
+      <Filter>Hypo\System\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\DataTypes\ObjPtrMemoryManager.h">
+      <Filter>Hypo\System\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\DataTypes\Rect.h">
+      <Filter>Hypo\System\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\DataTypes\Vec.h">
+      <Filter>Hypo\System\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Events\ApplicationEvents.h">
+      <Filter>Hypo\System\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Events\Event.h">
+      <Filter>Hypo\System\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Events\Keyboard.h">
+      <Filter>Hypo\System\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Events\KeyboardEvents.h">
+      <Filter>Hypo\System\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Events\MouseEvents.h">
+      <Filter>Hypo\System\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Exports.h">
+      <Filter>Hypo\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Util\Log.h">
+      <Filter>Hypo\System\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systempch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Hypo\System\Util\Log.cpp">
+      <Filter>Hypo\System\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systempch.cpp" />
+  </ItemGroup>
+</Project>
