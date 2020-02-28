@@ -15,7 +15,7 @@
 namespace Hypo
 {
 
-	class Shader
+	class HYPO_GRAPHICS_API Shader
 	{
 	public:
 		using Ptr = ObjPtr<Shader>;

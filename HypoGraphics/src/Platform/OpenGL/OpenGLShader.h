@@ -4,7 +4,7 @@
 
 namespace Hypo
 {
-	class OpenGLShader : public Shader
+	class HYPO_GRAPHICS_API OpenGLShader : public Shader
 	{
 	public:
 		OpenGLShader(const ShaderData& shaderData);
