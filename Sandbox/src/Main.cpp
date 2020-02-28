@@ -9,13 +9,13 @@
 #include "Hypo/Graphics/Buffers.h"
 #include "Platform/OpenGL/OpenGLIndexBuffer.h"
 #include "Hypo/Graphics/Shader/Shader.h"
+#include "Hypo/Graphics/Shader/UniformBinder.h"
 
 
 int main()
 {
 	Hypo::Log::Init();
 	Hypo::Window* window = Hypo::Window::Create();
-	
 
 	Hypo::init(window->GetGladProc());
 	const int status = gladLoadGLLoader((GLADloadproc)window->GetGladProc());
@@ -42,6 +42,15 @@ int main()
 		0, 1, 3,  // first Triangle
 		1, 2, 3   // second Triangle
 	};
+
+	auto colorBinder = Hypo::UniformBinderManager::GetUniformBinder("Color");
+
+	auto colorBuffer = Hypo::UniformBuffer::Create(colorBinder);
+
+	colorBuffer->Set("color", Hypo::Vec4F(0.1, 0, 0.5, 1));
+
+	shader->BindUniformBuffer(colorBuffer);
+	
 	unsigned int VAO;
 	glGenVertexArrays(1, &VAO);
 

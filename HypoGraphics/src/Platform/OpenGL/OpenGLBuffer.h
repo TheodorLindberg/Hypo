@@ -8,6 +8,8 @@ namespace Hypo
 	public:
 		OpenGLBuffer() = default;
 		~OpenGLBuffer();
+
+		uInt32 GetRendererID() const { return m_RendererID; }
 		
 		template<int type>
 		bool LoadEmpty(uInt32 size, bool dynamic = false);
@@ -17,6 +19,9 @@ namespace Hypo
 		
 		template<int type>
 		bool Update(gsl::span<Byte> data, uInt32 offset = 0);
+
+		template<int type>
+		bool Update(uInt32 offset, const void* data, uInt32 size);
 
 		template<int type>
 		bool Bind();

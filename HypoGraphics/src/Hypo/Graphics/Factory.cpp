@@ -1,6 +1,7 @@
 #include "graphicspch.h"
 #include "Hypo/Graphics/Shader/Shader.h"
 #include "Platform/OpenGL/OpenGLShader.h"
+#include "Platform/OpenGL/OpenGLUniformBuffer.h"
 
 namespace Hypo
 {
@@ -8,4 +9,10 @@ namespace Hypo
 	{
 		return new OpenGLShader(data);
 	}
+
+	Hypo::UniformBuffer::Ptr Hypo::UniformBuffer::Create(UniformBinder::Ptr& binder)
+	{
+		return new OpenGLUniformBuffer(binder);
+	}
 }
+

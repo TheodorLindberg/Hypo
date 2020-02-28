@@ -51,16 +51,23 @@ namespace Hypo
 		void LinkShader(std::vector<uInt32> shaders);
 		void SetupUniformsAndAttributesLocation();
 
+
+		void ParseUniformDataFromShaders();
 		std::vector<BufferElement> ExtractUniformBufferData(unsigned int blockIx, unsigned int blockSize);
 
+	public:
+		bool BindUniformBuffer(UniformBuffer::Ptr& buffer) override;
+		bool BindUniformBuffer(UniformBuffer::Ptr& buffer, uInt32 index) override;
 	private:
-		struct UniformBlock
+
+		struct UniformBindData
 		{
-			uInt32 arrayCount;
-			uInt32 blockIndex;
+			uInt32 blockIdx;
+			uInt32 count;
+			UniformBinder::Ptr binder;
 		};
-		std::unordered_map<std::string, UniformBlock> m_UniformBlocks;
-		
+		std::unordered_map<std::string, UniformBindData> m_UniformBindData;
+
 		std::unordered_map<std::string, std::pair<int,int>> m_UniformLocation;
 		std::unordered_map<std::string, std::pair<int, int>> m_AttributeLocation;
 		uInt32 m_RendererID;

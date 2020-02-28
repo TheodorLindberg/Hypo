@@ -7,8 +7,8 @@
     <Filter Include="Hypo\Graphics">
       <UniqueIdentifier>{4526D516-B1E6-504D-7A21-9ACAE6A09529}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Hypo\Graphics\Assets">
-      <UniqueIdentifier>{870D7FAA-739C-0874-1CBB-1C6F0829191A}</UniqueIdentifier>
+    <Filter Include="Hypo\Graphics\Shader">
+      <UniqueIdentifier>{4BF6AAD3-3785-349D-E0A3-4898CC114543}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
@@ -27,25 +27,37 @@
     <ClInclude Include="src\Hypo\Graphics\Exports.h">
       <Filter>Hypo\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hypo\Graphics\Shader\Shader.h">
+      <Filter>Hypo\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Graphics\Shader\ShaderAsset.h">
+      <Filter>Hypo\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Graphics\Shader\UniformBinder.h">
+      <Filter>Hypo\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Graphics\Shader\UniformBuffer.h">
+      <Filter>Hypo\Graphics\Shader</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLError.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLUniformBuffer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexBuffer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\graphicspch.h" />
-    <ClInclude Include="src\Hypo\Graphics\Shader\Shader.h">
-      <Filter>Hypo\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Hypo\Graphics\Shader\ShaderAsset.h">
-      <Filter>Hypo\Graphics\Assets</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLError.h" />
-    <ClInclude Include="src\Hypo\Graphics\Shader\UniformBinder.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hypo\Graphics\Buffers.cpp">
@@ -54,19 +66,27 @@
     <ClCompile Include="src\Hypo\Graphics\Factory.cpp">
       <Filter>Hypo\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\Hypo\Graphics\Shader\ShaderAsset.cpp">
+      <Filter>Hypo\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\Graphics\Shader\UniformBinder.cpp">
+      <Filter>Hypo\Graphics\Shader</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLUniformBuffer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\graphicspch.cpp" />
-    <ClCompile Include="src\Hypo\Graphics\Shader\ShaderAsset.cpp">
-      <Filter>Hypo\Graphics\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>

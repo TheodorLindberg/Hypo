@@ -11,7 +11,15 @@ void main()
 #type frag
 
 out vec4 FragColor;
+
+layout(std140) uniform Color
+{
+	vec4 color;
+} color;
+
 void main()
 {
    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+   FragColor = color.color;
+   
 }

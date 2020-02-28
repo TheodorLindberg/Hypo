@@ -11,6 +11,7 @@
 #include "Hypo/System/DataTypes/ObjPtr.h"
 
 #include <memory>
+#include "Hypo/Graphics/Shader/UniformBuffer.h"
 
 namespace Hypo
 {
@@ -43,6 +44,9 @@ namespace Hypo
 		virtual void SetUniformMat4f(const std::string& name, glm::mat4& mat4) = 0;
 
 		virtual void SetAttributeLayout(Hypo::AttributeLayout& layout) = 0;
+
+		virtual bool BindUniformBuffer(UniformBuffer::Ptr& buffer) = 0;
+		virtual bool BindUniformBuffer(UniformBuffer::Ptr& buffer, uInt32 index) = 0;
 
 		static Ptr Create(const ShaderData& data);
 	};

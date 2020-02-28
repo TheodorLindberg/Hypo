@@ -38,10 +38,11 @@ namespace Hypo
 		uInt32 Size;
 		uInt32 Count;
 		uInt32 Offset;
+		uInt32 ArrayElementStride = 0;
 		bool Normalized;
 
 		BufferElement()
-			: Name(0), Type(ShaderDataType::None), Size(0), Count(0), Offset(0), Normalized(false)
+			: Name(""), Type(ShaderDataType::None), Size(0), Count(0), Offset(0), Normalized(false)
 		{}
 
 		BufferElement(ShaderDataType type, const std::string& name, bool normalized = false)
@@ -53,8 +54,8 @@ namespace Hypo
 			: Name(name), Type(type), Size(ShaderDataTypeSize(type)), Count(1), Offset(offset), Normalized(normalized)
 		{
 		}
-		BufferElement(ShaderDataType type, uInt32 count, const std::string& name, bool normalized, uInt32 offset)
-			: Name(name), Type(type), Size(ShaderDataTypeSize(type)), Count(count), Offset(offset), Normalized(normalized)
+		BufferElement(ShaderDataType type, uInt32 count, const std::string& name, bool normalized, uInt32 offset, uInt32 arrayElementStride)
+			: Name(name), Type(type), Size(ShaderDataTypeSize(type)), Count(count), Offset(offset), Normalized(normalized), ArrayElementStride(arrayElementStride)
 		{
 		}
 		uInt32 GetComponentCount() const

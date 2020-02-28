@@ -7,6 +7,7 @@
 
 #include "Platform/OpenGL/OpenGLError.h"
 #include "Hypo/Graphics/Shader/UniformBinder.h"
+#include "Platform/OpenGL/OpenGLUniformBuffer.h"
 
 #if HYPO_RUNTIME_CHECK_UNIFORMS == HYPO_ENABLED
 #define CHECK_UNIFORM(name, type) if(GetUniformType(name) != type) { HYPO_CORE_ERROR("Uniform {} dosen't match uniform type in shader {}", name, type); }
@@ -106,54 +107,7 @@ namespace Hypo
 		LinkShader(shaders);
 
 		SetupUniformsAndAttributesLocation();
-		GLint numBlocks;
-		glGetProgramiv(m_RendererID, GL_ACTIVE_UNIFORM_BLOCKS, &numBlocks);
-
-		std::unordered_map<std::string, std::pair<unsigned int, BufferLayout>> uniformBlockData;
-		
-		for (int blockIx = 0; blockIx < numBlocks; ++blockIx)
-		{
-			GLint blockNameLen;
-			glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_NAME_LENGTH, &blockNameLen);
-
-			GLint blockSize;
-			glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_DATA_SIZE, &blockSize);
-
-
-			std::vector<GLchar> blockNameData; //Yes, not std::string. There's a reason for that.
-			blockNameData.resize(blockNameLen);
-			glGetActiveUniformBlockName(m_RendererID, blockIx, blockNameLen, NULL, &blockNameData[0]);
-			std::string blockName;
-			blockName.assign(blockNameData.begin(), blockNameData.end() - 1); //Remove the null terminator.
-
-			glUniformBlockBinding(m_RendererID, blockIx, blockIx);
-
-			int index = 0;
-			if (auto i = blockName.find_first_of('['); i != std::string::npos)
-			{
-				std::string arrayIndexString = blockName.substr(i + 1, blockName.find_first_of(']', i) - i - 1);
-				index = std::stoi(arrayIndexString);
-
-				m_UniformBlocksIndex[blockName] = blockIx;
-				
-				blockName.erase(blockName.begin() + i, blockName.end());
-
-				uniformBlockData[blockName].first = uniformBlockData[blockName].first + 1;
-			}
-			
-			if (index != 0)
-			{
-				continue;
-			}
-			
-			uniformBlockData[blockName] = { 1, {std::move(ExtractUniformBufferData(blockIx, blockSize)), blockSize} };
-		}
-
-		for(auto it = uniformBlockData.begin(); it != uniformBlockData.end(); ++it)
-		{
-			
-			UniformBinderManager::AddUniformBinder(it->first, it->second.second);
-		}
+		ParseUniformDataFromShaders();
 	}
 
 	OpenGLShader::~OpenGLShader()
@@ -308,6 +262,60 @@ namespace Hypo
 
 	}
 
+	void OpenGLShader::ParseUniformDataFromShaders()
+	{
+
+		GLint numBlocks;
+		glGetProgramiv(m_RendererID, GL_ACTIVE_UNIFORM_BLOCKS, &numBlocks);
+
+		std::unordered_map<std::string, std::pair<unsigned int, BufferLayout>> uniformBlockData;
+
+		for (int blockIx = 0; blockIx < numBlocks; ++blockIx)
+		{
+			GLint blockNameLen;
+			glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_NAME_LENGTH, &blockNameLen);
+
+			GLint blockSize;
+			glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_DATA_SIZE, &blockSize);
+
+
+			std::vector<GLchar> blockNameData; //Yes, not std::string. There's a reason for that.
+			blockNameData.resize(blockNameLen);
+			glGetActiveUniformBlockName(m_RendererID, blockIx, blockNameLen, NULL, &blockNameData[0]);
+			std::string blockName;
+			blockName.assign(blockNameData.begin(), blockNameData.end() - 1); //Remove the null terminator.
+
+			glUniformBlockBinding(m_RendererID, blockIx, blockIx);
+
+			int index = 0;
+			if (auto i = blockName.find_first_of('['); i != std::string::npos)
+			{
+				std::string arrayIndexString = blockName.substr(i + 1, blockName.find_first_of(']', i) - i - 1);
+				index = std::stoi(arrayIndexString);
+
+				m_UniformBindData[blockName].blockIdx = blockIx;
+
+				blockName.erase(blockName.begin() + i, blockName.end());
+
+				uniformBlockData[blockName].first = uniformBlockData[blockName].first + 1;
+			}
+
+			if (index != 0)
+			{
+				continue;
+			}
+
+			uniformBlockData[blockName] = std::pair<uInt32, BufferLayout>{ 1, UniformLayout{std::move(ExtractUniformBufferData(blockIx, blockSize)), static_cast<uInt32>(blockSize)} };
+		}
+
+		for (auto it = uniformBlockData.begin(); it != uniformBlockData.end(); ++it)
+		{
+			auto& bindData = m_UniformBindData[it->first];
+			bindData.binder = UniformBinderManager::AddUniformBinder(it->first, it->second.second);
+			bindData.count = it->second.first;
+		}
+	}
+
 	std::vector<BufferElement> OpenGLShader::ExtractUniformBufferData(unsigned int blockIx, unsigned int blockSize)
 	{
 		int uniformCount;
@@ -365,10 +373,52 @@ namespace Hypo
 				arrayCount = static_cast<uInt32>(uniformTotalArraySize / arrayStride);
 
 			}
-			elements.push_back(BufferElement{ OpenGLToShaderDataType(type), arrayCount,uniformName, false, static_cast<uInt32>(uniformOffsets[i]) });
+			elements.push_back(BufferElement{ OpenGLToShaderDataType(type), arrayCount,uniformName, false, static_cast<uInt32>(uniformOffsets[i]), static_cast<uInt32>(arrayStride) });
 
 		}
 		return elements;
+	}
+
+	bool OpenGLShader::BindUniformBuffer(UniformBuffer::Ptr& buffer)
+	{
+		auto it = m_UniformBindData.find(buffer->GetBinderName());
+		if (it != m_UniformBindData.end())
+		{
+			auto& data = it->second;
+
+			if (buffer->GetBinderForBuffer() != data.binder)
+			{
+			HYPO_CORE_WARN("Cannot bind uniform buffer {}", buffer->GetBinderName());
+				return false;
+			}
+			OpenGLUniformBuffer& openGLbuffer = reinterpret_cast<OpenGLUniformBuffer&>(buffer.GetRef());
+			glUseProgram(m_RendererID);
+			glBindBufferBase(GL_UNIFORM_BUFFER, it->second.blockIdx, openGLbuffer.GetBuffer().GetRendererID());
+			return true;
+		}
+		HYPO_CORE_WARN("Could not find buffer {}", buffer->GetBinderName());
+		return false;
+	}
+
+	bool OpenGLShader::BindUniformBuffer(UniformBuffer::Ptr& buffer, uInt32 index)
+	{
+		auto it = m_UniformBindData.find(buffer->GetBinderName());
+		if (it != m_UniformBindData.end())
+		{
+			auto& data = it->second;
+
+			if (buffer->GetBinderForBuffer() != data.binder)
+			{
+				HYPO_CORE_WARN("Cannot bind uniform buffer {}", buffer->GetBinderName());
+				return false;
+			}
+			OpenGLUniformBuffer& openGLbuffer = reinterpret_cast<OpenGLUniformBuffer&>(buffer.GetRef());
+			glUseProgram(m_RendererID);
+			glBindBufferBase(GL_UNIFORM_BUFFER, it->second.blockIdx + index, openGLbuffer.GetBuffer().GetRendererID());
+			return true;
+		}
+		HYPO_CORE_WARN("Could not find buffer {}", buffer->GetBinderName());
+		return false;
 	}
 
 	void OpenGLShader::SetUniform1f(const std::string& name, float v0)
