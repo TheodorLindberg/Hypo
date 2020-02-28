@@ -359,7 +359,7 @@ namespace Hypo
 			if (arrayStride > 0)
 			{
 				int uniformDataEnd;
-				if (uniformCount < i)
+				if (uniformCount <= i + 1)
 				{
 					uniformDataEnd = blockSize;
 				}

@@ -86,6 +86,9 @@ int main()
 	
 	// settings
 	Hypo::Vec4F color = Hypo::Vec4F(1, 0, 0, 1);
+	float xOffset = 0.f;
+	float xOffset2 = 0.f;
+	float xOffset3 = 0.f;
 
 	window->EnableImGui();
 	bool running = true;
@@ -111,6 +114,15 @@ int main()
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
+
+
+		// ------
+		
+		glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
+		//glDrawArrays(GL_TRIANGLES, 0, 6);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+
 		window->BeginImGui();
 
 		static bool show = true;
@@ -119,17 +131,18 @@ int main()
 		ImGui::Begin("Color");
 
 		ImGui::ColorPicker4("Color", reinterpret_cast<float*>(&color));
+		ImGui::DragFloat("Offset", &xOffset, 0.05, -1, 1);
+		ImGui::DragFloat("Offset2", &xOffset2, 0.1, -1, 1);
+		ImGui::DragFloat("Offset3", &xOffset3, 0.1, -1, 1);
+
 		colorBuffer->Set("color", color);
+		colorBuffer->SetArray("offset", xOffset, 0);
+		colorBuffer->SetArray("offset", xOffset2, 1);
+		colorBuffer->SetArray("offset", xOffset3, 2);
 
 		ImGui::End();
-
-
 		window->EndImGui();
-		// ------
-		
-		glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
-		//glDrawArrays(GL_TRIANGLES, 0, 6);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
 		window->Display();
 	}
 	window->DisableImGui();
