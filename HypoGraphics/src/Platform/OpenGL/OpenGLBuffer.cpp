@@ -26,7 +26,7 @@ namespace Hypo
 
 	
 	template <int type>
-	bool OpenGLBuffer::Load(gsl::span<float> data)
+	bool OpenGLBuffer::Load(gsl::span<Byte> data)
 	{
 		#ifdef BUFFER_TYPE_CHECK
 			_debug_buffer_type = type;
@@ -39,10 +39,11 @@ namespace Hypo
 		return true;
 	}
 
-	template bool OpenGLBuffer::Load<GL_ARRAY_BUFFER>(gsl::span<float> data);
-	template bool OpenGLBuffer::Load<GL_ELEMENT_ARRAY_BUFFER>(gsl::span<float> data);
+	template bool OpenGLBuffer::Load<GL_ARRAY_BUFFER>(gsl::span<Byte> data);
+	template bool OpenGLBuffer::Load<GL_ELEMENT_ARRAY_BUFFER>(gsl::span<Byte> data);
+	
 	template <int type>
-	bool OpenGLBuffer::Update(gsl::span<float> data, unsigned int offset)
+	bool OpenGLBuffer::Update(gsl::span<Byte> data, unsigned int offset)
 	{
 #ifdef BUFFER_TYPE_CHECK
 		HYPO_CORE_ASSERT(_debug_buffer_type == type, "Updating OpenGL buffer using diffrent target type");
@@ -55,8 +56,9 @@ namespace Hypo
 		return true;
 	}
 
-	template bool OpenGLBuffer::Update<GL_ARRAY_BUFFER>(gsl::span<float> data, unsigned int offset);
-	template bool OpenGLBuffer::Update<GL_ELEMENT_ARRAY_BUFFER>(gsl::span<float> data, unsigned int offset);
+	template bool OpenGLBuffer::Update<GL_ARRAY_BUFFER>(gsl::span<Byte> data, unsigned int offset);
+	template bool OpenGLBuffer::Update<GL_ELEMENT_ARRAY_BUFFER>(gsl::span<Byte> data, unsigned int offset);
+	
 	template <int type>
 	bool OpenGLBuffer::Bind()
 	{

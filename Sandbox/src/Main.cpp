@@ -9,6 +9,7 @@
 #include "Hypo/Graphics/Buffers.h"
 
 #include <../../HypoWindow/vendor/GLFW/include/GLFW/glfw3.h>
+#include "Platform/OpenGL/OpenGLIndexBuffer.h"
 
 
 const char* vertexShaderSource = "#version 330 core\n"
@@ -82,7 +83,7 @@ int main()
 		-0.5f, -0.5f, 0.0f,  // bottom left
 		-0.5f,  0.5f, 0.0f   // top left 
 	};
-	unsigned int indices[] = {  // note that we start from 0!
+	Hypo::ElementIndex indices[] = {  // note that we start from 0!
 		0, 1, 3,  // first Triangle
 		1, 2, 3   // second Triangle
 	};
@@ -92,16 +93,14 @@ int main()
 	auto vertexBuffer = Hypo::VertexBuffer::Create(gsl::span<float>(vertices), false);
 
 	
+	auto indexBuffer = Hypo::IndexBuffer::Create(gsl::span<Hypo::ElementIndex>(indices), false);
 	
-	glGenBuffers(1, &EBO);
-	// bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
 	glBindVertexArray(VAO);
 
 	vertexBuffer->Bind();
-	
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	indexBuffer->Bind();
 
+	
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 

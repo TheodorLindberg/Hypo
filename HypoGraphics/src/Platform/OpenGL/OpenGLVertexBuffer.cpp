@@ -11,12 +11,12 @@ Hypo::OpenGLVertexBuffer::OpenGLVertexBuffer(uInt32 size)
 
 Hypo::OpenGLVertexBuffer::OpenGLVertexBuffer(gsl::span<float> data)
 {
-	m_Buffer.Load<GL_ARRAY_BUFFER>(data);
+	m_Buffer.Load<GL_ARRAY_BUFFER>(ConvertSpanToBytes(data));
 }
 
 void Hypo::OpenGLVertexBuffer::Update(gsl::span<float> data, uInt32 offset)
 {
-	m_Buffer.Update<GL_ARRAY_BUFFER>(data, offset);
+	m_Buffer.Update<GL_ARRAY_BUFFER>(ConvertSpanToBytes(data), offset);
 }
 
 void Hypo::OpenGLVertexBuffer::Bind()

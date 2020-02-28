@@ -13,10 +13,10 @@ namespace Hypo
 		bool LoadEmpty(uInt32 size);
 		
 		template<int type>
-		bool Load(gsl::span<float> data);
+		bool Load(gsl::span<Byte> data);
 		
 		template<int type>
-		bool Update(gsl::span<float> data, uInt32 offset = 0);
+		bool Update(gsl::span<Byte> data, uInt32 offset = 0);
 
 		template<int type>
 		bool Bind();

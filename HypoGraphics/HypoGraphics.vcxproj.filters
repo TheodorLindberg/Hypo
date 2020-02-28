@@ -28,6 +28,7 @@
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\graphicspch.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hypo\Graphics\Buffers.cpp">
@@ -40,5 +41,6 @@
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\graphicspch.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp" />
   </ItemGroup>
 </Project>

@@ -140,12 +140,14 @@
     <ClInclude Include="src\Hypo\Graphics\Buffers.h" />
     <ClInclude Include="src\Hypo\Graphics\Exports.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexBuffer.h" />
     <ClInclude Include="src\graphicspch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hypo\Graphics\Buffers.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp" />
     <ClCompile Include="src\graphicspch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
