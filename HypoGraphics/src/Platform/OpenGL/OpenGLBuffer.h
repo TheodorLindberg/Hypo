@@ -10,10 +10,10 @@ namespace Hypo
 		~OpenGLBuffer();
 		
 		template<int type>
-		bool LoadEmpty(uInt32 size);
+		bool LoadEmpty(uInt32 size, bool dynamic = false);
 		
 		template<int type>
-		bool Load(gsl::span<Byte> data);
+		bool Load(gsl::span<Byte> data, bool dynamic = false);
 		
 		template<int type>
 		bool Update(gsl::span<Byte> data, uInt32 offset = 0);

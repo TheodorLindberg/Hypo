@@ -19,6 +19,7 @@ namespace Hypo
 	protected:
 		OpenGLBuffer m_Buffer;
 	};
+	
 	class HYPO_GRAPHICS_API OpenGLIndexBufferDynamic : public OpenGLIndexBuffer
 	{
 	public:

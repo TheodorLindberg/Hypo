@@ -29,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="src\graphicspch.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h" />
+    <ClInclude Include="src\Hypo\Graphics\BufferLayout.h" />
+    <ClInclude Include="src\Hypo\Graphics\Shader.h" />
+    <ClInclude Include="src\Hypo\Graphics\Assets\ShaderAsset.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hypo\Graphics\Buffers.cpp">
@@ -42,5 +45,7 @@
     </ClCompile>
     <ClCompile Include="src\graphicspch.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp" />
+    <ClCompile Include="src\Hypo\Graphics\Factory.cpp" />
+    <ClCompile Include="src\Hypo\Graphics\Assets\ShaderAsset.cpp" />
   </ItemGroup>
 </Project>
