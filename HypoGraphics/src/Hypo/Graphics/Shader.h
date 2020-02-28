@@ -8,45 +8,16 @@
 
 #include "Hypo/Graphics/BufferLayout.h"
 #include <unordered_map>
+#include "Hypo/Graphics/Assets/ShaderAsset.h"
+#include <memory>
 
 namespace Hypo
 {
 
-	enum class ShaderType
-	{
-		Vertex = 0,
-		Fragment,
-		Geometry 
-	};
-
-	struct EnumClassHash
-	{
-		template <typename T>
-		std::size_t operator()(T t) const
-		{
-			return static_cast<std::size_t>(t);
-		}
-	};
-
-	class ShaderData
-	{
-	public:
-		using ShaderSources = std::unordered_map<ShaderType, std::string, EnumClassHash>;
-		ShaderData() = default;
-		ShaderData(ShaderSources shaders, std::string name);
-
-		bool HasShader(ShaderType type) const { return m_Shaders.find(type) != m_Shaders.end(); }
-		const std::string& GetShader(ShaderType type) const;
-		const std::string& GetName() const { return m_Name; }
-	private:
-		std::string m_Name;
-		ShaderSources m_Shaders;
-	};
-	
 	class Shader
 	{
 	public:
-		using Ptr = Hypo::ObjPtr<Shader>;
+		using Ptr = std::shared_ptr<Shader>;
 
 		virtual ~Shader() {}
 

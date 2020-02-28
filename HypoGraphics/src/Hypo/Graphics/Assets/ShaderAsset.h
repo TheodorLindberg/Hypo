@@ -56,7 +56,7 @@ namespace Hypo
 	}
 
 	ShaderData HYPO_GRAPHICS_API ShaderFromSources(const std::string& vertex, const std::string& frag, const std::string& name);
-	ShaderData HYPO_GRAPHICS_API ShaderFromFile(const std::string filePath);
+	ShaderData HYPO_GRAPHICS_API ShaderFromFile(const std::string& path);
 	ShaderData HYPO_GRAPHICS_API ShaderFromMemory(std::istream& stream, const std::string& name);
 
 }

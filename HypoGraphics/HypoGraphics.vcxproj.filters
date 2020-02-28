@@ -7,6 +7,9 @@
     <Filter Include="Hypo\Graphics">
       <UniqueIdentifier>{4526D516-B1E6-504D-7A21-9ACAE6A09529}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hypo\Graphics\Assets">
+      <UniqueIdentifier>{870D7FAA-739C-0874-1CBB-1C6F0829191A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
@@ -15,37 +18,51 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Hypo\Graphics\Assets\ShaderAsset.h">
+      <Filter>Hypo\Graphics\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Graphics\BufferLayout.h">
+      <Filter>Hypo\Graphics</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hypo\Graphics\Buffers.h">
       <Filter>Hypo\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\Hypo\Graphics\Exports.h">
       <Filter>Hypo\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hypo\Graphics\Shader.h">
+      <Filter>Hypo\Graphics</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexBuffer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\graphicspch.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h" />
-    <ClInclude Include="src\Hypo\Graphics\BufferLayout.h" />
-    <ClInclude Include="src\Hypo\Graphics\Shader.h" />
-    <ClInclude Include="src\Hypo\Graphics\Assets\ShaderAsset.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hypo\Graphics\Assets\ShaderAsset.cpp">
+      <Filter>Hypo\Graphics\Assets</Filter>
+    </ClCompile>
     <ClCompile Include="src\Hypo\Graphics\Buffers.cpp">
       <Filter>Hypo\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\Hypo\Graphics\Factory.cpp">
+      <Filter>Hypo\Graphics</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\graphicspch.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp" />
-    <ClCompile Include="src\Hypo\Graphics\Factory.cpp" />
-    <ClCompile Include="src\Hypo\Graphics\Assets\ShaderAsset.cpp" />
   </ItemGroup>
 </Project>

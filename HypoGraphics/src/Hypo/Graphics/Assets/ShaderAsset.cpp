@@ -17,14 +17,14 @@ namespace Hypo
 		return ShaderData(sources, frag);
 	}
 	
-	ShaderData ShaderFromFile(const std::string path)
+	ShaderData ShaderFromFile(const std::string& path)
 	{
 		std::ifstream file(path);
 
 		if (!file.is_open())
 		{
-			HYPO_CORE_WARN("Could not load shader {}", path);
-
+ 			HYPO_CORE_WARN("Could not load shader {}", path);
+			file.close();
 			return ShaderData();
 		}
 		
@@ -34,7 +34,9 @@ namespace Hypo
 		auto count = lastDot == std::string::npos ? path.size() - lastSlash : lastDot - lastSlash;
 		auto name = path.substr(lastSlash, count);
 		
-		ShaderFromMemory(file, name);
+		auto data =  ShaderFromMemory(file, name);
+		file.close();
+		return data;
 	}
 	
 	ShaderData ShaderFromMemory(std::istream& stream, const std::string& name)

@@ -7,9 +7,8 @@
 #include <iostream>
 
 #include "Hypo/Graphics/Buffers.h"
-
-#include <../../HypoWindow/vendor/GLFW/include/GLFW/glfw3.h>
 #include "Platform/OpenGL/OpenGLIndexBuffer.h"
+#include "Hypo/Graphics/Shader.h"
 
 
 const char* vertexShaderSource = "#version 330 core\n"
@@ -35,11 +34,16 @@ int main()
 	Hypo::init(window->GetGladProc());
 	const int status = gladLoadGLLoader((GLADloadproc)window->GetGladProc());
 
+
+	
 	HYPO_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+	auto shaderData = Hypo::ShaderFromFile("res\\shaders\\simple.glsl");
 
 
 	int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+	const char* vertexSrc = shaderData.GetShader(Hypo::ShaderType::Vertex).c_str();
+	glShaderSource(vertexShader, 1, &vertexSrc, NULL);
 	glCompileShader(vertexShader);
 	// check for shader compile errors
 	int success;
@@ -52,7 +56,8 @@ int main()
 	}
 	// fragment shader
 	int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+	const char* fragSrc = shaderData.GetShader(Hypo::ShaderType::Fragment).c_str();
+	glShaderSource(fragmentShader, 1, &fragSrc, NULL);
 	glCompileShader(fragmentShader);
 	// check for shader compile errors
 	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
@@ -87,7 +92,7 @@ int main()
 		0, 1, 3,  // first Triangle
 		1, 2, 3   // second Triangle
 	};
-	unsigned int VAO, EBO;
+	unsigned int VAO;
 	glGenVertexArrays(1, &VAO);
 
 	auto vertexBuffer = Hypo::VertexBuffer::Create(gsl::span<float>(vertices), false);
@@ -154,8 +159,6 @@ int main()
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		std::cout << "Hello" << std::endl;
-		
 		// draw our first triangle
 		glUseProgram(shaderProgram);
 		glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
@@ -167,7 +170,6 @@ int main()
 
 	
 	Hypo::Log::Shutdown();
-	delete window;
 	return 0;
 
 }

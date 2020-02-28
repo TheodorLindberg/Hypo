@@ -32,6 +32,9 @@
     <None Include="res\shaders\defaultOld.glsl">
       <Filter>res\shaders</Filter>
     </None>
+    <None Include="res\shaders\simple.glsl">
+      <Filter>res\shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\references-outerra2.jpg">

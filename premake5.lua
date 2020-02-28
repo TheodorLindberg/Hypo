@@ -40,7 +40,7 @@ project "HypoSystem"
 	location "HypoSystem"
     kind "SharedLib"
     language "C++"
-    staticruntime "on"
+    staticruntime "off"
     
 	targetdir ("bin/" .. outputdir)
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -87,7 +87,7 @@ project "HypoWindow"
 	location "HypoWindow"
     kind "SharedLib"
     language "C++"
-    staticruntime "on"
+    staticruntime "off"
     
 	targetdir ("bin/" .. outputdir)
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -146,7 +146,7 @@ project "HypoGraphics"
 	location "HypoGraphics"
 	kind "SharedLib"
 	language "C++"
-	staticruntime "on"
+	staticruntime "off"
 	
 	targetdir ("bin/" .. outputdir)
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -204,7 +204,7 @@ project "Hypo3D"
 	location "Hypo3D"
 	kind "SharedLib"
 	language "C++"
-	staticruntime "on"
+	staticruntime "off"
 	
 	targetdir ("bin/" .. outputdir)
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -265,7 +265,7 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "on"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir)
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
