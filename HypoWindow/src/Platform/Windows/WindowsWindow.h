@@ -4,6 +4,7 @@
 #include <queue>
 
 #include "Hypo/Window/Window.h"
+#include "Hypo/Window/ImGui/ImGuiLayer.h"
 
 struct GLFWwindow;
 
@@ -40,22 +41,21 @@ namespace Hypo
 		
 		void EnableImGui() override
 		{
-			//m_ImGui.OnAttach(*this);
-			
+			m_ImGui.OnAttach(*this);
 		}
 		void DisableImGui() override
 		{
 
-			//m_ImGui.OnDetach();
+			m_ImGui.OnDetach();
 		}
 		void BeginImGui() override
 		{
 
-			//m_ImGui.Begin();
+			m_ImGui.Begin();
 		}
 		void EndImGui() override
 		{
-			//m_ImGui.End(*this);
+			m_ImGui.End(*this);
 		}
 
 		void SetVSync(bool enabled) override;
@@ -93,7 +93,12 @@ namespace Hypo
 
 		WindowData m_Data;
 		std::queue<Event> m_EventQueue;
+		ImGuiLayer m_ImGui;
 	};
 
-	
+	void IMGUI_SYMBOL_DEFINITION()
+	{
+
+		ImGui::ShowDemoWindow(nullptr);
+	}
 }

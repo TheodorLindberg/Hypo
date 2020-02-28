@@ -6,6 +6,9 @@
 #include "Hypo/System/Events/Event.h"
 #include "Context/GraphicsContext.h"
 
+#include "imgui.h"
+
+
 namespace Hypo
 {
 	namespace WindowStyle

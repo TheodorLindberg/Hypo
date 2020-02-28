@@ -19,6 +19,9 @@
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hypo\Window\ImGui">
+      <UniqueIdentifier>{89ecfe74-9d24-44d6-b90d-528593693a37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Hypo\Window\Context\GraphicsContext.h">
@@ -46,6 +49,7 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\windowpch.h" />
+    <ClInclude Include="src\Hypo\Window\ImGui\ImGuiLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -58,5 +62,7 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\windowpch.cpp" />
+    <ClCompile Include="src\Hypo\Window\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Hypo\Window\ImGui\ImGuiBuild.cpp" />
   </ItemGroup>
 </Project>

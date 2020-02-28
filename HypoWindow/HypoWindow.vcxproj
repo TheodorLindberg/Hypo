@@ -140,6 +140,7 @@
     <ClInclude Include="src\Hypo\Window\Context\GraphicsContext.h" />
     <ClInclude Include="src\Hypo\Window\Context\RenderState.h" />
     <ClInclude Include="src\Hypo\Window\Exports.h" />
+    <ClInclude Include="src\Hypo\Window\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Hypo\Window\Input.h" />
     <ClInclude Include="src\Hypo\Window\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -148,6 +149,8 @@
     <ClInclude Include="src\windowpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hypo\Window\ImGui\ImGuiBuild.cpp" />
+    <ClCompile Include="src\Hypo\Window\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />

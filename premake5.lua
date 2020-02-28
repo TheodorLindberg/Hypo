@@ -301,7 +301,8 @@ project "Sandbox"
 	}
 	defines
 	{
-		"HYPO_PLATFORM_WINDOWS"
+		"HYPO_PLATFORM_WINDOWS",
+		"IMGUI_API=__declspec(dllimport)"
 	}
 	cppdialect "C++17"
 	systemversion "latest"
