@@ -10,10 +10,21 @@ namespace Hypo
 		OpenGLVertexBuffer(uInt32 size);
 		OpenGLVertexBuffer(gsl::span<float> data);
 		
-		void Update(gsl::span<float> data, uInt32 offset) override;
+		void Update(gsl::span<float> data, uInt32 offset) override {};
 		void Bind() override;
 		void Unbind() override;
-	private:	
+	protected:
+		OpenGLVertexBuffer() = default;
 		OpenGLBuffer m_Buffer;
 	};
+
+	class HYPO_GRAPHICS_API OpenGLVertexBufferDynamic : public OpenGLVertexBuffer
+	{
+	public:
+		OpenGLVertexBufferDynamic(uInt32 size);
+		OpenGLVertexBufferDynamic(gsl::span<float> data);
+
+		void Update(gsl::span<float> data, uInt32 offset) override;
+	};
+
 }
