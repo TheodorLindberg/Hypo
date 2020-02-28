@@ -45,6 +45,7 @@
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLError.h" />
+    <ClInclude Include="src\Hypo\Graphics\Shader\UniformBinder.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hypo\Graphics\Buffers.cpp">

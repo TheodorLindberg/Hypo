@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "Platform/OpenGL/OpenGLError.h"
+#include "Hypo/Graphics/Shader/UniformBinder.h"
 
 #if HYPO_RUNTIME_CHECK_UNIFORMS == HYPO_ENABLED
 #define CHECK_UNIFORM(name, type) if(GetUniformType(name) != type) { HYPO_CORE_ERROR("Uniform {} dosen't match uniform type in shader {}", name, type); }
@@ -107,70 +108,52 @@ namespace Hypo
 		SetupUniformsAndAttributesLocation();
 		GLint numBlocks;
 		glGetProgramiv(m_RendererID, GL_ACTIVE_UNIFORM_BLOCKS, &numBlocks);
-		std::vector<std::string> nameList;
-		nameList.reserve(numBlocks);
+
+		std::unordered_map<std::string, std::pair<unsigned int, BufferLayout>> uniformBlockData;
+		
 		for (int blockIx = 0; blockIx < numBlocks; ++blockIx)
 		{
-
-			//Note: this always sets the buffer binding to the block index!
-
-			GLint nameLen;
-			glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_NAME_LENGTH, &nameLen);
+			GLint blockNameLen;
+			glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_NAME_LENGTH, &blockNameLen);
 
 			GLint blockSize;
 			glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_DATA_SIZE, &blockSize);
 
 
-			std::vector<GLchar> name; //Yes, not std::string. There's a reason for that.
-			name.resize(nameLen);
-			glGetActiveUniformBlockName(m_RendererID, blockIx, nameLen, NULL, &name[0]);
-			std::string strName;
-			strName.assign(name.begin(), name.end() - 1); //Remove the null terminator.
-
+			std::vector<GLchar> blockNameData; //Yes, not std::string. There's a reason for that.
+			blockNameData.resize(blockNameLen);
+			glGetActiveUniformBlockName(m_RendererID, blockIx, blockNameLen, NULL, &blockNameData[0]);
+			std::string blockName;
+			blockName.assign(blockNameData.begin(), blockNameData.end() - 1); //Remove the null terminator.
 
 			glUniformBlockBinding(m_RendererID, blockIx, blockIx);
 
-
 			int index = 0;
-			if (auto i = strName.find_first_of('['); i != std::string::npos)
+			if (auto i = blockName.find_first_of('['); i != std::string::npos)
 			{
-				std::string index = strName.substr(i + 1, strName.find_first_of(']', i) - i - 1);
-				index = std::stoi(index);
-				strName.erase(strName.begin() + i, strName.end());
+				std::string arrayIndexString = blockName.substr(i + 1, blockName.find_first_of(']', i) - i - 1);
+				index = std::stoi(arrayIndexString);
+
+				m_UniformBlocksIndex[blockName] = blockIx;
+				
+				blockName.erase(blockName.begin() + i, blockName.end());
+
+				uniformBlockData[blockName].first = uniformBlockData[blockName].first + 1;
 			}
-			int uniformCount;
-			GLCall(glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS, &uniformCount));
-
-			std::vector<int> indicies(uniformCount);
-			glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES, indicies.data());
-
-			std::vector<int> uniformOffsets(uniformCount);
-			glGetActiveUniformsiv(m_RendererID, uniformCount, (unsigned int*)indicies.data(), GL_UNIFORM_OFFSET, uniformOffsets.data());
-
-			std::vector<BufferElement> elements;
-			for (unsigned int i = 0; i < indicies.size(); i++)
+			
+			if (index != 0)
 			{
-				GLint size; // size of the variable, how many in the array
-				GLenum type; // type of the variable (float, vec3 or mat4, etc)
-
-				GLchar uname[ATTRIBUTE_MAX_LENGTH]; // variable name in GLSL
-				GLsizei length; // name length
-
-				glGetActiveUniform(m_RendererID, indicies[i], ATTRIBUTE_MAX_LENGTH, &length, &size, &type, uname);
-
-				std::string struname = std::string(uname);
-				auto pos = struname.find_last_of('.');
-				if (pos != std::string::npos)
-				{
-					struname = struname.substr(pos + 1);
-
-				}
-				elements.emplace_back(BufferElement{ OpenGLToShaderDataType(type),static_cast<uInt32>(size), struname, false,  static_cast<uInt32>(uniformOffsets[i]) });
-
-				auto v = 10;
+				continue;
 			}
+			
+			uniformBlockData[blockName] = { 1, {std::move(ExtractUniformBufferData(blockIx, blockSize)), blockSize} };
 		}
 
+		for(auto it = uniformBlockData.begin(); it != uniformBlockData.end(); ++it)
+		{
+			
+			UniformBinderManager::AddUniformBinder(it->first, it->second.second);
+		}
 	}
 
 	OpenGLShader::~OpenGLShader()
@@ -324,6 +307,70 @@ namespace Hypo
 		}
 
 	}
+
+	std::vector<BufferElement> OpenGLShader::ExtractUniformBufferData(unsigned int blockIx, unsigned int blockSize)
+	{
+		int uniformCount;
+		GLCall(glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS, &uniformCount));
+
+		std::vector<unsigned int> indices(uniformCount);
+		glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES, reinterpret_cast<int*>(indices.data()));
+
+		std::vector<int> uniformOffsets(uniformCount);
+		glGetActiveUniformsiv(m_RendererID, uniformCount, indices.data(), GL_UNIFORM_OFFSET, uniformOffsets.data());
+
+		std::vector<BufferElement> elements;
+
+		for (unsigned int i = 0; i < uniformCount; i++)
+		{
+			GLint size; // size of the variable, how many in the array
+			GLenum type; // type of the variable (float, vec3 or mat4, etc)
+
+			GLchar uniformNameData[ATTRIBUTE_MAX_LENGTH]; // variable name in GLSL
+			GLsizei length; // name length
+
+			glGetActiveUniform(m_RendererID, indices[i], ATTRIBUTE_MAX_LENGTH, &length, &size, &type, uniformNameData);
+
+			int arrayStride;
+			glGetActiveUniformsiv(m_RendererID, 1, &indices[i], GL_UNIFORM_ARRAY_STRIDE, &arrayStride);
+
+			//Extract the GSLS name
+			std::string uniformName = std::string(uniformNameData);
+			auto pos = uniformName.find_last_of('.');
+			if (pos != std::string::npos)
+			{
+				uniformName = uniformName.substr(pos + 1);
+			}
+			if (auto i = uniformName.find_first_of('['); i != std::string::npos)
+			{
+				uniformName.erase(uniformName.begin() + i, uniformName.end());
+			}
+
+			uInt32 arrayCount = 1;
+
+			if (arrayStride > 0)
+			{
+				int uniformDataEnd;
+				if (uniformCount < i)
+				{
+					uniformDataEnd = blockSize;
+				}
+				else
+				{
+					uniformDataEnd = uniformOffsets[i + 1];
+				}
+				int uniformTotalArraySize = uniformDataEnd - uniformOffsets[i];
+
+
+				arrayCount = static_cast<uInt32>(uniformTotalArraySize / arrayStride);
+
+			}
+			elements.push_back(BufferElement{ OpenGLToShaderDataType(type), arrayCount,uniformName, false, static_cast<uInt32>(uniformOffsets[i]) });
+
+		}
+		return elements;
+	}
+
 	void OpenGLShader::SetUniform1f(const std::string& name, float v0)
 	{
 		CHECK_UNIFORM(name, GL_FLOAT);

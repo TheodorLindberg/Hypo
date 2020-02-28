@@ -47,13 +47,20 @@ namespace Hypo
 		int GetUniformType(const std::string& name);
 		int GetAttributeType(const std::string& name);
 
-
 		uInt32 CompileShaderProgram(const std::string& src, int shaderType);
 		void LinkShader(std::vector<uInt32> shaders);
 		void SetupUniformsAndAttributesLocation();
 
+		std::vector<BufferElement> ExtractUniformBufferData(unsigned int blockIx, unsigned int blockSize);
 
 	private:
+		struct UniformBlock
+		{
+			uInt32 arrayCount;
+			uInt32 blockIndex;
+		};
+		std::unordered_map<std::string, UniformBlock> m_UniformBlocks;
+		
 		std::unordered_map<std::string, std::pair<int,int>> m_UniformLocation;
 		std::unordered_map<std::string, std::pair<int, int>> m_AttributeLocation;
 		uInt32 m_RendererID;

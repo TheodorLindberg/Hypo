@@ -23,6 +23,10 @@ int main()
 	
 	HYPO_CORE_ASSERT(status, "Failed to initialize Glad!");
 
+
+	auto defaultShaderData = Hypo::ShaderFromFile("res\\shaders\\default.glsl");
+	auto defaultShader = Hypo::Shader::Create(defaultShaderData);
+	
 	auto shaderData = Hypo::ShaderFromFile("res\\shaders\\simple.glsl");
 	auto shader = Hypo::Shader::Create(shaderData);
 	shader->Bind();
