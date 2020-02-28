@@ -1,10 +1,10 @@
 #include "graphicspch.h"
-#include "Hypo/Graphics/Shader.h"
+#include "Hypo/Graphics/Shader/Shader.h"
 
 #include <fstream>
 
 #include "Hypo/System/Util/Log.h"
-#include "Hypo/Graphics/Assets/ShaderAsset.h"
+#include "Hypo/Graphics/Shader/ShaderAsset.h"
 
 namespace Hypo
 {

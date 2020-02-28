@@ -1,14 +1,15 @@
 #pragma once
 #include <string>
 #include <glm/glm.hpp>
-#include "Hypo/System/DataTypes/ObjPtr.h"
 #include "Hypo/Graphics/Exports.h"
 
 #include <glm/glm.hpp>
 
 #include "Hypo/Graphics/BufferLayout.h"
 #include <unordered_map>
-#include "Hypo/Graphics/Assets/ShaderAsset.h"
+#include "Hypo/Graphics/Shader/ShaderAsset.h"
+#include "Hypo/System/DataTypes/ObjPtr.h"
+
 #include <memory>
 
 namespace Hypo
@@ -17,7 +18,7 @@ namespace Hypo
 	class Shader
 	{
 	public:
-		using Ptr = std::shared_ptr<Shader>;
+		using Ptr = ObjPtr<Shader>;
 
 		virtual ~Shader() {}
 
@@ -42,7 +43,6 @@ namespace Hypo
 		virtual void SetUniformMat4f(const std::string& name, glm::mat4& mat4) = 0;
 
 		virtual void SetAttributeLayout(Hypo::AttributeLayout& layout) = 0;
-
 
 		static Ptr Create(const ShaderData& data);
 	};
