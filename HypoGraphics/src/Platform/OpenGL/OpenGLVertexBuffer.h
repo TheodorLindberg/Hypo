@@ -11,10 +11,15 @@ namespace Hypo
 		OpenGLVertexBuffer(gsl::span<float> data);
 		
 		void Update(gsl::span<float> data, uInt32 offset) override {};
+		
+		BufferLayout GetLayout() override { return m_Layout; }
+		void SetLayout(const BufferLayout& layout) override { m_Layout = layout; }
+
 		void Bind() override;
 		void Unbind() override;
 	protected:
 		OpenGLVertexBuffer() = default;
+		BufferLayout m_Layout;
 		OpenGLBuffer m_Buffer;
 	};
 

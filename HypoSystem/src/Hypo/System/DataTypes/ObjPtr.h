@@ -1,5 +1,7 @@
 #pragma once
+#include "Hypo/System/Exports.h"
 #include "ObjPtrMemoryManager.h"
+
 namespace Hypo
 {
 	template<typename T>
@@ -14,7 +16,7 @@ namespace Hypo
 	}
 	template<typename T>
 
-	class ObjPtr
+	class  ObjPtr
 	{
 	private:
 		T* data;
@@ -64,6 +66,19 @@ namespace Hypo
 			}
 			return *this;
 		}
+
+		bool Reset()
+		{
+			if (Decrement(counter) == 0)
+			{
+				delete data;
+				data = nullptr;
+				ObjPtrMemoryManager::Get().Deallocate(counter);
+				return true;
+			}
+			return false;
+		}
+		
 		T* operator->() const
 		{
 			return data;

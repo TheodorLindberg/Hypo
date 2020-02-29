@@ -4,7 +4,7 @@
 
 namespace Hypo
 {
-	class HYPO_GRAPHICS_API OpenGLShader : public Shader
+	class OpenGLShader : public Shader
 	{
 	public:
 		OpenGLShader(const ShaderData& shaderData);
@@ -38,7 +38,13 @@ namespace Hypo
 
 		void SetAttribute(const BufferElement& element, int stride, bool perInstance = false);
 
+		bool BindUniformBuffer(UniformBuffer::Ptr& buffer) override;
+		bool BindUniformBuffer(UniformBuffer::Ptr& buffer, uInt32 index) override;
+		const AttributeLayout& GetAttributeLayout() const override { return m_AttributeLayout; }
 	private:
+		friend class OpenGLVertexArray;
+		void UpdateAttributeLayout();
+		
 		static constexpr uInt8 ATTRIBUTE_MAX_LENGTH = 40;
 		static constexpr uInt8 UNIFORM_MAX_LENGTH = 40;
 		int GetUniformLocation(const std::string& name);
@@ -55,9 +61,6 @@ namespace Hypo
 		void ParseUniformDataFromShaders();
 		std::vector<BufferElement> ExtractUniformBufferData(unsigned int blockIx, unsigned int blockSize);
 
-	public:
-		bool BindUniformBuffer(UniformBuffer::Ptr& buffer) override;
-		bool BindUniformBuffer(UniformBuffer::Ptr& buffer, uInt32 index) override;
 	private:
 
 		struct UniformBindData
@@ -71,6 +74,8 @@ namespace Hypo
 		std::unordered_map<std::string, std::pair<int,int>> m_UniformLocation;
 		std::unordered_map<std::string, std::pair<int, int>> m_AttributeLocation;
 		uInt32 m_RendererID;
+
+		AttributeLayout m_AttributeLayout;
 	};
 
 }

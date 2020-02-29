@@ -5,6 +5,7 @@
 #include "Platform/OpenGL/OpenGLVertexBuffer.h"
 #include "glad/glad.h"
 #include "Platform/OpenGL/OpenGLIndexBuffer.h"
+#include "Platform/OpenGL/OpenGLVertexArray.h"
 
 namespace Hypo
 {
@@ -15,23 +16,27 @@ namespace Hypo
 
 	VertexBuffer::Ptr VertexBuffer::Create(gsl::span<float> data, bool dynamic)
 	{
-		return std::shared_ptr<VertexBuffer>(new OpenGLVertexBuffer(data));
+		return new OpenGLVertexBuffer(data);
 	}
 
 	VertexBuffer::Ptr VertexBuffer::Create(unsigned size, bool dynamic)
 	{
-		return std::shared_ptr<VertexBuffer>(new OpenGLVertexBuffer(size));
+		return new OpenGLVertexBuffer(size);
 	}
 	
 
 	IndexBuffer::Ptr IndexBuffer::Create(gsl::span<ElementIndex> data, bool dynamic)
 	{
-		return std::shared_ptr<IndexBuffer>(new OpenGLIndexBuffer(data));
+		return new OpenGLIndexBuffer(data);
 	}
 
 	IndexBuffer::Ptr IndexBuffer::Create(unsigned size, bool dynamic)
 	{
-		return std::shared_ptr<IndexBuffer>(new OpenGLIndexBuffer(size));
+		return new OpenGLIndexBuffer(size);
 	}
 
+	VertexArray::Ptr VertexArray::Create()
+	{
+		return new OpenGLVertexArray();	
+	}
 }

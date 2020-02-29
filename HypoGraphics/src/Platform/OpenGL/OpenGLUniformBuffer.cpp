@@ -49,8 +49,8 @@ namespace Hypo
 	{
 		if (const auto offset = m_Binder->GetUniformOffset(name, ShaderDataType::Int3); offset != -1)
 		{
-			Vec3F vec(value1, value2, value3);
-			m_Buffer.Update<GL_UNIFORM_BUFFER>( offset, &vec, sizeof(Vec3F));
+			Vec3I vec(value1, value2, value3);
+			m_Buffer.Update<GL_UNIFORM_BUFFER>( offset, &vec, sizeof(Vec3I));
 			return true;
 		}
 		HYPO_CORE_INFO("Could not bind uniform {}", name);
@@ -61,8 +61,8 @@ namespace Hypo
 	{
 		if (const auto offset = m_Binder->GetUniformOffset(name, ShaderDataType::Int4); offset != -1)
 		{
-			Vec4F vec(value1, value2, value3, value4);
-			m_Buffer.Update<GL_UNIFORM_BUFFER>( offset, &vec, sizeof(Vec4F));
+			Vec4I vec(value1, value2, value3, value4);
+			m_Buffer.Update<GL_UNIFORM_BUFFER>( offset, &vec, sizeof(Vec4I));
 			return true;
 		}
 		HYPO_CORE_INFO("Could not bind uniform {}", name);

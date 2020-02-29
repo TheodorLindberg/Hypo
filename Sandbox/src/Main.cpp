@@ -47,38 +47,24 @@ int main()
 
 	auto colorBuffer = Hypo::UniformBuffer::Create(colorBinder);
 
-	colorBuffer->Set("color", Hypo::Vec4F(0.1, 0, 0.5, 1));
+	colorBuffer->Set("color", Hypo::Vec4F(0.1f, 0.f, 0.5f, 1.f));
 
 	shader->BindUniformBuffer(colorBuffer);
 	
-	unsigned int VAO;
-	glGenVertexArrays(1, &VAO);
 
 	auto vertexBuffer = Hypo::VertexBuffer::Create(gsl::span<float>(vertices), false);
+	vertexBuffer->SetLayout(Hypo::BufferLayout{
+		{Hypo::ShaderDataType::Float3,"aPos"}
+	});
 
 	
 	auto indexBuffer = Hypo::IndexBuffer::Create(gsl::span<Hypo::ElementIndex>(indices), false);
+
+
+	auto vertexArray = Hypo::VertexArray::Create();
+	vertexArray->SetIndexBuffer(indexBuffer);
+	vertexArray->AddVertexBuffer(vertexBuffer, shader);
 	
-	glBindVertexArray(VAO);
-
-	vertexBuffer->Bind();
-	indexBuffer->Bind();
-
-	
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-
-	// note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	// remember: do NOT unbind the EBO while a VAO is active as the bound element buffer object IS stored in the VAO; keep the EBO bound.
-	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
-	// You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
-	// VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
-	glBindVertexArray(0);
-
-
 	// uncomment this call to draw in wireframe polygons.
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -117,8 +103,8 @@ int main()
 
 
 		// ------
-		
-		glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
+		shader->Bind();
+		vertexArray->Bind();
 		//glDrawArrays(GL_TRIANGLES, 0, 6);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
@@ -131,9 +117,9 @@ int main()
 		ImGui::Begin("Color");
 
 		ImGui::ColorPicker4("Color", reinterpret_cast<float*>(&color));
-		ImGui::DragFloat("Offset", &xOffset, 0.05, -1, 1);
-		ImGui::DragFloat("Offset2", &xOffset2, 0.1, -1, 1);
-		ImGui::DragFloat("Offset3", &xOffset3, 0.1, -1, 1);
+		ImGui::DragFloat("Offset", &xOffset, 0.05f, -1.f, 1.f);
+		ImGui::DragFloat("Offset2", &xOffset2, 0.1f, -1.f, 1.f);
+		ImGui::DragFloat("Offset3", &xOffset3, 0.1f, -1.f, 1.f);
 
 		colorBuffer->Set("color", color);
 		colorBuffer->SetArray("offset", xOffset, 0);

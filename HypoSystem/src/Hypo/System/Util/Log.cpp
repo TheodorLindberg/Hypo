@@ -14,8 +14,8 @@
 namespace Hypo
 {
 
-	std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
-	std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
+	ObjPtr<spdlog::logger> Log::s_CoreLogger;
+	ObjPtr<spdlog::logger> Log::s_ClientLogger;
 	std::time_t Log::s_StartTime;
 	Log::LogCount Log::s_CoreLogCounter;
 	Log::LogCount Log::s_ClientLogCounter;
@@ -49,11 +49,11 @@ namespace Hypo
 		auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(str.c_str(), true);
 		file_sink->set_pattern("%^[%c] [%n] [%l] %n%v%$");
 	
-		s_CoreLogger = std::make_shared<spdlog::logger>("Hypo", spdlog::sinks_init_list{ console_sink, file_sink });
+		s_CoreLogger = MakeObj<spdlog::logger>("Hypo", spdlog::sinks_init_list{ console_sink, file_sink });
 		s_CoreLogger->set_level(spdlog::level::trace);
 		s_CoreLogger->flush_on(spdlog::level::err);
 
-		s_ClientLogger = std::make_shared<spdlog::logger>("Client", spdlog::sinks_init_list{ console_sink, file_sink });
+		s_ClientLogger = MakeObj<spdlog::logger>("Client", spdlog::sinks_init_list{ console_sink, file_sink });
 		s_ClientLogger->set_level(spdlog::level::trace);
 		s_ClientLogger->flush_on(spdlog::level::err);
 
@@ -82,8 +82,8 @@ namespace Hypo
 		s_CoreLogger->flush();
 		s_ClientLogger->flush();
 
-		s_ClientLogger.reset();
-		s_CoreLogger.reset();
+		s_ClientLogger.Reset();
+		s_CoreLogger.Reset();
 	}
 }
 

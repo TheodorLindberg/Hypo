@@ -245,11 +245,15 @@ namespace Hypo
 		GLchar name[ATTRIBUTE_MAX_LENGTH]; // variable name in GLSL
 		GLsizei length; // name length
 		glGetProgramiv(m_RendererID, GL_ACTIVE_ATTRIBUTES, &count);
+		std::vector<BufferElement> elements;
+		elements.resize(count);
 		for (int i = 0; i < count; i++)
 		{
 			glGetActiveAttrib(m_RendererID, i, ATTRIBUTE_MAX_LENGTH, &length, &size, &type, name);
 
-			m_AttributeLocation[name] = std::pair<int,int>{ glGetAttribLocation(m_RendererID, name), (int)type };
+			int attribLocation = glGetAttribLocation(m_RendererID, name);
+			
+			m_AttributeLocation[name] = std::pair<int,int>{attribLocation , (int)type };
 		}
 		glGetProgramiv(m_RendererID, GL_ACTIVE_UNIFORMS, &count);
 
@@ -329,7 +333,7 @@ namespace Hypo
 
 		std::vector<BufferElement> elements;
 
-		for (unsigned int i = 0; i < uniformCount; i++)
+		for (int i = 0; i < uniformCount; i++)
 		{
 			GLint size; // size of the variable, how many in the array
 			GLenum type; // type of the variable (float, vec3 or mat4, etc)
@@ -359,7 +363,7 @@ namespace Hypo
 			if (arrayStride > 0)
 			{
 				int uniformDataEnd;
-				if (uniformCount <= i + 1)
+				if (static_cast<uInt32>(uniformCount) <= i + 1)
 				{
 					uniformDataEnd = blockSize;
 				}
@@ -419,6 +423,10 @@ namespace Hypo
 		}
 		HYPO_CORE_WARN("Could not find buffer {}", buffer->GetBinderName());
 		return false;
+	}
+
+	void OpenGLShader::UpdateAttributeLayout()
+	{
 	}
 
 	void OpenGLShader::SetUniform1f(const std::string& name, float v0)

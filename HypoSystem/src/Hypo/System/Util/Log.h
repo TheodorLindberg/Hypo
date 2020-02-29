@@ -2,6 +2,7 @@
 
 #include "spdlog/spdlog.h"
 #include "Hypo/System/Exports.h"
+#include "Hypo/System/DataTypes/ObjPtr.h"
 
 namespace Hypo
 {
@@ -20,14 +21,14 @@ namespace Hypo
 	public:
 		static void Init();
 		static void Shutdown();
-		static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
-		static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
+		static ObjPtr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
+		static ObjPtr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
 		static LogCount& GetCoreLogCounter() { return s_CoreLogCounter; }
 		static LogCount& GetClientLogCounter() { return s_ClientLogCounter; }
 	private:
 		static time_t s_StartTime;
-		static std::shared_ptr<spdlog::logger> s_CoreLogger;
-		static std::shared_ptr<spdlog::logger> s_ClientLogger;
+		static ObjPtr<spdlog::logger> s_CoreLogger;
+		static ObjPtr<spdlog::logger> s_ClientLogger;
 
 		static LogCount s_CoreLogCounter;
 		static LogCount s_ClientLogCounter;

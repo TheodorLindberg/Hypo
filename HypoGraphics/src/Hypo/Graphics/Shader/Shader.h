@@ -48,6 +48,10 @@ namespace Hypo
 		virtual bool BindUniformBuffer(UniformBuffer::Ptr& buffer) = 0;
 		virtual bool BindUniformBuffer(UniformBuffer::Ptr& buffer, uInt32 index) = 0;
 
+		virtual const AttributeLayout& GetAttributeLayout() const = 0;
+
+		
+
 		static Ptr Create(const ShaderData& data);
 	};
 }

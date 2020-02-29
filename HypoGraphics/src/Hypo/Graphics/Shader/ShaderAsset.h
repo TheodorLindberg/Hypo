@@ -51,7 +51,7 @@ namespace Hypo
 		}
 		else
 		{
-			return "";
+			return std::string();
 		}
 	}
 
