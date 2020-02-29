@@ -84,6 +84,11 @@ namespace Hypo
 
 	OpenGLShader::OpenGLShader(const ShaderData& data)
 	{
+		for(auto& slot :m_TextureSlotBinding)
+		{
+			slot = -1;
+		}
+		
 		std::vector<uInt32> shaders;
 		if (data.HasShader(ShaderType::Vertex))
 		{
@@ -286,7 +291,7 @@ namespace Hypo
 			m_UniformLocation[name] = std::pair<int, int>{ glGetUniformLocation(m_RendererID, name), (int)type };
 			if(OpenGLIsSamplerType(type))
 			{
-				m_UniformTextureSamplerLocationMap[name] = glGetUniformLocation(m_RendererID, name);
+				m_UniformTextureSamplerLocationMap[name] = SamplerLocationData{ glGetUniformLocation(m_RendererID, name) ,-1};
 			}
 		}
 
@@ -588,9 +593,10 @@ namespace Hypo
 		}
 	}
 
+	//TODO: Fix this function
 	int OpenGLShader::GetNextFreeTextureSlot(int favourd)
 	{
-		if(nextFreeTextureSlot + 1 > OPENGL_TEXTURE_SLOTS)
+		if(nextFreeTextureSlot + 2 > OPENGL_TEXTURE_SLOTS)
 		{
 			nextFreeTextureSlot = 0;
 		}
@@ -607,10 +613,15 @@ namespace Hypo
 			HYPO_CORE_ERROR("Unkown texture {}", name);
 			return;
 		}
-		const int textureSamplerLocation = it->second;
-		int currentBoundTextureID = m_TextureSlotBinding[textureSamplerLocation];
+		const int textureSamplerLocation = it->second.shaderLocation;
+		const int currentBoundTextureSlot = it->second.currentSlotBound;
+
 		
+		int currentBoundTextureID = -1;
+		if(currentBoundTextureSlot >= 0 && currentBoundTextureSlot <= OPENGL_TEXTURE_SLOTS)
+			currentBoundTextureID = m_TextureSlotBinding[currentBoundTextureSlot];
 		
+		//We need to bind the new texture
 		if(openGLTexture->GetRendererID() != currentBoundTextureID)
 		{
 			Bind();
@@ -619,11 +630,24 @@ namespace Hypo
 			glUniform1i(textureSamplerLocation, newTextureSlot);
 			
 			openGLTexture->Bind(newTextureSlot);
+
+			it->second.currentSlotBound = newTextureSlot;
 			
 			m_TextureSlotBinding[newTextureSlot] = openGLTexture->GetRendererID();
 			return;
 		}
-		
+
+		if(currentBoundTextureSlot != openGLTexture->GetBoundSlot())
+		{
+			int newTextureSlot = GetNextFreeTextureSlot(openGLTexture->GetBoundSlot());
+
+			glUniform1i(textureSamplerLocation, newTextureSlot);
+
+			openGLTexture->Bind(newTextureSlot);
+
+			it->second.currentSlotBound = newTextureSlot;
+			return;
+		}
 	}
 
 	bool OpenGLShader::CompatibleWithVertexArray(ObjPtr<class VertexArray>& vertexArray)

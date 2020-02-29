@@ -16,7 +16,9 @@ namespace Hypo
 		void Update(gsl::span<ElementIndex> data, uInt32 offset) override {};
 		void Bind() override;
 		void Unbind() override;
+		uInt32 GetCount() const override { return m_Count; };
 	protected:
+		uInt32 m_Count;
 		OpenGLBuffer m_Buffer;
 	};
 	

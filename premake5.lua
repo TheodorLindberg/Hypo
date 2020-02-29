@@ -275,6 +275,7 @@ project "Sandbox"
 		"HypoSystem",
 		"HypoWindow",
 		"HypoGraphics",
+		"Hypo3D",
 		"glad"
 	}
 	files

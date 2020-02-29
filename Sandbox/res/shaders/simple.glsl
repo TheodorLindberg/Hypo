@@ -3,7 +3,7 @@
 #type vertex
 
 layout (location = 0) in vec3 aPos;
-layout (location = 0) in vec2 aTexCoord;
+layout (location = 1) in vec2 aTexCoord;
 
 out vec2 TexCoord;
 
@@ -18,9 +18,6 @@ void main()
 {
    vec4 pos = vec4(aPos.x, aPos.y, aPos.z, 1.0);
 
-   pos.x += offset.offset[0];
-   pos.x += offset.offset[1] * 0.5;
-   pos.x += offset.offset[2] * 0.1;
 gl_Position = pos;
 
 	TexCoord = aTexCoord;

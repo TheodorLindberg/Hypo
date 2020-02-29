@@ -78,8 +78,14 @@ namespace Hypo
 		};
 		std::unordered_map<std::string, UniformBindData> m_UniformBindData;
 
+
+		struct SamplerLocationData
+		{
+			int shaderLocation;
+			int currentSlotBound;
+		};
 		//Texture binding
-		std::unordered_map<std::string, int> m_UniformTextureSamplerLocationMap;
+		std::unordered_map<std::string, SamplerLocationData> m_UniformTextureSamplerLocationMap;
 		std::array<uInt32, OPENGL_TEXTURE_SLOTS> m_TextureSlotBinding;
 
 		uInt32 nextFreeTextureSlot = 0;

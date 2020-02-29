@@ -49,6 +49,8 @@
 
 		virtual void Update(gsl::span<ElementIndex> data, uInt32 offset) = 0;
 
+		virtual uInt32 GetCount() const = 0;
+		
 		virtual void Bind() = 0;
 		virtual void Unbind() = 0;
 	};

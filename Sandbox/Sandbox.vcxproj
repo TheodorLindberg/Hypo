@@ -154,6 +154,9 @@
     <ProjectReference Include="..\HypoGraphics\HypoGraphics.vcxproj">
       <Project>{763A9624-629D-25C9-0B23-5E7FF764F14B}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\Hypo3D\Hypo3D.vcxproj">
+      <Project>{7C509FB8-68F2-C98E-51AD-DDE23DEE50DF}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Hypo3D\vendor\glad\glad.vcxproj">
       <Project>{DD62977C-C999-980D-7286-7E105E9C140F}</Project>
     </ProjectReference>

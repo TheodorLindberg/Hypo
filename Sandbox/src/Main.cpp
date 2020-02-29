@@ -3,7 +3,8 @@
 #include "imgui.h"
 #include "Hypo/System/Util/Log.h"
 #include "Hypo/Window/Window.h"
-#include "glad/glad.h"
+
+
 #include <iostream>
 
 #include "Hypo/Graphics/Buffers.h"
@@ -12,23 +13,26 @@
 #include "Hypo/Graphics/Shader/UniformBinder.h"
 #include "Hypo/Graphics/Texture/TextureAsset.h"
 #include "Hypo/Graphics/Texture/Texture.h"
+#include "Hypo/3D/Renderer/RendererAPI.h"
+#include "Hypo/3D/Renderer/RenderCommand.h"
+#include "Hypo/3D/Renderer/Renderer.h"
 
 
 int main()
 {
 	Hypo::Log::Init();
+
 	Hypo::Window* window = Hypo::Window::Create();
 
 	Hypo::init(window->GetGladProc());
-	const int status = gladLoadGLLoader((GLADloadproc)window->GetGladProc());
+	Hypo::InitRenderer(window->GetGladProc());
+
 
 	
-	HYPO_CORE_ASSERT(status, "Failed to initialize Glad!");
-
 
 	//auto defaultShaderData = Hypo::ShaderFromFile("res\\shaders\\default.glsl");
 	//auto defaultShader = Hypo::Shader::Create(defaultShaderData);
-	
+	 
 	auto shaderData = Hypo::ShaderFromFile("res\\shaders\\simple.glsl");
 	auto shader = Hypo::Shader::Create(shaderData);
 	shader->Bind();
@@ -101,20 +105,21 @@ int main()
 			break;
 		}
 		
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+
+		Hypo::RenderCommand::SetClearColor({ 0.5,0,0,1 });
+		Hypo::RenderCommand::Clear(Hypo::RendererAPI::CLEAR_COLOR | Hypo::RendererAPI::CLEAR_DEPTH);
 
 
+		
 
-		// ------
-		shader->Bind();
-		vertexArray->Bind();
+
+		Hypo::Renderer::BeginScene();
 
 		shader->BindTexture(texture, "ourTexture");
 		shader->BindTexture(smileTexture, "ourTexture2");
+		Hypo::Renderer::Submit(shader, vertexArray);
 		
-		//glDrawArrays(GL_TRIANGLES, 0, 6);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		Hypo::Renderer::EndScene();
 
 
 		window->BeginImGui();
