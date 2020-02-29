@@ -3,6 +3,9 @@
 #type vertex
 
 layout (location = 0) in vec3 aPos;
+layout (location = 0) in vec2 aTexCoord;
+
+out vec2 TexCoord;
 
 layout(std140) uniform Color
 {
@@ -18,12 +21,16 @@ void main()
    pos.x += offset.offset[0];
    pos.x += offset.offset[1] * 0.5;
    pos.x += offset.offset[2] * 0.1;
-	gl_Position = pos;
+gl_Position = pos;
+
+	TexCoord = aTexCoord;
 }
 
 #type frag
 
 out vec4 FragColor;
+
+in vec2 TexCoord;
 
 layout(std140) uniform Color
 {
@@ -31,9 +38,20 @@ layout(std140) uniform Color
 	float offset[3];
 } color;
 
+
+
+uniform sampler2D ourTexture;
+uniform sampler2D ourTexture2;
+
 void main()
 {
-   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
-   FragColor = color.color;
-   
+   FragColor = texture(ourTexture, TexCoord);   
+   FragColor.r = color.color.r;
+
+   if(TexCoord.x > 0.5f && TexCoord.y > 0.5f)
+   {
+	FragColor = texture(ourTexture2, TexCoord);  
+   }
+
+  // FragColor = vec4(TexCoord, 0, 1);
 }

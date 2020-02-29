@@ -10,6 +10,9 @@
     <Filter Include="Hypo\Graphics\Shader">
       <UniqueIdentifier>{4BF6AAD3-3785-349D-E0A3-4898CC114543}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hypo\Graphics\Texture">
+      <UniqueIdentifier>{A5C0AD90-112D-698B-DA20-01E9464C8BF3}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
@@ -39,6 +42,12 @@
     <ClInclude Include="src\Hypo\Graphics\Shader\UniformBuffer.h">
       <Filter>Hypo\Graphics\Shader</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hypo\Graphics\Texture\Texture.h">
+      <Filter>Hypo\Graphics\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Graphics\Texture\TextureAsset.h">
+      <Filter>Hypo\Graphics\Texture</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
@@ -51,14 +60,19 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLUniformBuffer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexBuffer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\graphicspch.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hypo\Graphics\Buffers.cpp">
@@ -73,6 +87,9 @@
     <ClCompile Include="src\Hypo\Graphics\Shader\UniformBinder.cpp">
       <Filter>Hypo\Graphics\Shader</Filter>
     </ClCompile>
+    <ClCompile Include="src\Hypo\Graphics\Texture\TextureAsset.cpp">
+      <Filter>Hypo\Graphics\Texture</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
@@ -82,13 +99,18 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLUniformBuffer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\graphicspch.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
   </ItemGroup>
 </Project>

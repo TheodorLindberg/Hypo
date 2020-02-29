@@ -19,7 +19,7 @@ IncludeDir["GSL"] = "vendor/GSL/include"
 
 IncludeDir["GLFW"] = "HypoWindow/vendor/GLFW/include"
 
-IncludeDir["stb_image"] = "Hypo3D/vendor/stb_image/include"
+IncludeDir["stb_image"] = "HypoGraphics/vendor/stb_image/include"
 IncludeDir["glad"] = "Hypo3D/vendor/glad/include"
 IncludeDir["assimp"] = "Hypo3D/vendor/assimp/include"
 
@@ -174,6 +174,7 @@ project "HypoGraphics"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.glad}",
+		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.HypoSystem}",
 		"%{IncludeDir.HypoWindow}",
 		"%{IncludeDir.HypoGraphics}",
@@ -228,7 +229,6 @@ project "Hypo3D"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.glad}",
 		"%{IncludeDir.assimp}",

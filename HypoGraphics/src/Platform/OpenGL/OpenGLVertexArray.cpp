@@ -57,6 +57,12 @@ namespace Hypo
 		const auto& layout = buffer->GetLayout();
 		int stride = layout.GetStride();
 
+		if(layout.GetElements().size() == 0)
+		{
+			HYPO_CORE_ERROR("[OpenGL] VertexBuffer::AddVertexBuffer, buffer without valid layout supplied, no attribute will be bound");
+			return;
+		}
+		
 		OpenGLShader* openGLShader = shader.Cast<OpenGLShader>();
 		
 		for (const auto& element : layout)

@@ -3,6 +3,8 @@
 #include "Hypo/Window/Context/RenderState.h"
 #include "Hypo/Config.h"
 
+#include <memory>
+
 namespace Hypo
 {
 	struct ContextSettings

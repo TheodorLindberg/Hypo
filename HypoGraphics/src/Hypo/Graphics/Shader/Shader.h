@@ -12,6 +12,7 @@
 
 #include <memory>
 #include "Hypo/Graphics/Shader/UniformBuffer.h"
+#include "Hypo/Graphics/Texture/Texture.h"
 
 namespace Hypo
 {
@@ -47,6 +48,8 @@ namespace Hypo
 
 		virtual bool BindUniformBuffer(UniformBuffer::Ptr& buffer) = 0;
 		virtual bool BindUniformBuffer(UniformBuffer::Ptr& buffer, uInt32 index) = 0;
+
+		virtual void BindTexture(ObjPtr<Texture2D> texture, std::string name) = 0;
 
 		virtual const AttributeLayout& GetAttributeLayout() const = 0;
 

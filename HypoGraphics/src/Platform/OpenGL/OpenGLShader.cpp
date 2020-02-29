@@ -8,9 +8,10 @@
 #include "Platform/OpenGL/OpenGLError.h"
 #include "Hypo/Graphics/Shader/UniformBinder.h"
 #include "Platform/OpenGL/OpenGLUniformBuffer.h"
+#include "Platform/OpenGL/OpenGLTexture.h"
 
 #if HYPO_RUNTIME_CHECK_UNIFORMS == HYPO_ENABLED
-#define CHECK_UNIFORM(name, type) if(GetUniformType(name) != type) { HYPO_CORE_ERROR("Uniform {} dosen't match uniform type in shader {}", name, type); }
+#define CHECK_UNIFORM(name, type) if(auto correctType = GetUniformType(name); correctType != type) { HYPO_CORE_ERROR("Uniform {} dosen't match uniform type in shader, uniform type {}, user type {}", name, correctType, type); }
 #else
 #define CHECK_UNIFORM(x,y)
 #endif
@@ -235,6 +236,27 @@ namespace Hypo
 		}
 		return shaderID;
 	}
+
+
+	bool OpenGLIsSamplerType(int type)
+	{
+		switch (type)
+		{
+		case GL_SAMPLER_2D:
+		case GL_SAMPLER_1D:
+		case GL_SAMPLER_2D_ARRAY:
+		case GL_SAMPLER_1D_ARRAY:
+		case GL_SAMPLER_CUBE:
+		case GL_SAMPLER_CUBE_MAP_ARRAY:
+			return true;
+			break;
+
+		default:
+			return false;
+			break;
+		}
+	}
+	
 	void OpenGLShader::SetupUniformsAndAttributesLocation()
 	{
 		glUseProgram(m_RendererID);
@@ -262,6 +284,10 @@ namespace Hypo
 			glGetActiveUniform(m_RendererID, i, UNIFORM_MAX_LENGTH, &length, &size, &type, name);
 			GLCall(glGetUniformLocation(m_RendererID, name));
 			m_UniformLocation[name] = std::pair<int, int>{ glGetUniformLocation(m_RendererID, name), (int)type };
+			if(OpenGLIsSamplerType(type))
+			{
+				m_UniformTextureSamplerLocationMap[name] = glGetUniformLocation(m_RendererID, name);
+			}
 		}
 
 	}
@@ -561,6 +587,45 @@ namespace Hypo
 			glVertexAttribDivisor(location, 1);
 		}
 	}
+
+	int OpenGLShader::GetNextFreeTextureSlot(int favourd)
+	{
+		if(nextFreeTextureSlot + 1 > OPENGL_TEXTURE_SLOTS)
+		{
+			nextFreeTextureSlot = 0;
+		}
+		return ++nextFreeTextureSlot;
+	}
+	
+	void OpenGLShader::BindTexture(ObjPtr<Texture2D> texture, std::string name)
+	{
+		auto* openGLTexture = texture.Cast<OpenGLTexture2D>();
+
+		auto it = m_UniformTextureSamplerLocationMap.find(name);
+		if(it == m_UniformTextureSamplerLocationMap.end())
+		{
+			HYPO_CORE_ERROR("Unkown texture {}", name);
+			return;
+		}
+		const int textureSamplerLocation = it->second;
+		int currentBoundTextureID = m_TextureSlotBinding[textureSamplerLocation];
+		
+		
+		if(openGLTexture->GetRendererID() != currentBoundTextureID)
+		{
+			Bind();
+			int newTextureSlot = GetNextFreeTextureSlot(openGLTexture->GetBoundSlot());
+			
+			glUniform1i(textureSamplerLocation, newTextureSlot);
+			
+			openGLTexture->Bind(newTextureSlot);
+			
+			m_TextureSlotBinding[newTextureSlot] = openGLTexture->GetRendererID();
+			return;
+		}
+		
+	}
+
 	bool OpenGLShader::CompatibleWithVertexArray(ObjPtr<class VertexArray>& vertexArray)
 	{
 		/*OpenGLVertexArray& va = vertexArray.CastToRef<OpenGLVertexArray>();

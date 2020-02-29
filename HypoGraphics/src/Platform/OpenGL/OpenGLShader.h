@@ -1,9 +1,12 @@
 ﻿#pragma once
 #include "Hypo/Graphics/Exports.h"
 #include "Hypo/Graphics/Shader/Shader.h"
+#include <array>
 
 namespace Hypo
 {
+	class Texture2D;
+
 	class OpenGLShader : public Shader
 	{
 	public:
@@ -38,12 +41,16 @@ namespace Hypo
 
 		void SetAttribute(const BufferElement& element, int stride, bool perInstance = false);
 
+		void BindTexture(ObjPtr<Texture2D> texture, std::string name) override;
+		
 		bool BindUniformBuffer(UniformBuffer::Ptr& buffer) override;
 		bool BindUniformBuffer(UniformBuffer::Ptr& buffer, uInt32 index) override;
 		const AttributeLayout& GetAttributeLayout() const override { return m_AttributeLayout; }
 	private:
 		friend class OpenGLVertexArray;
 		void UpdateAttributeLayout();
+
+		int GetNextFreeTextureSlot(int favourd);
 		
 		static constexpr uInt8 ATTRIBUTE_MAX_LENGTH = 40;
 		static constexpr uInt8 UNIFORM_MAX_LENGTH = 40;
@@ -62,7 +69,7 @@ namespace Hypo
 		std::vector<BufferElement> ExtractUniformBufferData(unsigned int blockIx, unsigned int blockSize);
 
 	private:
-
+		static constexpr int OPENGL_TEXTURE_SLOTS = 32;
 		struct UniformBindData
 		{
 			uInt32 blockIdx;
@@ -71,6 +78,12 @@ namespace Hypo
 		};
 		std::unordered_map<std::string, UniformBindData> m_UniformBindData;
 
+		//Texture binding
+		std::unordered_map<std::string, int> m_UniformTextureSamplerLocationMap;
+		std::array<uInt32, OPENGL_TEXTURE_SLOTS> m_TextureSlotBinding;
+
+		uInt32 nextFreeTextureSlot = 0;
+		
 		std::unordered_map<std::string, std::pair<int,int>> m_UniformLocation;
 		std::unordered_map<std::string, std::pair<int, int>> m_AttributeLocation;
 		uInt32 m_RendererID;

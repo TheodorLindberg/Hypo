@@ -10,6 +10,8 @@
 #include "Platform/OpenGL/OpenGLIndexBuffer.h"
 #include "Hypo/Graphics/Shader/Shader.h"
 #include "Hypo/Graphics/Shader/UniformBinder.h"
+#include "Hypo/Graphics/Texture/TextureAsset.h"
+#include "Hypo/Graphics/Texture/Texture.h"
 
 
 int main()
@@ -24,19 +26,19 @@ int main()
 	HYPO_CORE_ASSERT(status, "Failed to initialize Glad!");
 
 
-	auto defaultShaderData = Hypo::ShaderFromFile("res\\shaders\\default.glsl");
-	auto defaultShader = Hypo::Shader::Create(defaultShaderData);
+	//auto defaultShaderData = Hypo::ShaderFromFile("res\\shaders\\default.glsl");
+	//auto defaultShader = Hypo::Shader::Create(defaultShaderData);
 	
 	auto shaderData = Hypo::ShaderFromFile("res\\shaders\\simple.glsl");
 	auto shader = Hypo::Shader::Create(shaderData);
 	shader->Bind();
-	// set up vertex data (and buffer(s)) and configure vertex attributes
-	// ------------------------------------------------------------------
+
 	float vertices[] = {
-		 0.5f,  0.5f, 0.0f,  // top right
-		 0.5f, -0.5f, 0.0f,  // bottom right
-		-0.5f, -0.5f, 0.0f,  // bottom left
-		-0.5f,  0.5f, 0.0f   // top left 
+		// positions         // texture coords
+		 0.5f,  0.5f, 0.0f,  1.0f, 1.0f,   // top right
+		 0.5f, -0.5f, 0.0f,  1.0f, 0.0f,   // bottom right
+		-0.5f, -0.5f, 0.0f,  0.0f, 0.0f,   // bottom left
+		-0.5f,  0.5f, 0.0f,  0.0f, 1.0f    // top left 
 	};
 	Hypo::ElementIndex indices[] = {  // note that we start from 0!
 		0, 1, 3,  // first Triangle
@@ -44,26 +46,28 @@ int main()
 	};
 
 	auto colorBinder = Hypo::UniformBinderManager::GetUniformBinder("Color");
-
 	auto colorBuffer = Hypo::UniformBuffer::Create(colorBinder);
-
-	colorBuffer->Set("color", Hypo::Vec4F(0.1f, 0.f, 0.5f, 1.f));
 
 	shader->BindUniformBuffer(colorBuffer);
 	
 
 	auto vertexBuffer = Hypo::VertexBuffer::Create(gsl::span<float>(vertices), false);
 	vertexBuffer->SetLayout(Hypo::BufferLayout{
-		{Hypo::ShaderDataType::Float3,"aPos"}
+		{Hypo::ShaderDataType::Float3,"aPos"},
+		{Hypo::ShaderDataType::Float2,"aTexCoord"},
 	});
-
 	
 	auto indexBuffer = Hypo::IndexBuffer::Create(gsl::span<Hypo::ElementIndex>(indices), false);
-
 
 	auto vertexArray = Hypo::VertexArray::Create();
 	vertexArray->SetIndexBuffer(indexBuffer);
 	vertexArray->AddVertexBuffer(vertexBuffer, shader);
+	
+	auto textureData = Hypo::TextureFromFile("res\\textures\\wall.jpg");
+	auto texture = Hypo::Texture2D::Create(textureData);
+
+
+	auto smileTexture = Hypo::Texture2D::Create(Hypo::TextureFromFile("res\\textures\\references-outerra2.jpg"));
 	
 	// uncomment this call to draw in wireframe polygons.
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -105,6 +109,10 @@ int main()
 		// ------
 		shader->Bind();
 		vertexArray->Bind();
+
+		shader->BindTexture(texture, "ourTexture");
+		shader->BindTexture(smileTexture, "ourTexture2");
+		
 		//glDrawArrays(GL_TRIANGLES, 0, 6);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
@@ -125,7 +133,8 @@ int main()
 		colorBuffer->SetArray("offset", xOffset, 0);
 		colorBuffer->SetArray("offset", xOffset2, 1);
 		colorBuffer->SetArray("offset", xOffset3, 2);
-
+		
+		
 		ImGui::End();
 		window->EndImGui();
 
