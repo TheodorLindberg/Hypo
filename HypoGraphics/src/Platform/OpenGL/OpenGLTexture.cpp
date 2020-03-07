@@ -30,6 +30,8 @@ Hypo::OpenGLTexture2D::OpenGLTexture2D(TextureData data)
 	glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
+	glBindTexture(GL_TEXTURE_2D, 0);
+
 	
 }
 
@@ -38,7 +40,7 @@ Hypo::OpenGLTexture2D::~OpenGLTexture2D()
 	glDeleteTextures(1, &m_RendererID);
 }
 
-void Hypo::OpenGLTexture2D::SetData(gsl::span<Byte> pixels)
+void Hypo::OpenGLTexture2D::SetData(gsl::span<const Byte> pixels)
 {
 
 	int channelCode = 0;
@@ -53,6 +55,7 @@ void Hypo::OpenGLTexture2D::SetData(gsl::span<Byte> pixels)
 	glBindTexture(GL_TEXTURE_2D, m_RendererID);
 	HYPO_CORE_ASSERT(pixels.size() == m_TextureData.GetPixelsSize(), "Data must be entire texture!");
 	glTextureSubImage2D(m_RendererID, 0, 0, 0, m_TextureData.GetWidth(), m_TextureData.GetHeight(), channelCode, GL_UNSIGNED_BYTE, pixels.data());
+	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 void Hypo::OpenGLTexture2D::Bind(uint32_t slot)

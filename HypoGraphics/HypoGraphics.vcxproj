@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>graphicspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\HypoWindow\vendor\GLFW\include;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;vendor\stb_image\include;..\HypoSystem\src;..\HypoWindow\src;..;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\HypoWindow\vendor\GLFW\include;..;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;vendor\stb_image\include;..\HypoSystem\src;..\HypoWindow\src;src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -98,7 +98,7 @@
       <PrecompiledHeaderFile>graphicspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\HypoWindow\vendor\GLFW\include;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;vendor\stb_image\include;..\HypoSystem\src;..\HypoWindow\src;..;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\HypoWindow\vendor\GLFW\include;..;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;vendor\stb_image\include;..\HypoSystem\src;..\HypoWindow\src;src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -120,7 +120,7 @@
       <PrecompiledHeaderFile>graphicspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_GRAPHICS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\HypoWindow\vendor\GLFW\include;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;vendor\stb_image\include;..\HypoSystem\src;..\HypoWindow\src;..;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\HypoWindow\vendor\GLFW\include;..;..\vendor\glm\include;..\vendor\imgui;..\vendor\spdlog\include;..\Hypo3D\vendor\glad\include;vendor\stb_image\include;..\HypoSystem\src;..\HypoWindow\src;src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>

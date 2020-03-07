@@ -1,21 +1,12 @@
 #pragma once
 #include "Hypo/3D/Exports.h"
 #include "Hypo/Graphics/Buffers.h"
+#include "Hypo/3D/Model/Mesh.h"
 
 namespace Hypo
 {
 
-	enum class MeshType
-	{
-		Triangles,
-		TriangleFan,
-		TriangleStrip,
-		Quads,
-		Lines,
-		LineStrip,
-		Points
-	};
-	
+
 	class HYPO_3D_API RendererAPI
 	{
 	public:

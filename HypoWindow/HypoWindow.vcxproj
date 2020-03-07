@@ -151,6 +151,7 @@
   <ItemGroup>
     <ClCompile Include="src\Hypo\Window\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Hypo\Window\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Hypo\Window\Input.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />

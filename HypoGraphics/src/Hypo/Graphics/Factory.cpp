@@ -17,7 +17,7 @@ namespace Hypo
 		return new OpenGLUniformBuffer(binder);
 	}
 
-	Hypo::ObjPtr<Hypo::Texture2D> Hypo::Texture2D::Create(TextureData& data)
+	Hypo::ObjPtr<Hypo::Texture2D> Hypo::Texture2D::Create(TextureData& data, TextureUsage usage)
 	{
 		return new OpenGLTexture2D(data);
 	}

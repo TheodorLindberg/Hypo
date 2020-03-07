@@ -96,4 +96,38 @@ namespace Hypo
 		return m_IndexBuffer;
 	}
 
+	void OpenGLVertexArray::AddVertexBuffer(VertexBuffer::Ptr buffer)
+	{
+		glBindVertexArray(m_RendererID);
+		buffer->Bind();
+
+		const auto& layout = buffer->GetLayout();
+		int stride = layout.GetStride();
+
+		if (layout.GetElements().size() == 0)
+		{
+			HYPO_CORE_ERROR("[OpenGL] VertexBuffer::AddVertexBuffer, buffer without valid layout supplied, no attribute will be bound");
+			return;
+		}
+
+
+		int location = 0;
+		
+		for (const auto& element : layout)
+		{
+			
+			//if (location == -1) HYPO_CORE_ERROR("Invalid attribute {}", element.Name);
+
+			glEnableVertexAttribArray(location);
+			glVertexAttribPointer(location,
+				element.GetComponentCount(),
+				ShaderDataTypeToOpenGLBaseType(element.Type),
+				element.Normalized ? GL_TRUE : GL_FALSE,
+				stride,
+				reinterpret_cast<void*>(static_cast<uInt64>(element.Offset)));
+			location++;
+		}
+		m_Buffers.push_back(buffer);
+		glBindVertexArray(0);
+	}
 }

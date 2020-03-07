@@ -15,10 +15,10 @@ namespace Hypo
 		bool LoadEmpty(uInt32 size, bool dynamic = false);
 		
 		template<int type>
-		bool Load(gsl::span<Byte> data, bool dynamic = false);
+		bool Load(gsl::span<const Byte> data, bool dynamic = false);
 		
 		template<int type>
-		bool Update(gsl::span<Byte> data, uInt32 offset = 0);
+		bool Update(gsl::span<const Byte> data, uInt32 offset = 0);
 
 		template<int type>
 		bool Update(uInt32 offset, const void* data, uInt32 size);

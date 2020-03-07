@@ -19,6 +19,7 @@ namespace Hypo
 		bool CheckAttributes(Shader::Ptr shader);
 		IndexBuffer::Ptr GetIndexBuffer() const override;
 
+		void AddVertexBuffer(VertexBuffer::Ptr buffer) override;
 	private:
 		friend class OpenGLShader;
 		std::vector<VertexBuffer::Ptr> m_Buffers;

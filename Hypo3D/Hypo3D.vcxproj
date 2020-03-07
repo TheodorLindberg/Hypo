@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>hypo3dpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_3D_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoSystem\src;..\HypoWindow\src;..;src;..\vendor\GSL\include;..\HypoGraphics\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoSystem\src;..\HypoWindow\src;..\HypoGraphics\src;src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -99,7 +99,7 @@
       <PrecompiledHeaderFile>hypo3dpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_3D_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoSystem\src;..\HypoWindow\src;..;src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoSystem\src;..\HypoWindow\src;..\HypoGraphics\src;src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -122,7 +122,7 @@
       <PrecompiledHeaderFile>hypo3dpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_3D_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoSystem\src;..\HypoWindow\src;..;src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\vendor\glm\include;vendor\glad\include;vendor\assimp\include;..\vendor\imgui;..\vendor\spdlog\include;..\HypoSystem\src;..\HypoWindow\src;..\HypoGraphics\src;src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -140,7 +140,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="src\Hypo\3D\Camera\Camera.h" />
+    <ClInclude Include="src\Hypo\3D\Camera\CameraController.h" />
     <ClInclude Include="src\Hypo\3D\Exports.h" />
+    <ClInclude Include="src\Hypo\3D\Model\Material.h" />
+    <ClInclude Include="src\Hypo\3D\Model\Mesh.h" />
+    <ClInclude Include="src\Hypo\3D\Model\Model.h" />
+    <ClInclude Include="src\Hypo\3D\Model\ModelLayout.h" />
     <ClInclude Include="src\Hypo\3D\Renderer\Drawable.h" />
     <ClInclude Include="src\Hypo\3D\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Hypo\3D\Renderer\Renderer.h" />
@@ -150,6 +157,10 @@
     <ClInclude Include="src\hypo3dpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hypo\3D\Camera\Camera.cpp" />
+    <ClCompile Include="src\Hypo\3D\Camera\CameraController.cpp" />
+    <ClCompile Include="src\Hypo\3D\Model\Mesh.cpp" />
+    <ClCompile Include="src\Hypo\3D\Model\Model.cpp" />
     <ClCompile Include="src\Hypo\3D\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Hypo\3D\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Hypo\3D\Renderer\RendererAPI.cpp" />
@@ -168,6 +179,9 @@
     </ProjectReference>
     <ProjectReference Include="..\HypoSystem\HypoSystem.vcxproj">
       <Project>{CA5F30EF-B617-723C-1F1F-4B980BF60C2D}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HypoWindow\HypoWindow.vcxproj">
+      <Project>{9D7960F7-8931-A244-F238-7BA0DE0F3D35}</Project>
     </ProjectReference>
     <ProjectReference Include="..\HypoGraphics\HypoGraphics.vcxproj">
       <Project>{763A9624-629D-25C9-0B23-5E7FF764F14B}</Project>

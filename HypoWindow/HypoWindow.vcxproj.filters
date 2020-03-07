@@ -60,6 +60,9 @@
     <ClCompile Include="src\Hypo\Window\ImGui\ImGuiLayer.cpp">
       <Filter>Hypo\Window\ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="src\Hypo\Window\Input.cpp">
+      <Filter>Hypo\Window</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>

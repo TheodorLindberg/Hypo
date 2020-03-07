@@ -26,7 +26,7 @@ IncludeDir["assimp"] = "Hypo3D/vendor/assimp/include"
 IncludeDir["HypoSystem"] = "HypoSystem/src"
 IncludeDir["HypoWindow"] = "HypoWindow/src"
 IncludeDir["Hypo3D"] = "Hypo3D/src"
-IncludeDir["Graphics"] = "HypoGraphics/src"
+IncludeDir["HypoGraphics"] = "HypoGraphics/src"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 	
@@ -219,6 +219,7 @@ project "Hypo3D"
 		"ImGui",
 		"Hypo3D/vendor/assimp/assimp.lib",
 		"HypoSystem",
+		"HypoWindow",
 		"HypoGraphics"
 	}
 	files
@@ -236,7 +237,7 @@ project "Hypo3D"
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.HypoSystem}",
 		"%{IncludeDir.HypoWindow}",
-		"%{IncludeDir.HypoGrahpics}",
+		"%{IncludeDir.HypoGraphics}",
 		"%{IncludeDir.Hypo3D}",
 		"%{IncludeDir.GSL}"
 	}
@@ -294,7 +295,7 @@ project "Sandbox"
 
 		"%{IncludeDir.HypoWindow}",
 		"%{IncludeDir.HypoSystem}",
-		"%{IncludeDir.Graphics}",
+		"%{IncludeDir.HypoGraphics}",
 		"%{IncludeDir.Hypo3D}",
 		"%{IncludeDir.GSL}"
 

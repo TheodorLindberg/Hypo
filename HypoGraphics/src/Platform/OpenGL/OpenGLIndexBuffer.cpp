@@ -10,7 +10,7 @@ Hypo::OpenGLIndexBuffer::OpenGLIndexBuffer(uInt32 size)
 	m_Buffer.LoadEmpty<GL_ELEMENT_ARRAY_BUFFER>(size);
 }
 
-Hypo::OpenGLIndexBuffer::OpenGLIndexBuffer(gsl::span<ElementIndex> data)
+Hypo::OpenGLIndexBuffer::OpenGLIndexBuffer(gsl::span<const ElementIndex> data)
 {
 	m_Count = data.size();
 	m_Buffer.Load<GL_ELEMENT_ARRAY_BUFFER>(ConvertSpanToBytes(data));
@@ -33,13 +33,13 @@ Hypo::OpenGLIndexBufferDynamic::OpenGLIndexBufferDynamic(uInt32 size)
 	m_Buffer.LoadEmpty<GL_ELEMENT_ARRAY_BUFFER>(size, true);
 }
 
-Hypo::OpenGLIndexBufferDynamic::OpenGLIndexBufferDynamic(gsl::span<ElementIndex> data)
+Hypo::OpenGLIndexBufferDynamic::OpenGLIndexBufferDynamic(gsl::span<const ElementIndex> data)
 {
 	m_Count = data.size();
 	m_Buffer.Load<GL_ELEMENT_ARRAY_BUFFER>(ConvertSpanToBytes(data), true);
 }
 
-void Hypo::OpenGLIndexBufferDynamic::Update(gsl::span<ElementIndex> data, uInt32 offset)
+void Hypo::OpenGLIndexBufferDynamic::Update(gsl::span<const ElementIndex> data, uInt32 offset)
 {
 	m_Buffer.Update<GL_ELEMENT_ARRAY_BUFFER>(ConvertSpanToBytes(data), offset);
 }

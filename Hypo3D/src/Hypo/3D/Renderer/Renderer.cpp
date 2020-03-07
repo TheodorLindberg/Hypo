@@ -5,6 +5,7 @@
 #include "Hypo/System/Util/Log.h"
 
 #include "glad/glad.h"
+#include "Hypo/3D/Camera/Camera.h"
 
 namespace Hypo
 {
@@ -16,50 +17,60 @@ namespace Hypo
 		const int status = gladLoadGLLoader((GLADloadproc)ptr);
 	}
 
-	void Renderer::BeginScene(/*Camera* camera*/)
+	void Renderer::BeginScene(Camera* camera)
 	{
 
 		if(!m_SetupData )
 		{
 
-			/*auto& transformBinder = AssetManager::GetUniformBinder("Transform");
-			if (!transformBinder)
-			{
-				HYPO_CORE_ASSERT(false, "Could not find uniform transform, scene setup invalid");
+			m_SetupData = std::make_unique<RendererSetupData>(RendererSetupData());
+			
+			auto meshShaderData = Hypo::ShaderFromFile("res\\shaders\\meshShader.glsl");
+			auto meshShader = Hypo::Shader::Create(meshShaderData);
 
-			}
-			//m_SetupData = std::make_unique<RendererSetupData>(RendererSetupData());
-			auto shader = Shader::Create(ResourceLoader::LoadShader("basicColor.glsl"));
-			if(!shader)
+			auto colorShaderData = Hypo::ShaderFromFile("res\\shaders\\basicColor.glsl");
+			auto colorShader = Hypo::Shader::Create(meshShaderData);
+
+			
+			if (!meshShader)
 			{
 				HYPO_CORE_WARN("Failed to load basicColor shader for simple geometry");
 			}
-			m_SetupData->m_SimpleColorShader = shader;
-			*/
+
+			m_SetupData->m_MeshShader = meshShader;
+			m_SetupData->m_ColorShader = colorShader;
+			
+			auto& transformBinder = UniformBinderManager::GetUniformBinder("Transform");
+			if (!transformBinder)
+			{
+				HYPO_CORE_ASSERT(false, "Could not find uniform transform, scene setup invalid");
+			}
+
+			m_SetupData->m_TransformBinder = transformBinder;
+			m_SetupData->m_TransformBuffer = UniformBuffer::Create(m_SetupData->m_TransformBinder);
+			
 			
 			//m_SetupData->m_ColorBinder = AssetManager::GetUniformBinder("SingleColor");
 //			m_SetupData->m_ColorBuffer = UniformBuffer::Create(m_SetupData->m_ColorBinder);
 			//m_SetupData->m_ColorData = UniformData(m_SetupData->m_ColorBinder);
 
 
-			//m_SetupData->m_TransformBinder = AssetManager::GetUniformBinder("Transform");
-	//		m_SetupData->m_TransformBuffer = UniformBuffer::Create(m_SetupData->m_TransformBinder);
-		//	m_SetupData->m_TransformData = UniformData(m_SetupData->m_TransformBinder);
-
+		
 		}
 
 		m_ActiveSceneData.reset(new SceneData());
 
-	//	m_ActiveSceneData->invViewMatrix = camera->GetInverseViewMatrix();
-		//m_ActiveSceneData->viewMatrix = camera->GetViewMatrix();
-		//m_ActiveSceneData->projectionViewMatrix = camera->GetViewProjectionMatrix();
-										
-//		m_ActiveSceneData->viewBounds = camera->GetViewBounds();
-	//	m_ActiveSceneData->m_TransformUniforms = m_SetupData->m_TransformBuffer;
-	//	m_ActiveSceneData->m_TransformData = m_SetupData->m_TransformData;
+		m_ActiveSceneData->invViewMatrix = camera->GetInverseViewMatrix();
+		m_ActiveSceneData->viewMatrix = camera->GetViewMatrix();
+		m_ActiveSceneData->projectionViewMatrix = camera->GetViewProjectionMatrix();
 
-		//m_ActiveSceneData->m_TransformData.Set("u_ViewMatrix", m_ActiveSceneData->viewMatrix);
-		//m_ActiveSceneData->m_TransformData.Set("u_ProjectionViewMatrix", m_ActiveSceneData->projectionViewMatrix);
+
+		
+		m_ActiveSceneData->viewBounds = camera->GetViewBounds();
+		m_ActiveSceneData->m_TransformUniforms = m_SetupData->m_TransformBuffer;
+
+		m_ActiveSceneData->m_TransformUniforms->Set("u_ViewMatrix", m_ActiveSceneData->viewMatrix);
+		m_ActiveSceneData->m_TransformUniforms->Set("u_ProjectionViewMatrix", m_ActiveSceneData->projectionViewMatrix);
 		
 
 		//m_ActiveSceneData->m_TransformUniforms->LoadStructure(m_ActiveSceneData->m_TransformData);
@@ -77,7 +88,7 @@ namespace Hypo
 	void Renderer::Submit(Shader::Ptr& shader, VertexArray::Ptr& vertexArray)
 	{
 		shader->Bind();
-		//shader->BindUniformBuffer(m_ActiveSceneData->m_TransformUniforms);
+		shader->BindUniformBuffer(m_ActiveSceneData->m_TransformUniforms);
 		vertexArray->Bind();
 		RenderCommand::DrawIndexed(vertexArray);
 		vertexArray->Unbind();
@@ -87,13 +98,15 @@ namespace Hypo
 	void Renderer::Submit(Shader::Ptr& shader, glm::mat4& transform, VertexArray::Ptr& vertexArray)
 	{
 		shader->Bind();
-		//shader->BindUniformBuffer(m_ActiveSceneData->m_TransformUniforms);
+		shader->BindUniformBuffer(m_ActiveSceneData->m_TransformUniforms);
+		m_ActiveSceneData->m_TransformUniforms->Set("u_ModelMatrix", transform);
+		
 		vertexArray->Bind();
 		RenderCommand::DrawIndexed(vertexArray);
 		vertexArray->Unbind();
 		shader->UnBind();
 	}
-	/*
+	
 	void Renderer::Submit(Shader::Ptr& shader, Mesh& mesh)
 	{
 		shader->Bind();
@@ -103,19 +116,20 @@ namespace Hypo
 		mesh.UnBind();
 		shader->UnBind();
 
-	}*/
+	}
 
-	/*
+	
 	void Renderer::Submit(Shader::Ptr& shader, glm::mat4& transform, Mesh& mesh)
 	{
+		shader->Bind();
 		mesh.Bind();
-		m_ActiveSceneData->m_TransformData.Set("u_ModelMatrix", transform);
-		m_ActiveSceneData->m_TransformUniforms->LoadStructure(m_ActiveSceneData->m_TransformData);
-		shader->BindUniformBuffer(m_ActiveSceneData->m_TransformUniforms);
+		m_SetupData->m_TransformBuffer->Set("u_ModelMatrix", transform);
+		
+		shader->BindUniformBuffer(m_SetupData->m_TransformBuffer);
 		RenderCommand::DrawIndexed(mesh.m_VertexArray, mesh.GetMeshType());
 		mesh.UnBind();
 		shader->UnBind();
-	}*/
+	}
 
 	/*
 	void Renderer::Submit(Shader::Ptr& shader, BatchRendererBuffer::Ptr& batchRendererBuffer)
@@ -126,17 +140,17 @@ namespace Hypo
 		shader->UnBind();
 	}*/
 
-	/*
+	
 	void Renderer::RenderCube(Vec3F position, Vec3F size, Vec4F color,float rotX, float rotY, float rotZ)
 	{	
 		static Mesh& cubeMesh = MeshFactory::CreateCube(VertexPositions, 1.f);
 		auto transform = Transform::CreateTransform(position, size, { rotX, rotY, rotZ }, { 0,0,0 });
-		m_SetupData->m_ColorData.Set("u_Color", color);
-		m_SetupData->m_ColorBuffer->LoadStructure(m_SetupData->m_ColorData);
-		m_SetupData->m_SimpleColorShader->BindUniformBuffer(m_SetupData->m_ColorBuffer);
-		Submit(m_SetupData->m_SimpleColorShader, transform, cubeMesh);
-		
-	}*/
+		//m_SetupData->m_ColorData.Set("u_Color", color);
+	//	m_SetupData->m_ColorBuffer->LoadStructure(m_SetupData->m_ColorData);
+//		m_SetupData->m_SimpleColorShader->BindUniformBuffer(m_SetupData->m_ColorBuffer);
+		Submit(m_SetupData->m_ColorShader, transform, cubeMesh);
+
+	}
 
 	void Renderer::EndScene()
 	{

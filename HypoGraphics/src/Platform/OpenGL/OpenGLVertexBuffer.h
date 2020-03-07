@@ -8,9 +8,9 @@ namespace Hypo
 	{
 	public:
 		OpenGLVertexBuffer(uInt32 size);
-		OpenGLVertexBuffer(gsl::span<float> data);
+		OpenGLVertexBuffer(gsl::span<const float> data);
 		
-		void Update(gsl::span<float> data, uInt32 offset) override {};
+		void Update(gsl::span<const float> data, uInt32 offset) override {};
 		
 		BufferLayout GetLayout() override { return m_Layout; }
 		void SetLayout(const BufferLayout& layout) override { m_Layout = layout; }
@@ -27,9 +27,9 @@ namespace Hypo
 	{
 	public:
 		OpenGLVertexBufferDynamic(uInt32 size);
-		OpenGLVertexBufferDynamic(gsl::span<float> data);
+		OpenGLVertexBufferDynamic(gsl::span<const float> data);
 
-		void Update(gsl::span<float> data, uInt32 offset) override;
+		void Update(gsl::span<const float> data, uInt32 offset) override;
 	};
 
 }

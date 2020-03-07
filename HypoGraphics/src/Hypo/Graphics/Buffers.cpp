@@ -14,23 +14,23 @@ namespace Hypo
 		gladLoadGLLoader((GLADloadproc)ptr);
 	}
 
-	VertexBuffer::Ptr VertexBuffer::Create(gsl::span<float> data, bool dynamic)
+	VertexBuffer::Ptr VertexBuffer::Create(gsl::span<const float> data, BufferUsage usage)
 	{
 		return new OpenGLVertexBuffer(data);
 	}
 
-	VertexBuffer::Ptr VertexBuffer::Create(unsigned size, bool dynamic)
+	VertexBuffer::Ptr VertexBuffer::Create(unsigned size, BufferUsage usage )
 	{
 		return new OpenGLVertexBuffer(size);
 	}
 	
 
-	IndexBuffer::Ptr IndexBuffer::Create(gsl::span<ElementIndex> data, bool dynamic)
+	IndexBuffer::Ptr IndexBuffer::Create(gsl::span<const ElementIndex> data, BufferUsage usage)
 	{
 		return new OpenGLIndexBuffer(data);
 	}
 
-	IndexBuffer::Ptr IndexBuffer::Create(unsigned size, bool dynamic)
+	IndexBuffer::Ptr IndexBuffer::Create(unsigned size, BufferUsage usage)
 	{
 		return new OpenGLIndexBuffer(size);
 	}

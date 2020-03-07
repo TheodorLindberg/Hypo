@@ -13,7 +13,7 @@ namespace Hypo
 		virtual uint32_t GetWidth() const override { return m_TextureData.GetWidth(); }
 		virtual uint32_t GetHeight() const override { return m_TextureData.GetHeight(); }
 
-		virtual void SetData(gsl::span<Byte> pixels) override;
+		virtual void SetData(gsl::span<const Byte> pixels) override;
 
 		virtual void Bind(uint32_t slot = 0) override;
 

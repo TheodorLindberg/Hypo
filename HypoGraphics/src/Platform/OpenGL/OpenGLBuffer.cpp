@@ -29,7 +29,7 @@ namespace Hypo
 
 	
 	template <int type>
-	bool OpenGLBuffer::Load(gsl::span<Byte> data, bool dynamic)
+	bool OpenGLBuffer::Load(gsl::span<const Byte> data, bool dynamic)
 	{
 		#ifdef BUFFER_TYPE_CHECK
 			_debug_buffer_type = type;
@@ -38,16 +38,16 @@ namespace Hypo
 
 		glGenBuffers(1, &m_RendererID);
 		Bind<type>();
-		glBufferData(type, data.size_bytes(), reinterpret_cast<void*>(data.data()), dynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
+		glBufferData(type, data.size_bytes(), reinterpret_cast<const void*>(data.data()), dynamic ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
 		return true;
 	}
 
-	template bool OpenGLBuffer::Load<GL_ARRAY_BUFFER>(gsl::span<Byte> data, bool dynamic);
-	template bool OpenGLBuffer::Load<GL_ELEMENT_ARRAY_BUFFER>(gsl::span<Byte> data, bool dynamic);
-	template bool OpenGLBuffer::Load<GL_UNIFORM_BUFFER>(gsl::span<Byte> data, bool dynamic);
+	template bool OpenGLBuffer::Load<GL_ARRAY_BUFFER>(gsl::span<const Byte> data, bool dynamic);
+	template bool OpenGLBuffer::Load<GL_ELEMENT_ARRAY_BUFFER>(gsl::span<const Byte> data, bool dynamic);
+	template bool OpenGLBuffer::Load<GL_UNIFORM_BUFFER>(gsl::span<const Byte> data, bool dynamic);
 	
 	template <int type>
-	bool OpenGLBuffer::Update(gsl::span<Byte> data, unsigned int offset)
+	bool OpenGLBuffer::Update(gsl::span<const Byte> data, unsigned int offset)
 	{
 #ifdef BUFFER_TYPE_CHECK
 		HYPO_CORE_ASSERT(_debug_buffer_type == type, "Updating OpenGL buffer using diffrent target type");
@@ -60,9 +60,9 @@ namespace Hypo
 		return true;
 	}
 
-	template bool OpenGLBuffer::Update<GL_ARRAY_BUFFER>(gsl::span<Byte> data, unsigned int offset);
-	template bool OpenGLBuffer::Update<GL_ELEMENT_ARRAY_BUFFER>(gsl::span<Byte> data, unsigned int offset);
-	template bool OpenGLBuffer::Update<GL_UNIFORM_BUFFER>(gsl::span<Byte> data, unsigned int offset);
+	template bool OpenGLBuffer::Update<GL_ARRAY_BUFFER>(gsl::span<const Byte> data, unsigned int offset);
+	template bool OpenGLBuffer::Update<GL_ELEMENT_ARRAY_BUFFER>(gsl::span<const Byte> data, unsigned int offset);
+	template bool OpenGLBuffer::Update<GL_UNIFORM_BUFFER>(gsl::span<const Byte> data, unsigned int offset);
 
 
 	template <int type>

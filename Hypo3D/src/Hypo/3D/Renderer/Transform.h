@@ -5,7 +5,7 @@
 namespace Hypo
 {
 	
-	class Transform
+	class HYPO_3D_API Transform
 	{
 	public:
 		Transform(float m00, float m01, float m02, float m03,
@@ -22,7 +22,7 @@ namespace Hypo
 	};
 
 
-	class Transformable
+	class HYPO_3D_API Transformable
 	{
 	public:
 		Transformable();

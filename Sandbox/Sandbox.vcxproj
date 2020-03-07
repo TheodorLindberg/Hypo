@@ -138,6 +138,7 @@
     <None Include="res\shaders\basicShader.glsl" />
     <None Include="res\shaders\default.glsl" />
     <None Include="res\shaders\defaultOld.glsl" />
+    <None Include="res\shaders\meshShader.glsl" />
     <None Include="res\shaders\simple.glsl" />
   </ItemGroup>
   <ItemGroup>
@@ -164,4 +165,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project>
+</Project> 

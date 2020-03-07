@@ -339,7 +339,7 @@ namespace Hypo
 			{
 				continue;
 			}
-
+			m_UniformBindData[blockName].blockIdx = blockIx;
 			uniformBlockData[blockName] = std::pair<uInt32, BufferLayout>{ 1, UniformLayout{std::move(ExtractUniformBufferData(blockIx, blockSize)), static_cast<uInt32>(blockSize)} };
 		}
 
