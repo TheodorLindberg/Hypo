@@ -3,6 +3,7 @@
 #include "glad/glad.h"
 #include "Hypo/System/Util/Log.h"
 #include "Platform/OpenGL/OpenGLShader.h"
+#include "OpenGLVertexBuffer.h"
 
 namespace Hypo
 {
@@ -129,5 +130,12 @@ namespace Hypo
 		}
 		m_Buffers.push_back(buffer);
 		glBindVertexArray(0);
+	}
+
+	uInt32 OpenGLVertexArray::GetIndicesCount()
+	{
+		if (m_Buffers.empty()) return 0;
+
+		return m_Buffers[0].Cast<OpenGLVertexBuffer>()->GetIndicesCount();
 	}
 }

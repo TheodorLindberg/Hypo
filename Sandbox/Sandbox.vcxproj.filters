@@ -20,22 +20,19 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\shaders\TransformPositionShader.glsl">
+      <Filter>res\shaders</Filter>
+    </None>
     <None Include="res\shaders\basicColor.glsl">
       <Filter>res\shaders</Filter>
     </None>
-    <None Include="res\shaders\basicShader.glsl">
+    <None Include="res\shaders\custom.glsl">
       <Filter>res\shaders</Filter>
     </None>
-    <None Include="res\shaders\default.glsl">
+    <None Include="res\shaders\lightShader.glsl">
       <Filter>res\shaders</Filter>
     </None>
-    <None Include="res\shaders\defaultOld.glsl">
-      <Filter>res\shaders</Filter>
-    </None>
-    <None Include="res\shaders\meshShader.glsl">
-      <Filter>res\shaders</Filter>
-    </None>
-    <None Include="res\shaders\simple.glsl">
+    <None Include="res\shaders\simpleMeshShader.glsl">
       <Filter>res\shaders</Filter>
     </None>
   </ItemGroup>

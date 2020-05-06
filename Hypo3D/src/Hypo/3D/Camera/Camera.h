@@ -13,6 +13,7 @@ namespace Hypo
 		virtual const glm::mat4& GetInverseViewMatrix() = 0;
 		virtual const glm::mat4& GetProjectionMatrix() = 0;
 		virtual const glm::mat4& GetViewProjectionMatrix() = 0;
+		virtual const Vec3F& GetViewPosition() = 0;
 		virtual const RectF& GetViewBounds() = 0;
 	};
 
@@ -41,6 +42,7 @@ namespace Hypo
 		const glm::mat4& GetInverseViewMatrix() override;
 		const glm::mat4& GetProjectionMatrix() override;
 		const glm::mat4& GetViewProjectionMatrix() override;
+		const Vec3F& GetViewPosition() override { return m_Position; }
 		const RectF& GetViewBounds() override;
 
 	private:
@@ -86,6 +88,7 @@ namespace Hypo
 		const glm::mat4& GetInverseViewMatrix() override;
 		const glm::mat4& GetProjectionMatrix() override;
 		const glm::mat4& GetViewProjectionMatrix() override;
+		const Vec3F& GetViewPosition() override { return m_Position; }
 		const RectF& GetViewBounds() override;
 
 		const glm::vec3 GetLeftVector() const;

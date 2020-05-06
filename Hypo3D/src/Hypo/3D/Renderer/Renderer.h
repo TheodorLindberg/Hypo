@@ -5,6 +5,7 @@
 #include "Hypo/Graphics/Shader/UniformBuffer.h"
 #include "Hypo/Graphics/Shader/Shader.h"
 #include "Platform/OpenGL/OpenGLVertexArray.h"
+#include "Hypo/3D/Renderer/Scene.h"
 
 namespace Hypo
 {
@@ -15,44 +16,50 @@ namespace Hypo
 	class HYPO_3D_API Renderer
 	{
 	public:
-		struct RendererSetupData
-		{
-			UniformBinder::Ptr m_TransformBinder;
-			UniformBuffer::Ptr m_TransformBuffer;
-			
-			UniformBinder::Ptr m_ColorBinder;
-			UniformBuffer::Ptr m_ColorBuffer;
-			Shader::Ptr m_MeshShader;
-			Shader::Ptr m_ColorShader;
-
-
-		};
-
-		struct SceneData
-		{
-			glm::mat4 viewMatrix;
-			glm::mat4 invViewMatrix;
-			glm::mat4 projectionViewMatrix;
-			RectF viewBounds;
-			UniformBuffer::Ptr m_TransformUniforms;
-		};
-		static void BeginScene(Camera* camera);
+		static void BeginScene(Camera* camera, SceneLights& lights);
 		static void EndScene();
 
-		static void Submit(VertexArray::Ptr& vertexArray);
-		static void Submit(Mesh& vertexArray);
-		
+
 		static void Submit(Drawable& drawable);
 		static void Submit(Shader::Ptr& shader, VertexArray::Ptr& vertexArray);
 		static void Submit(Shader::Ptr& shader, glm::mat4& transform, VertexArray::Ptr& vertexArray);
 		static void Submit(Shader::Ptr& shader, Mesh& mesh);
 		static void Submit(Shader::Ptr& shader, glm::mat4& transform, Mesh& mesh);
-		
+		static void Submit(Shader::Ptr& shader, glm::mat4& transform, Mesh& mesh, Texture2D::Ptr& texture, const std::string& textureName);
+
+
+		//Simple mesh renderer
 		static void RenderCube(Vec3F position, Vec3F size, Vec4F color = {1.f,1.f,1.f,1.f}, float rotX = 0, float rotY = 0, float rotZ = 0);
-		static void RenderPlane();
 		inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
 	public:
-		static std::unique_ptr<RendererSetupData> m_SetupData;
-		static std::unique_ptr<SceneData> m_ActiveSceneData;
+
+		struct SceneData
+		{
+			glm::mat4 m_ProjectionMatrix;
+			glm::mat4 m_ViewMatrix;
+			SceneLights lights;
+		};
+
+		struct SceneRendererData
+		{
+			Shader::Ptr m_MeshShader;
+
+			Shader::Ptr m_IntermediateColorShader;
+			Shader::Ptr m_IntermediateTextureShader;
+
+			UniformBuffer::Ptr m_TransformBuffer;
+			UniformBuffer::Ptr m_IntermediateColorBuffer;
+
+
+			UniformBuffer::Ptr m_PointLightsBuffer;
+		};
+
+
+		static std::unique_ptr<SceneData>& GetSceneData();
+		static std::unique_ptr<SceneRendererData>& GetSceneRendererData();
+
+	private:
+		static std::unique_ptr<SceneData> s_SceneData;
+		static std::unique_ptr<SceneRendererData> s_SceneRendererData;
 	};
 }

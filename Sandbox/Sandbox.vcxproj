@@ -134,12 +134,11 @@
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\shaders\TransformPositionShader.glsl" />
     <None Include="res\shaders\basicColor.glsl" />
-    <None Include="res\shaders\basicShader.glsl" />
-    <None Include="res\shaders\default.glsl" />
-    <None Include="res\shaders\defaultOld.glsl" />
-    <None Include="res\shaders\meshShader.glsl" />
-    <None Include="res\shaders\simple.glsl" />
+    <None Include="res\shaders\custom.glsl" />
+    <None Include="res\shaders\lightShader.glsl" />
+    <None Include="res\shaders\simpleMeshShader.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\references-outerra2.jpg" />
@@ -165,4 +164,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project> 
+</Project>

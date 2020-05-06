@@ -1,0 +1,18 @@
+[submodule "GSL"]
+	path = vendor/GSL
+	url = https://github.com/microsoft/GSL.git
+
+[submodule "spdlog"]
+	path = vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
+
+
+[submodule "GLFW"]
+	path = HypoWindow/vendor/GLFW
+	url = https://github.com/TheCherno/glfw.git
+
+
+[submodule "imgui"]
+	path = vendor/imgui
+	url = https://github.com/TheCherno/imgui.git
+

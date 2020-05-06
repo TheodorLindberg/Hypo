@@ -10,6 +10,7 @@ layout(std140) uniform Transform
 	mat4 u_ProjectionViewMatrix;
 	mat4 u_ViewMatrix;
 	mat4 u_ModelMatrix;
+	vec3 u_ViewPos;
 };
 
 

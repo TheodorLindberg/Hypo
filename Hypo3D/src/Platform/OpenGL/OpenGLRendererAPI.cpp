@@ -53,8 +53,10 @@ namespace Hypo
 		default: mode = -1;
 			HYPO_CORE_ERROR("Warning unvalid mesh type, skipping render call"); return;
 		}
-
-		glDrawElements(mode, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
+		if (vertexArray->HasIndexBuffer())
+			glDrawElements(mode, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, 0);
+		else
+			glDrawArrays(mode, 0, vertexArray->GetIndicesCount());
 	}
 	/*
 	void OpenGLRendererAPI::DrawInstanced(const BatchRendererBuffer::Ptr& batchRendererBuffer)

@@ -19,6 +19,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HypoSystem", "HypoSystem\Hy
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HypoWindow", "HypoWindow\HypoWindow.vcxproj", "{9D7960F7-8931-A244-F238-7BA0DE0F3D35}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Robot", "Robot\Robot.vcxproj", "{2B67090E-977B-31BF-60FD-D41ECCD02DF0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Serial", "Robot\vendor\serial\Serial.vcxproj", "{A52ADFD0-91CC-09A7-7A87-1DFB66C890F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -74,6 +78,18 @@ Global
 		{9D7960F7-8931-A244-F238-7BA0DE0F3D35}.Dist|x64.Build.0 = Dist|x64
 		{9D7960F7-8931-A244-F238-7BA0DE0F3D35}.Release|x64.ActiveCfg = Release|x64
 		{9D7960F7-8931-A244-F238-7BA0DE0F3D35}.Release|x64.Build.0 = Release|x64
+		{2B67090E-977B-31BF-60FD-D41ECCD02DF0}.Debug|x64.ActiveCfg = Debug|x64
+		{2B67090E-977B-31BF-60FD-D41ECCD02DF0}.Debug|x64.Build.0 = Debug|x64
+		{2B67090E-977B-31BF-60FD-D41ECCD02DF0}.Dist|x64.ActiveCfg = Dist|x64
+		{2B67090E-977B-31BF-60FD-D41ECCD02DF0}.Dist|x64.Build.0 = Dist|x64
+		{2B67090E-977B-31BF-60FD-D41ECCD02DF0}.Release|x64.ActiveCfg = Release|x64
+		{2B67090E-977B-31BF-60FD-D41ECCD02DF0}.Release|x64.Build.0 = Release|x64
+		{A52ADFD0-91CC-09A7-7A87-1DFB66C890F7}.Debug|x64.ActiveCfg = Debug|x64
+		{A52ADFD0-91CC-09A7-7A87-1DFB66C890F7}.Debug|x64.Build.0 = Debug|x64
+		{A52ADFD0-91CC-09A7-7A87-1DFB66C890F7}.Dist|x64.ActiveCfg = Dist|x64
+		{A52ADFD0-91CC-09A7-7A87-1DFB66C890F7}.Dist|x64.Build.0 = Dist|x64
+		{A52ADFD0-91CC-09A7-7A87-1DFB66C890F7}.Release|x64.ActiveCfg = Release|x64
+		{A52ADFD0-91CC-09A7-7A87-1DFB66C890F7}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

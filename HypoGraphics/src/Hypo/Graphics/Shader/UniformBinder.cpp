@@ -43,7 +43,7 @@ namespace Hypo
 		
 		for (auto& element : layout)
 		{
-			m_OffsetCache[element.Name] = element;
+			m_OffsetCache[element.] = element;
 		}
 	}
 

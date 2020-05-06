@@ -29,10 +29,13 @@ namespace Hypo
 		template<int type>
 		bool UnBind();
 
+		uInt32 GetBufferSize() { return m_BufferSize; }
+
 #ifdef BUFFER_TYPE_CHECK
 		int _debug_buffer_type;
 		int _debug_buffer_size;
 #endif
 		uInt32 m_RendererID = 0;
+		uInt32 m_BufferSize = 0;
 	};
 }

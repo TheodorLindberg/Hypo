@@ -2,6 +2,7 @@
 #include "Hypo/Graphics/Exports.h"
 #include "Hypo/Graphics/Shader/Shader.h"
 #include <array>
+#include "Hypo/Graphics/NestedBufferLayout.h"
 
 namespace Hypo
 {
@@ -67,6 +68,7 @@ namespace Hypo
 
 		void ParseUniformDataFromShaders();
 		std::vector<BufferElement> ExtractUniformBufferData(unsigned int blockIx, unsigned int blockSize);
+		BufferMemoryLayout GetUniformBufferLayout(unsigned int blockIx, unsigned int blockSize);
 
 	private:
 		static constexpr int OPENGL_TEXTURE_SLOTS = 32;

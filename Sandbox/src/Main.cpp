@@ -20,6 +20,9 @@
 #include "Hypo/3D/Camera/CameraController.h"
 #include "Hypo/Graphics/BufferLayout.h"
 #include <glm/ext/scalar_constants.inl>
+#include "Hypo/3D/Asset/AssetManager.h"
+#include "Hypo/3D/Asset/Light.h"
+#include "Hypo/Graphics/NestedBufferLayout.h"
 
 
 namespace Hypo {
@@ -33,10 +36,12 @@ int main()
 	Hypo::init(window->GetGladProc());
 	Hypo::InitRenderer(window->GetGladProc());
 	
-	 
-	auto shaderData = Hypo::ShaderFromFile("res\\shaders\\simple.glsl");
-	auto shader = Hypo::Shader::Create(shaderData);
-	shader->Bind();
+	//auto shaderData = Hypo::ShaderFromFile("res\\shaders\\simple.glsl");
+	//auto shader = Hypo::Shader::Create(shaderData);
+
+
+
+	//shader->Bind();
 
 	float vertices[] = {
 		// positions				// texture coords
@@ -51,10 +56,11 @@ int main()
 	};
 
 	
-	auto wallTexture = Hypo::Texture2D::Create(Hypo::TextureFromFile("res\\textures\\wall.jpg"));
-	auto forestTexture = Hypo::Texture2D::Create(Hypo::TextureFromFile("res\\textures\\references-outerra2.jpg"));
+	//auto wallTexture = Hypo::Texture2D::Create(Hypo::TextureFromFile("res\\textures\\wall.jpg"));
+	//auto forestTexture = Hypo::Texture2D::Create(Hypo::TextureFromFile("res\\textures\\references-outerra2.jpg"));
 
-
+	auto wallTexture = Hypo::AssetManager::RetrieveTexture2DAsset("brick_wall","res\\textures\\wall.jpg" );
+	auto forestTexture = Hypo::AssetManager::RetrieveTexture2DAsset("forrest", "res\\textures\\references-outerra2.jpg");
 
 	Hypo::ThridPersonKeyboardCamera camera;
 
@@ -66,7 +72,7 @@ int main()
 	window->SetVSync(true);
 
 
-	auto meshShaderData = Hypo::ShaderFromFile("res\\shaders\\meshShader.glsl");
+	auto meshShaderData = Hypo::ShaderFromFile("res\\shaders\\lightShader.glsl");
 	auto meshShader = Hypo::Shader::Create(meshShaderData);
 
 
@@ -75,7 +81,7 @@ int main()
 		{Hypo::ShaderDataType::Float3,"a_Position"},
 		{Hypo::ShaderDataType::Float3,"a_Normal"},
 		{Hypo::ShaderDataType::Float2,"a_TexCoord"},
-		});
+	});
 
 	auto indexBuffer = Hypo::IndexBuffer::Create(gsl::span<Hypo::ElementIndex>(indices));
 
@@ -90,7 +96,26 @@ int main()
 	float xOffset3 = 0.f;
 
 	Hypo::SimpleModel model(Hypo::MeshFactory::CreateUVSphere(Hypo::VertexPosTexNorm, 20, 20, 2.f), meshShader, wallTexture);
-	
+
+	std::vector<Hypo::Vec3F> lightPositions = {
+		{1.2f,1.1f,2.2f},
+		{-3.f,1.5f,-3.1f},
+		{3.4f,3.2f,-1.3f},
+		{5.7f,2.1f,2.2f},
+		{-2.1f,1.4f,-2.5f}
+	};
+
+	Hypo::SceneLights lights;
+	for(int i = 0; i < 5; i++)
+	{
+		Hypo::PointLight light;
+		light.Position = lightPositions[i];
+
+		lights.PointLights.push_back(light);
+	}
+
+
+	auto cube = Hypo::MeshFactory::CreateCube(Hypo::VertexPosTex);
 
 	float innerRadius = 0.3;
 	float outerRadius = 1;
@@ -100,7 +125,6 @@ int main()
 
 	Hypo::Vec3F rotation = {glm::pi<float>() / 2,0,0};
 
-	auto lightBuffer = Hypo::UniformBuffer::Create(Hypo::UniformBinderManager::GetUniformBinder("Light"));
 	
 	window->EnableImGui();
 	bool running = true;
@@ -127,44 +151,36 @@ int main()
 		Hypo::RenderCommand::Clear(Hypo::RendererAPI::CLEAR_COLOR | Hypo::RendererAPI::CLEAR_DEPTH);
 
 		
-		Hypo::Renderer::BeginScene(&camera);
-		/*
+		Hypo::Renderer::BeginScene(&camera, lights);
+		
 		window->GetGraphicsContext()->ResetState();
 		window->GetGraphicsContext()->EnableCullFace(Hypo::CullFace::Back);
 		window->GetGraphicsContext()->EnableDepthTest(true);
-	
-		Hypo::Renderer::m_SetupData->m_MeshShader->BindTexture(forestTexture, "texture1");
-		Hypo::Renderer::RenderCube({ 0,2,0 }, { 1,1,1 }, { 1,0,1,1 });
 
-		auto sphereTransform = Hypo::Transform::CreateTransform({ 2,1,2 }, { 1,1,1 }, rotation, { 0,0,0 });
-		Hypo::Renderer::Submit(Hypo::Renderer::m_SetupData->m_MeshShader, sphereTransform, mesh2);
-		window->GetGraphicsContext()->ResetState();
-		window->GetGraphicsContext()->EnableCullFace(Hypo::CullFace::Disabled);
-		window->GetGraphicsContext()->EnableDepthTest(true);
-		*/
+
 		auto transform = Hypo::Transform::CreateTransform({0,0,0},{4,4,4}, rotation, {0,0,0});
-		 
-		Hypo::Renderer::m_SetupData->m_MeshShader->BindTexture(wallTexture, "texture1");
-		lightBuffer->Set("color", Hypo::Vec3F{ 0.5,1,1 });
-		lightBuffer->Set("position", Hypo::Vec3F{ 2,2,2 });
-
 		
-			auto& planeShader = Hypo::Renderer::m_SetupData->m_MeshShader;
 		
-		planeShader->BindUniformBuffer(lightBuffer);
-
-		Hypo::Renderer::m_ActiveSceneData->m_TransformUniforms->Set("u_ViewPos", camera.GetPosition());
+		auto& planeShader = Hypo::Renderer::GetSceneRendererData()->m_MeshShader;
+		
+		
 		Hypo::Renderer::Submit(planeShader, transform, vertexArray);
 
 		//model.Rotate(Hypo::Vec3F{ 0.1f,0.1f,0.f, });
+		auto cubeTransform = Hypo::Transform::CreateTransform({ 0,3,0 }, { 0.2,0.5,1 }, {0,0,0}, { 0,0,0 });
 		
-		//Hypo::Renderer::Submit(model);
+		Hypo::Renderer::Submit(Hypo::AssetManager::RetrieveShaderAsset("simpleMeshShader", "res\\shaders\\simpleMeshShader.glsl"), cubeTransform, cube, wallTexture, "texture1");
 
+		/*for(auto& light : lights.PointLights)
+		{
+
+			Hypo::Renderer::RenderCube(light.Position, { 0.1,0.1,0.1 }, {1.f,0.5f,1.f, 1.f});
+		}*/
+
+		Hypo::Renderer::RenderCube(lights.PointLights[4].Position, { 0.1,0.1,0.1 }, { 1.f,0.5f,1.f, 1.f });
 		
 		Hypo::Renderer::EndScene();
 
-
-		
 		window->BeginImGui();
 
 		static bool show = true;
@@ -181,6 +197,7 @@ int main()
 		ImGui::DragFloat("RadiusOuter", &outerRadius, 0.005, 0, innerRadius);
 		ImGui::ColorPicker4("ColorInner", reinterpret_cast<float*>(&innerColor));
 		ImGui::ColorPicker4("ColorOuter", reinterpret_cast<float*>(&outerColor));
+
 		ImGui::End();
 		
 		

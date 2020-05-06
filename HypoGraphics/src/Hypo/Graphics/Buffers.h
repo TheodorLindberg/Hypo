@@ -5,7 +5,9 @@
 #include "Hypo/Graphics/Shader/Shader.h"
 
 namespace Hypo
-{	
+{
+	enum class MeshType;
+
 	template<typename T>
 	inline gsl::span<const Byte> ConvertSpanToBytes(gsl::span<const T>& span)
 	{
@@ -74,6 +76,10 @@ namespace Hypo
 		virtual void AddVertexBuffer(VertexBuffer::Ptr buffer, Shader::Ptr shader) = 0;
 		virtual void AddVertexBuffer(VertexBuffer::Ptr buffer) = 0;
 		virtual void SetIndexBuffer(IndexBuffer::Ptr buffer) = 0;
+		virtual bool HasIndexBuffer() = 0;
+		virtual void SetMeshType(MeshType type) = 0;
+		virtual MeshType GetMeshType() = 0;
+		virtual uInt32 GetIndicesCount() = 0;
 		virtual IndexBuffer::Ptr GetIndexBuffer() const = 0;
 		static Ptr Create();
 	};

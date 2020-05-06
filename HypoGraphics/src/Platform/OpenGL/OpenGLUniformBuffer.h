@@ -32,9 +32,9 @@ namespace Hypo
 
 		bool Set(const char* name, Vec2I value) override;
 
-		bool Set(const char* name, Vec3I& value) override;
+		bool Set(const char* name, const Vec3I& value) override;
 
-		bool Set(const char* name, Vec4I& value) override;
+		bool Set(const char* name, const Vec4I& value) override;
 
 		bool Set(const char* name, float value) override;
 
@@ -46,9 +46,9 @@ namespace Hypo
 
 		bool Set(const char* name, Vec2F value) override;
 
-		bool Set(const char* name, Vec3F& value) override;
+		bool Set(const char* name, const Vec3F& value) override;
 
-		bool Set(const char* name, Vec4F& value) override;
+		bool Set(const char* name, const Vec4F& value) override;
 
 		bool Set(const char* name, bool value) override;
 

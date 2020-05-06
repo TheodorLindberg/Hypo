@@ -32,6 +32,10 @@ namespace Hypo
 		bool HasShader(ShaderType type) const { return m_Shaders.find(type) != m_Shaders.end(); }
 		const std::string& GetShader(ShaderType type) const;
 		const std::string& GetName() const { return m_Name; }
+		operator bool() const
+		{
+			return m_Name.empty() == false;
+		}
 	private:
 		ShaderSources m_Shaders;
 		std::string m_Name;

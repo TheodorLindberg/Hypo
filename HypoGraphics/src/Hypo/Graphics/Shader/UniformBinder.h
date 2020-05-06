@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include "Hypo/System/DataTypes/ObjPtr.h"
 #include "Hypo/Graphics/BufferLayout.h"
+#include "Hypo/Graphics/NestedBufferLayout.h"
 
 namespace Hypo
 {	

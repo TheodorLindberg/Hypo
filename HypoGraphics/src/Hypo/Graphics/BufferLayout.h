@@ -28,7 +28,7 @@ namespace Hypo
 	};
 	static uInt32 ShaderDataTypeSize(ShaderDataType type)
 	{
-		return SHADER_DATA_TYPE_SIZE(int(type));
+		return SHADER_DATA_TYPE_SIZE(static_cast<int>(type));
 	}
 
 	struct BufferElement
@@ -131,5 +131,4 @@ namespace Hypo
 	};
 	using BufferLayout = _Layout;
 	using AttributeLayout = _Layout;
-	using UniformLayout = _Layout;
 }

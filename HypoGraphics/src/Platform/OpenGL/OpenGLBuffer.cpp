@@ -15,7 +15,7 @@ namespace Hypo
 		_debug_buffer_type = type;
 		_debug_buffer_size = size;
 #endif
-		
+		m_BufferSize = size;
 		glGenBuffers(1, &m_RendererID);
 		Bind<type>();
 
@@ -35,6 +35,7 @@ namespace Hypo
 			_debug_buffer_type = type;
 			_debug_buffer_size = data.size_bytes();
 		#endif
+		m_BufferSize = data.size_bytes();
 
 		glGenBuffers(1, &m_RendererID);
 		Bind<type>();

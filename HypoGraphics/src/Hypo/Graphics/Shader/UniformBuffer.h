@@ -24,11 +24,11 @@ namespace Hypo {
 
 		virtual bool Set(const char* name, int value1, int value2, int value3, int value4) = 0;
 
-		virtual bool Set(const char* name, Vec2I value) = 0;
+		virtual bool Set(const char* name, const Vec2I value) = 0;
 
-		virtual bool Set(const char* name, Vec3I& value) = 0;
+		virtual bool Set(const char* name, const Vec3I& value) = 0;
 
-		virtual bool Set(const char* name, Vec4I& value) = 0;
+		virtual bool Set(const char* name, const Vec4I& value) = 0;
 
 		virtual bool Set(const char* name, float value) = 0;
 
@@ -38,11 +38,11 @@ namespace Hypo {
 
 		virtual bool Set(const char* name, float value1, float value2, float value3, float value4) = 0;
 
-		virtual bool Set(const char* name, Vec2F value) = 0;
+		virtual bool Set(const char* name, const Vec2F value) = 0;
 
-		virtual bool Set(const char* name, Vec3F& value) = 0;
+		virtual bool Set(const char* name, const Vec3F& value) = 0;
 
-		virtual bool Set(const char* name, Vec4F& value) = 0;
+		virtual bool Set(const char* name, const Vec4F& value) = 0;
 
 		virtual bool Set(const char* name, bool value) = 0;
 

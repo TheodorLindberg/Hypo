@@ -9,6 +9,7 @@
 #include "Hypo/Graphics/Shader/UniformBinder.h"
 #include "Platform/OpenGL/OpenGLUniformBuffer.h"
 #include "Platform/OpenGL/OpenGLTexture.h"
+#include "Hypo/Graphics/NestedBufferLayout.h"
 
 #if HYPO_RUNTIME_CHECK_UNIFORMS == HYPO_ENABLED
 #define CHECK_UNIFORM(name, type) if(auto correctType = GetUniformType(name); correctType != type) { HYPO_CORE_ERROR("Uniform {} dosen't match uniform type in shader, uniform type {}, user type {}", name, correctType, type); }
@@ -174,7 +175,7 @@ namespace Hypo
 
 			// The maxLength includes the NULL character
 			std::vector<GLchar> infoLog(maxLength);
-			glGetProgramInfoLog(m_RendererID, maxLength, &maxLength, &infoLog[0]);
+			glGetProgramInfoLog(m_RendererID, maxLength, &maxLength, infoLog.data());
 
 
 			// We don't need the program anymore.
@@ -303,7 +304,7 @@ namespace Hypo
 		GLint numBlocks;
 		glGetProgramiv(m_RendererID, GL_ACTIVE_UNIFORM_BLOCKS, &numBlocks);
 
-		std::unordered_map<std::string, std::pair<unsigned int, BufferLayout>> uniformBlockData;
+		std::unordered_map<std::string, std::pair<unsigned int, UniformLayout>> uniformBlockData;
 
 		for (int blockIx = 0; blockIx < numBlocks; ++blockIx)
 		{
@@ -321,6 +322,9 @@ namespace Hypo
 			blockName.assign(blockNameData.begin(), blockNameData.end() - 1); //Remove the null terminator.
 
 			glUniformBlockBinding(m_RendererID, blockIx, blockIx);
+
+
+			blockName.erase(blockName.begin(), blockName.begin() + blockName.find_first_of('.'));
 
 			int index = 0;
 			if (auto i = blockName.find_first_of('['); i != std::string::npos)
@@ -340,7 +344,7 @@ namespace Hypo
 				continue;
 			}
 			m_UniformBindData[blockName].blockIdx = blockIx;
-			uniformBlockData[blockName] = std::pair<uInt32, BufferLayout>{ 1, UniformLayout{std::move(ExtractUniformBufferData(blockIx, blockSize)), static_cast<uInt32>(blockSize)} };
+			uniformBlockData[blockName] = std::pair<uInt32, UniformLayout>{ 1, GetUniformBufferLayout(blockIx, blockSize) };
 		}
 
 		for (auto it = uniformBlockData.begin(); it != uniformBlockData.end(); ++it)
@@ -364,6 +368,8 @@ namespace Hypo
 
 		std::vector<BufferElement> elements;
 
+		BufferMemoryLayout layout;
+
 		for (int i = 0; i < uniformCount; i++)
 		{
 			GLint size; // size of the variable, how many in the array
@@ -379,6 +385,7 @@ namespace Hypo
 
 			//Extract the GSLS name
 			std::string uniformName = std::string(uniformNameData);
+			layout.AddElement(uniformName, uniformOffsets[i], size, OpenGLToShaderDataType(type));
 			auto pos = uniformName.find_last_of('.');
 			if (pos != std::string::npos)
 			{
@@ -414,8 +421,44 @@ namespace Hypo
 		return elements;
 	}
 
+	BufferMemoryLayout OpenGLShader::GetUniformBufferLayout(unsigned blockIx, unsigned blockSize)
+	{
+		int uniformCount;
+		GLCall(glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS, &uniformCount));
+
+		std::vector<unsigned int> indices(uniformCount);
+		glGetActiveUniformBlockiv(m_RendererID, blockIx, GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES, reinterpret_cast<int*>(indices.data()));
+
+		std::vector<int> uniformOffsets(uniformCount);
+		glGetActiveUniformsiv(m_RendererID, uniformCount, indices.data(), GL_UNIFORM_OFFSET, uniformOffsets.data());
+
+		std::vector<BufferElement> elements;
+
+		BufferMemoryLayout layout(blockSize);
+
+		for (int i = 0; i < uniformCount; i++)
+		{
+			GLint size; // size of the variable, how many in the array
+			GLenum type; // type of the variable (float, vec3 or mat4, etc)
+
+			GLchar uniformNameData[ATTRIBUTE_MAX_LENGTH]; // variable name in GLSL
+			GLsizei length; // name length
+
+			glGetActiveUniform(m_RendererID, indices[i], ATTRIBUTE_MAX_LENGTH, &length, &size, &type, uniformNameData);
+
+			int arrayStride;
+			glGetActiveUniformsiv(m_RendererID, 1, &indices[i], GL_UNIFORM_ARRAY_STRIDE, &arrayStride);
+
+			//Extract the GSLS name
+			std::string uniformName = std::string(uniformNameData);
+			layout.AddElement(uniformName, uniformOffsets[i], size, OpenGLToShaderDataType(type));
+		}
+		return layout;
+	}
+
 	bool OpenGLShader::BindUniformBuffer(UniformBuffer::Ptr& buffer)
 	{
+		if (!buffer) return false;
 		auto it = m_UniformBindData.find(buffer->GetBinderName());
 		if (it != m_UniformBindData.end())
 		{

@@ -1,5 +1,4 @@
 #pragma once
-#include "Core.h"
 #include <glm/glm.hpp>
 #include <algorithm>
 
@@ -143,6 +142,11 @@ namespace Hypo
 		_Vec3(T x, T y, T z)
 			:
 			x(x), y(y),z(z)
+		{}
+		template<typename T2>
+		_Vec3(T2 x, T2 y, T2 z)
+			:
+			x(static_cast<T>(x)), y(static_cast<T>(y)), z(static_cast<T>(z))
 		{}
 
 		_Vec3(glm::vec3 vec)

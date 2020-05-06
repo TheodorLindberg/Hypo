@@ -80,7 +80,7 @@ namespace Hypo
 		return false;
 	}
 
-	bool OpenGLUniformBuffer::Set(const char* name, Vec3I& value)
+	bool OpenGLUniformBuffer::Set(const char* name, const Vec3I& value)
 	{
 		if (const auto offset = m_Binder->GetUniformOffset(name, ShaderDataType::Int3); offset != -1)
 		{
@@ -91,7 +91,7 @@ namespace Hypo
 		return false;
 	}
 
-	bool OpenGLUniformBuffer::Set(const char* name, Vec4I& value)
+	bool OpenGLUniformBuffer::Set(const char* name, const Vec4I& value)
 	{
 		if (const auto offset = m_Binder->GetUniformOffset(name, ShaderDataType::Int4); offset != -1)
 		{
@@ -160,7 +160,7 @@ namespace Hypo
 		return false;
 	}
 
-	bool OpenGLUniformBuffer::Set(const char* name, Vec3F& value)
+	bool OpenGLUniformBuffer::Set(const char* name, const Vec3F& value)
 	{
 		if (const auto offset = m_Binder->GetUniformOffset(name, ShaderDataType::Float3); offset != -1)
 		{
@@ -171,7 +171,7 @@ namespace Hypo
 		return false;
 	}
 
-	bool OpenGLUniformBuffer::Set(const char* name, Vec4F& value)
+	bool OpenGLUniformBuffer::Set(const char* name, const Vec4F& value)
 	{
 		if (const auto offset = m_Binder->GetUniformOffset(name, ShaderDataType::Float4); offset != -1)
 		{

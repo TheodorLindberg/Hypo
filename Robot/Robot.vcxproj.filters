@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="res">
+      <UniqueIdentifier>{4FA5880B-BBAE-887C-442A-9F7CB032947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor">
+      <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\hidapi">
+      <UniqueIdentifier>{71233808-DDE3-B33E-A61E-FDBB129EF81A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\hidapi\hidapi">
+      <UniqueIdentifier>{6FF18FFE-5B80-19C8-049F-2DC3F00C2A6E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\hidapi\hidtest">
+      <UniqueIdentifier>{755D98D0-E1C9-53CB-AABD-EB2816E97533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\hidapi\testgui">
+      <UniqueIdentifier>{450C0E64-B178-C95E-7A6C-61BCE697EBC6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\serial">
+      <UniqueIdentifier>{C24DA021-2E0E-1C58-F748-65D563C86034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\serial\include">
+      <UniqueIdentifier>{35177870-A183-336B-6A77-CBC8D6A255D3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\serial\include\serial">
+      <UniqueIdentifier>{04ABCF42-F065-BFEE-991D-383985B7097F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\serial\include\serial\impl">
+      <UniqueIdentifier>{851F354B-F18D-8ACA-3A77-45CAA6248066}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shader.glsl">
+      <Filter>res</Filter>
+    </None>
+  </ItemGroup>
+</Project>

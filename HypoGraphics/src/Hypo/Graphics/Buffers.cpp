@@ -16,12 +16,38 @@ namespace Hypo
 
 	VertexBuffer::Ptr VertexBuffer::Create(gsl::span<const float> data, BufferUsage usage)
 	{
-		return new OpenGLVertexBuffer(data);
+		switch (usage)
+		{
+		case Hypo::BufferUsage::Static:
+			return new OpenGLVertexBuffer(data);
+			break;
+		case Hypo::BufferUsage::Stream:
+			return new OpenGLVertexBufferDynamic(data);
+			break;
+		case Hypo::BufferUsage::Dynamic:
+			return new OpenGLVertexBufferDynamic(data);
+			break;
+		default:
+			break;
+		}
 	}
 
 	VertexBuffer::Ptr VertexBuffer::Create(unsigned size, BufferUsage usage )
 	{
-		return new OpenGLVertexBuffer(size);
+		switch (usage)
+		{
+		case Hypo::BufferUsage::Static:
+			return new OpenGLVertexBuffer(size);
+			break;
+		case Hypo::BufferUsage::Stream:
+			return new OpenGLVertexBufferDynamic(size);
+			break;
+		case Hypo::BufferUsage::Dynamic:
+			return new OpenGLVertexBufferDynamic(size);
+			break;
+		default:
+			break;
+		}
 	}
 	
 
