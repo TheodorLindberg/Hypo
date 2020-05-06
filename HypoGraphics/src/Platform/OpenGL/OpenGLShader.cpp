@@ -324,7 +324,6 @@ namespace Hypo
 			glUniformBlockBinding(m_RendererID, blockIx, blockIx);
 
 
-			blockName.erase(blockName.begin(), blockName.begin() + blockName.find_first_of('.'));
 
 			int index = 0;
 			if (auto i = blockName.find_first_of('['); i != std::string::npos)
@@ -451,6 +450,11 @@ namespace Hypo
 
 			//Extract the GSLS name
 			std::string uniformName = std::string(uniformNameData);
+			if(uniformName.find_first_of('.') != std::string::npos)
+			{
+
+				uniformName.erase(uniformName.begin(), uniformName.begin() + uniformName.find_first_of('.') + 1);
+			}
 			layout.AddElement(uniformName, uniformOffsets[i], size, OpenGLToShaderDataType(type));
 		}
 		return layout;
@@ -463,12 +467,12 @@ namespace Hypo
 		if (it != m_UniformBindData.end())
 		{
 			auto& data = it->second;
-
+			/*
 			if (buffer->GetBinderForBuffer() != data.binder)
 			{
 			HYPO_CORE_WARN("Cannot bind uniform buffer {}", buffer->GetBinderName());
 				return false;
-			}
+			}*/
 			OpenGLUniformBuffer& openGLbuffer = reinterpret_cast<OpenGLUniformBuffer&>(buffer.GetRef());
 			glUseProgram(m_RendererID);
 			glBindBufferBase(GL_UNIFORM_BUFFER, it->second.blockIdx, openGLbuffer.GetBuffer().GetRendererID());

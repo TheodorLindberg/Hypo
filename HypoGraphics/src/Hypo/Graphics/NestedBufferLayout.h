@@ -3,7 +3,6 @@
 #include "BufferLayout.h"
 #include <unordered_map>
 #include <iostream>
-#include "Hypo/Graphics/Shader/Shader.h"
 
 
 namespace Hypo
@@ -19,8 +18,6 @@ namespace Hypo
 
 	static NodePathSection ParseSection(const std::string& section)
 	{
-		std::cout << "Section: " << section << "   ";
-
 		auto pos = section.find_first_of('[');
 		NodePathSection data;
 		if (pos != std::string::npos)
@@ -39,7 +36,6 @@ namespace Hypo
 
 	static NodePath ParsePath(const std::string& string)
 	{
-		std::cout << string;
 		NodePath sections;
 
 		std::string::const_iterator iter = string.begin();
@@ -52,7 +48,6 @@ namespace Hypo
 			iter++;
 		}
 		sections.push_back(ParseSection(std::string(sectionBegin, string.end())));
-		std::cout << std::endl;
 		return sections;
 	}
 
@@ -112,6 +107,11 @@ namespace Hypo
 					object->AddElement(path, offset, size, type);
 					m_Children[pathSection.name] = std::move(object);
 					
+				} 
+				else if(path.size()  == 1)
+				{
+
+					m_Children[path[0].name] = std::make_unique<BufferMemoryLayoutNode>(BufferMemoryLayoutNode{ offset, 0,  type });
 				}
 			}
 
@@ -122,7 +122,7 @@ namespace Hypo
 		NodeList::iterator end() { return m_Children.end(); }
 		NodeList::const_iterator begin() const { return m_Children.begin(); }
 		NodeList::const_iterator end() const { return m_Children.end(); }
-	private:
+	public:
 		uInt32 m_Offset = -1;
 		uInt32 m_Size = -1;
 
@@ -139,15 +139,15 @@ namespace Hypo
 	public:
 
 		BufferMemoryLayout(uInt32 bufferSize = 0)
-			: m_Base(0, bufferSize, ShaderDataType::None), m_Size(bufferSize)
+			: m_Base(std::make_shared< BufferMemoryLayoutNode>(0, bufferSize, ShaderDataType::None)), m_Size(bufferSize)
 		{}
 
-		const BufferMemoryLayoutNode* GetElement(const std::string& path) const { return m_Base.GetElement(ParsePath(path)); }
+		const BufferMemoryLayoutNode* GetElement(const std::string& path) const { return m_Base->GetElement(ParsePath(path)); }
 
 		bool AddElement(const std::string& path, uInt32 offset, uInt32 size, ShaderDataType type)
 		{
 			
-			return m_Base.AddElement(ParsePath(path), offset, size,type);
+			return m_Base->AddElement(ParsePath(path), offset, size,type);
 		}
 
 		uInt32 GetStride() const
@@ -155,13 +155,18 @@ namespace Hypo
 			return m_Size;
 		}
 
-		NodeList::iterator begin() { return m_Base.begin(); }
-		NodeList::iterator end() { return m_Base.end();}
-		NodeList::const_iterator begin() const { return m_Base.begin(); }
-		NodeList::const_iterator end() const { return m_Base.end();}
+		bool operator!=(const BufferMemoryLayout& other) const
+		{
+			return m_Base != other.m_Base;
+		}
+
+		NodeList::iterator begin() { return m_Base->begin(); }
+		NodeList::iterator end() { return m_Base->end();}
+		NodeList::const_iterator begin() const { return m_Base->begin(); }
+		NodeList::const_iterator end() const { return m_Base->end();}
 	private:
 		uInt32 m_Size;
-		BufferMemoryLayoutNode m_Base;
+		std::shared_ptr<BufferMemoryLayoutNode> m_Base;
 	};
 
 	using UniformLayout = BufferMemoryLayout;

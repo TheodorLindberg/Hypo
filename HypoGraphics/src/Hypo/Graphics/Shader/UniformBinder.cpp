@@ -6,21 +6,32 @@ namespace Hypo
 {
 	uInt32 UniformBinder::GetUniformOffset(const std::string& name, ShaderDataType type) const
 	{
-		if (const auto it = m_OffsetCache.find(name); it != m_OffsetCache.end())
+		auto element = m_Layout.GetElement(name);
+		if (element)
 		{
-			if (it->second.Type != type)
+			if (element->m_Type != type)
 			{
 				return -1;
 			}
-			return it->second.Offset;
+			return  element->m_Offset;
 		}
 		return -1;
-
 	}
 
 	uInt32 UniformBinder::GetUniformOffset(const std::string& name, ShaderDataType type, uInt32 index) const
 	{
 		//Find the element inside the table
+		auto element = m_Layout.GetElement(name);
+		if(element)
+		{
+
+			if (element->m_Type!= type)
+			{
+				return -1;
+			}
+			return  element->m_Offset;
+		}
+		/*
 		if (const auto it = m_OffsetCache.find(name); it != m_OffsetCache.end())
 		{
 			//Check that it is the correct type
@@ -33,7 +44,7 @@ namespace Hypo
 				return -1;
 			}
 			return  it->second.Offset + index * it->second.ArrayElementStride;
-		}
+		}*/
 		return -1;
 	}
 
@@ -41,10 +52,10 @@ namespace Hypo
 		: m_Name(name), m_Layout(layout)
 	{
 		
-		for (auto& element : layout)
+		/*for (auto& element : layout)
 		{
 			m_OffsetCache[element.] = element;
-		}
+		}*/
 	}
 
 	std::unordered_map<std::string, UniformBinder::Ptr>  UniformBinderManager::m_Binders;

@@ -177,7 +177,10 @@ int main()
 			Hypo::Renderer::RenderCube(light.Position, { 0.1,0.1,0.1 }, {1.f,0.5f,1.f, 1.f});
 		}*/
 
-		Hypo::Renderer::RenderCube(lights.PointLights[4].Position, { 0.1,0.1,0.1 }, { 1.f,0.5f,1.f, 1.f });
+		for(int i = 0;  i < 5; i++)
+		{
+			Hypo::Renderer::RenderCube(lights.PointLights[i].Position, { 0.1,0.1,0.1 }, { 1.f,0.5f,1.f, 1.f });
+		}
 		
 		Hypo::Renderer::EndScene();
 

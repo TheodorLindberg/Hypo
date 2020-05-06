@@ -81,7 +81,7 @@ namespace Hypo
 		
 		T* operator->() const
 		{
-			return data;
+				return data;
 		}
 		T* Get() const
 		{

@@ -40,7 +40,7 @@ namespace Hypo
 
 		auto& transformBinder = UniformBinderManager::GetUniformBinder("Transform");
 		if (!transformBinder)
-		{
+		{ 
 			HYPO_CORE_ASSERT(false, "Could not find uniform transform, scene setup invalid");
 		}
 
@@ -76,13 +76,14 @@ namespace Hypo
 		for(int i = 0; i < 5; i++)
 		{
 			PointLight& light = lights.PointLights[i];
-			buffer->Set("position", light.Position);
-			buffer->Set("constant", light.Constant);
-			buffer->Set("linear", light.Linear);
-			buffer->Set("quadratic", light.Quadratic);
-			buffer->Set("ambient", light.Ambient);
-			buffer->Set("diffuse", light.Diffuse);
-			buffer->Set("specular", light.Specular);
+			std::string s = "lights[" +std::to_string(i) +"].";
+			buffer->Set((s + "position").c_str(), light.Position);
+			buffer->Set((s + "constant").c_str(), light.Constant);
+			buffer->Set((s + "linear").c_str(), light.Linear);
+			buffer->Set((s + "quadratic").c_str(), light.Quadratic);
+			buffer->Set((s + "ambient").c_str(), light.Ambient);
+			buffer->Set((s + "diffuse").c_str(), light.Diffuse);
+			buffer->Set((s + "specular").c_str(), light.Specular);
 		}
 	}
 
