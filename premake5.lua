@@ -27,6 +27,7 @@ IncludeDir["HypoSystem"] = "HypoSystem/src"
 IncludeDir["HypoWindow"] = "HypoWindow/src"
 IncludeDir["Hypo3D"] = "Hypo3D/src"
 IncludeDir["HypoGraphics"] = "HypoGraphics/src"
+IncludeDir["HypoNetwork"] = "HypoNetwork/src"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 	
@@ -86,12 +87,12 @@ project "HypoSystem"
 
 project "HypoWindow"
 	location "HypoWindow"
-    kind "SharedLib"
-    language "C++"
-    staticruntime "off"
-    
+	kind "SharedLib"
+	language "C++"
+	staticruntime "off"
+	
 	targetdir ("bin/" .. outputdir)
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	
 	pchheader "windowpch.h"
 	pchsource "HypoWindow/src/windowpch.cpp"
@@ -102,14 +103,14 @@ project "HypoWindow"
 		"ImGui",
 		"HypoSystem"
 	}
-    files
+	files
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
 	}
 	includedirs
 	{
-        "%{prj.name}/src",
+		"%{prj.name}/src",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.glm}",
@@ -140,7 +141,123 @@ project "HypoWindow"
 	filter "configurations:Dist"
 		runtime "Release"
 		optimize "On"
+	
 
+			
+project "HypoNetwork"
+	location "HypoNetwork"
+    kind "SharedLib"
+    language "C++"
+    staticruntime "off"
+    
+	targetdir ("bin/" .. outputdir)
+    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	
+	pchheader "networkpch.h"
+	pchsource "HypoNetwork/src/networkpch.cpp"
+
+	links
+	{
+		"GLFW",
+		"glad",
+		"ImGui",
+		"HypoSystem",
+		"HypoSystem"
+	}
+    files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp",
+	}
+	includedirs
+	{
+        "%{prj.name}/src",
+		"%{IncludeDir.spdlog}",
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.HypoSystem}",
+		"%{IncludeDir.HypoNetwork}",
+		"%{IncludeDir.GSL}"
+	}
+	defines
+	{
+		"HYPO_PLATFORM_WINDOWS",
+		"_CRT_SECURE_NO_WARNINGS",
+		"HYPO_NETWORK_EXPORTS"
+	}
+
+	cppdialect "C++17"
+	systemversion "latest"
+	filter "configurations:Debug"
+		runtime "Debug"
+		symbols "On"
+	filter "configurations:Release"
+		runtime "Release"
+		optimize "On"
+
+	filter "configurations:Dist"
+		runtime "Release"
+		optimize "On"
+
+
+
+project "HypoGraphics"
+	location "HypoGraphics"
+	kind "SharedLib"
+	language "C++"
+	staticruntime "off"
+	
+	targetdir ("bin/" .. outputdir)
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	
+	pchheader "graphicspch.h"
+	pchsource "HypoGraphics/src/graphicspch.cpp"
+	links
+	{
+		"GLFW",
+		"glad",
+		"ImGui",
+		"HypoSystem",
+	}
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp",
+	}
+	includedirs
+	{
+		"%{prj.name}/src",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.spdlog}",
+		"%{IncludeDir.glad}",
+		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.HypoSystem}",
+		"%{IncludeDir.HypoWindow}",
+		"%{IncludeDir.HypoGraphics}",
+		"%{IncludeDir.Hypo3D}",
+		"%{IncludeDir.GSL}"
+	}
+	defines
+	{
+		"HYPO_PLATFORM_WINDOWS",
+		"_CRT_SECURE_NO_WARNINGS",
+		"HYPO_GRAPHICS_EXPORTS"
+	}
+
+	cppdialect "C++17"
+	systemversion "latest"
+	filter "configurations:Debug"
+		runtime "Debug"
+		symbols "On"
+	filter "configurations:Release"
+		runtime "Release"
+		optimize "On"
+
+	filter "configurations:Dist"
+		runtime "Release"
+		optimize "On"
 
 
 project "HypoGraphics"
@@ -276,6 +393,7 @@ project "Sandbox"
 	{
 		"HypoSystem",
 		"HypoWindow",
+		"HypoNetwork",
 		"HypoGraphics",
 		"Hypo3D",
 		"glad"
@@ -297,6 +415,7 @@ project "Sandbox"
 		"%{IncludeDir.HypoWindow}",
 		"%{IncludeDir.HypoSystem}",
 		"%{IncludeDir.HypoGraphics}",
+		"%{IncludeDir.HypoNetwork}",
 		"%{IncludeDir.Hypo3D}",
 		"%{IncludeDir.GSL}"
 
@@ -360,6 +479,7 @@ location "Robot"
 		"%{IncludeDir.HypoWindow}",
 		"%{IncludeDir.HypoSystem}",
 		"%{IncludeDir.HypoGraphics}",
+		"%{IncludeDir.HypoNetwork}",
 		"%{IncludeDir.Hypo3D}",
 		"%{IncludeDir.GSL}",
 		"Robot/vendor/serial/include"

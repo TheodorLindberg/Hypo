@@ -24,15 +24,11 @@
 #include "Hypo/3D/Asset/Light.h"
 #include "Hypo/Graphics/NestedBufferLayout.h"
 
-
-namespace Hypo {
-	class ThridPersonKeyboardCamera;
-}
-
-int main()
+int main2()
 {
 	Hypo::Log::Init();
 	Hypo::Window* window = Hypo::Window::Create();
+	window->SetVSync(false);
 	Hypo::init(window->GetGladProc());
 	Hypo::InitRenderer(window->GetGladProc());
 	
@@ -125,7 +121,8 @@ int main()
 
 	Hypo::Vec3F rotation = {glm::pi<float>() / 2,0,0};
 
-	
+	window->GetEventFlowControl().SetIn([](Hypo::Event& data) { return true; });
+
 	window->EnableImGui();
 	bool running = true;
 	while (running)
@@ -192,6 +189,7 @@ int main()
 		ImGui::Begin("Color");
 	
 		ImGui::DragFloat3("Rotation", (float*)&rotation, 3.14f / 8.f, -3.14, 3.14);
+		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 		
 		ImGui::End();
 
@@ -199,7 +197,8 @@ int main()
 		ImGui::DragFloat("RadiusInner", &innerRadius, 0.005, 0, outerRadius);
 		ImGui::DragFloat("RadiusOuter", &outerRadius, 0.005, 0, innerRadius);
 		ImGui::ColorPicker4("ColorInner", reinterpret_cast<float*>(&innerColor));
-		ImGui::ColorPicker4("ColorOuter", reinterpret_cast<float*>(&outerColor));
+		ImGui::ColorPicker4("ColorOuter", reinterpret_cast<float*>(&outerColor)); 
+		
 
 		ImGui::End();
 		

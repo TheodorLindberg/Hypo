@@ -7,6 +7,7 @@
 #include "Context/GraphicsContext.h"
 
 #include "imgui.h"
+#include "../../../../HypoSystem/FlowControll.h"
 
 
 namespace Hypo
@@ -46,7 +47,7 @@ namespace Hypo
 		{
 		}
 	};
-
+	using WindowEventFlowControl = FlowControl<Event>;
 	class HYPO_WINDOW_API Window
 	{
 	public:
@@ -87,6 +88,10 @@ namespace Hypo
 		
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
+
+		virtual const WindowEventFlowControl& GetEventFlowControl() const = 0;
+		virtual WindowEventFlowControl& GetEventFlowControl() = 0;
+
 
 		virtual void* GetNativeWindow() const = 0;
 		virtual GraphicsContext* GetGraphicsContext() const = 0;

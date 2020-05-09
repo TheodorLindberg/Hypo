@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Hypo">
+      <UniqueIdentifier>{659C867C-51D3-870D-FABF-6D10E6D5030F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\Network">
+      <UniqueIdentifier>{DE13DF34-CA76-6ED9-73FC-A68F5F3E3A5C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\Network\Socket">
+      <UniqueIdentifier>{D65F80D3-42C1-5DE1-CB2E-A493378F94A0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Hypo\Network\Export.h">
+      <Filter>Hypo\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\Socket\Socket.h">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\Socket\SocketHandle.h">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\Socket\TcpSocket.h">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsSocketImpl.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\networkpch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Hypo\Network\Socket\Socket.cpp">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\Network\Socket\TcpSocket.cpp">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsSocketImpl.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\networkpch.cpp" />
+  </ItemGroup>
+</Project>

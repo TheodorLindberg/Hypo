@@ -7,6 +7,9 @@
 #endif
 
 
+#define HYPO_PLATFORM_WINDOWS
+
+
 #ifdef HYPO_BUILD_DLL
 	#define HYPO_API_EXPORTS __declspec(dllexport)
 	#define HYPO_API_IMPORTS __declspec(dllimport)

@@ -25,6 +25,7 @@ namespace Hypo
 	}
 
 	WindowsWindow::WindowsWindow(const WindowProps& props, const ContextSettings& contextSettings)
+		: m_EventFlowControl([this](Event& data)->bool { this->PushEvent(data); return true; })
 	{
 		Init(props, contextSettings);
 	}
@@ -147,6 +148,15 @@ namespace Hypo
 		return glfwGetProcAddress;
 	}
 
+	void WindowsWindow::PushEvent(Event& event)
+	{
+		if (m_Data.PushEventToStack)
+			m_EventQueue.push(event);
+
+		if (m_Data.EventCallback)
+			m_Data.EventCallback(event);
+	}
+
 	void  WindowsWindow::Init(const WindowProps& props, const ContextSettings& contextSettings)
 	{
 		m_Data.Title = props.Title;
@@ -189,7 +199,7 @@ namespace Hypo
 
 				Event e(EventType::WindowResize, EventCategoryWindow);
 				e.windowResize = WindowResizeEvent(width, height);
-				data.SendEvent(e);
+				data.window->GetEventFlowControl().In(e);
 				
 			});
 
@@ -197,7 +207,7 @@ namespace Hypo
 			{
 				WindowData& data = *static_cast<WindowData*>(glfwGetWindowUserPointer(window));
 				Event e(EventType::WindowClose, EventCategoryWindow);
-				data.SendEvent(e);
+				data.window->GetEventFlowControl().In(e);
 			});
 
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -210,21 +220,21 @@ namespace Hypo
 				{
 					Event e(EventType::KeyPressed, EventCategoryInput | EventCategoryKeyboard);
 					e.key = KeyEvent(key, scancode, mods);
-					data.SendEvent(e);
+					data.window->GetEventFlowControl().In(e);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
 					Event e(EventType::KeyReleased, EventCategoryInput | EventCategoryKeyboard);
 					e.key = KeyEvent(key, scancode, mods);
-					data.SendEvent(e);
+					data.window->GetEventFlowControl().In(e);
 					break;
 				}
 				case GLFW_REPEAT:
 				{
 					Event e(EventType::KeyPressed, EventCategoryInput | EventCategoryKeyboard);
 					e.key = KeyEvent(key, scancode, mods);
-					data.SendEvent(e);
+					data.window->GetEventFlowControl().In(e);
 					break;
 				}
 				}
@@ -236,7 +246,7 @@ namespace Hypo
 
 				Event e(EventType::KeyTyped, EventCategoryInput | EventCategoryKeyboard);
 				e.text = TextEvent(keycode);
-				data.SendEvent(e);
+				data.window->GetEventFlowControl().In(e);
 
 			});
 
@@ -252,7 +262,7 @@ namespace Hypo
 					double x, y;
 					glfwGetCursorPos( static_cast<GLFWwindow*>(data.window->GetNativeWindow()), &x, &y);
 					e.mouseButton = MouseButtonEvent(button, static_cast<float>(x), static_cast<float>(y));
-					data.SendEvent(e);
+					data.window->GetEventFlowControl().In(e);
 					break;
 				}
 				case GLFW_RELEASE:
@@ -261,7 +271,7 @@ namespace Hypo
 					double x, y;
 					glfwGetCursorPos(static_cast<GLFWwindow*>(data.window->GetNativeWindow()), &x, &y);
 					e.mouseButton = MouseButtonEvent(button, static_cast<float>(x), static_cast<float>(y));
-					data.SendEvent(e);
+					data.window->GetEventFlowControl().In(e);
 					break;
 				}
 				}
@@ -275,7 +285,7 @@ namespace Hypo
 				double x, y;
 				glfwGetCursorPos(reinterpret_cast<GLFWwindow*>(data.window->GetNativeWindow()), &x, &y);
 				e.mouseScroll = MouseScrollEvent(static_cast<float>(xOffset), static_cast<float>(yOffset), static_cast<float>(x), static_cast<float>(y));
-				data.SendEvent(e);
+				data.window->GetEventFlowControl().In(e);
 			});
 
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos)
@@ -284,19 +294,10 @@ namespace Hypo
 
 				Event e(EventType::MouseMoved, EventCategoryInput | EventCategoryMouse);
 				e.mouseMove = MouseMoveEvent(static_cast<float>(xPos), static_cast<float>(yPos));
-				data.SendEvent(e);
+				data.window->GetEventFlowControl().In(e);
 			});
 	}
 
-	void WindowsWindow::WindowData::SendEvent(Event& event) const
-	{
-		if(PushEventToStack)
-		{
-			eventQueue->push(event);
-		}
-		if(EventCallback)
-			EventCallback(event);
-	}
 
 	void WindowsWindow::Shutdown()
 	{

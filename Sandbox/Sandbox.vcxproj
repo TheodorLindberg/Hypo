@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -95,7 +95,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -115,7 +115,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Main2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\TransformPositionShader.glsl" />
@@ -150,6 +151,9 @@
     </ProjectReference>
     <ProjectReference Include="..\HypoWindow\HypoWindow.vcxproj">
       <Project>{9D7960F7-8931-A244-F238-7BA0DE0F3D35}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HypoNetwork\HypoNetwork.vcxproj">
+      <Project>{EFE5C525-5B9B-3E1B-E48F-38F25044351F}</Project>
     </ProjectReference>
     <ProjectReference Include="..\HypoGraphics\HypoGraphics.vcxproj">
       <Project>{763A9624-629D-25C9-0B23-5E7FF764F14B}</Project>

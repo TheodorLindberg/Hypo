@@ -7,6 +7,9 @@
     <Filter Include="Hypo\3D">
       <UniqueIdentifier>{0B4D89CC-772C-0868-8044-933EECA26EC9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hypo\3D\Asset">
+      <UniqueIdentifier>{DA5DCB54-461E-478B-0F59-90087BD88B67}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Hypo\3D\Camera">
       <UniqueIdentifier>{236798F1-0F35-8CF7-F8C8-FC1DE435685C}</UniqueIdentifier>
     </Filter>
@@ -24,6 +27,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Hypo\3D\Asset\AssetGroup.h">
+      <Filter>Hypo\3D\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\3D\Asset\AssetLoader.h">
+      <Filter>Hypo\3D\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\3D\Asset\AssetManager.h">
+      <Filter>Hypo\3D\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\3D\Asset\Light.h">
+      <Filter>Hypo\3D\Asset</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hypo\3D\Camera\Camera.h">
       <Filter>Hypo\3D\Camera</Filter>
     </ClInclude>
@@ -57,6 +72,9 @@
     <ClInclude Include="src\Hypo\3D\Renderer\RendererAPI.h">
       <Filter>Hypo\3D\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hypo\3D\Renderer\Scene.h">
+      <Filter>Hypo\3D\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hypo\3D\Renderer\Transform.h">
       <Filter>Hypo\3D\Renderer</Filter>
     </ClInclude>
@@ -64,15 +82,14 @@
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\hypo3dpch.h" />
-    <ClInclude Include="src\Hypo\3D\Asset\AssetGroup.h" />
-    <ClInclude Include="src\Hypo\3D\Asset\AssetLoader.h" />
-    <ClInclude Include="src\Hypo\3D\Asset\AssetManager.h" />
-    <ClInclude Include="src\Hypo\3D\Renderer\Scene.h" />
-    <ClInclude Include="src\Hypo\3D\Asset\Light.h">
-      <Filter>Hypo\3D\Renderer</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hypo\3D\Asset\AssetLoader.cpp">
+      <Filter>Hypo\3D\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\3D\Asset\AssetManager.cpp">
+      <Filter>Hypo\3D\Asset</Filter>
+    </ClCompile>
     <ClCompile Include="src\Hypo\3D\Camera\Camera.cpp">
       <Filter>Hypo\3D\Camera</Filter>
     </ClCompile>
@@ -101,7 +118,5 @@
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\hypo3dpch.cpp" />
-    <ClCompile Include="src\Hypo\3D\Asset\AssetLoader.cpp" />
-    <ClCompile Include="src\Hypo\3D\Asset\AssetManager.cpp" />
   </ItemGroup>
 </Project>

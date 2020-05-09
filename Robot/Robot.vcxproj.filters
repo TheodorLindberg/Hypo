@@ -36,8 +36,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="vendor\hidapi\hidapi\hidapi.h">
+      <Filter>vendor\hidapi\hidapi</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\hidapi\testgui\mac_support.h">
+      <Filter>vendor\hidapi\testgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\serial\include\serial\impl\unix.h">
+      <Filter>vendor\serial\include\serial\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\serial\include\serial\impl\win.h">
+      <Filter>vendor\serial\include\serial\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\serial\include\serial\serial.h">
+      <Filter>vendor\serial\include\serial</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\serial\include\serial\v8stdint.h">
+      <Filter>vendor\serial\include\serial</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="src\Main.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\hidapi\hidtest\hidtest.cpp">
+      <Filter>vendor\hidapi\hidtest</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\hidapi\testgui\mac_support.cpp">
+      <Filter>vendor\hidapi\testgui</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\hidapi\testgui\test.cpp">
+      <Filter>vendor\hidapi\testgui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

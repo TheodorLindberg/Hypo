@@ -64,12 +64,17 @@ namespace Hypo
 		GraphicsContext* GetGraphicsContext() const override { return m_Context.get(); };
 
 		virtual void* GetGladProc() override;
-		
+
+		void PushEvent(Event& event);
 	private:
 		void Init(const WindowProps& props, const ContextSettings& contextSettings);
 		void InitEventCallbacks();
 		void Shutdown();
+	public:
+		const WindowEventFlowControl& GetEventFlowControl() const override { return m_EventFlowControl;  };
+		WindowEventFlowControl& GetEventFlowControl() override {return m_EventFlowControl; };
 	private:
+
 
 		class WindowData
 		{
@@ -84,7 +89,6 @@ namespace Hypo
 
 			EventCallbackFn EventCallback;
 
-			void SendEvent(Event& event) const;
 		};
 
 		GLFWwindow* m_Window;
@@ -94,6 +98,7 @@ namespace Hypo
 		WindowData m_Data;
 		std::queue<Event> m_EventQueue;
 		ImGuiLayer m_ImGui;
+		WindowEventFlowControl m_EventFlowControl;
 	};
 
 	void IMGUI_SYMBOL_DEFINITION()

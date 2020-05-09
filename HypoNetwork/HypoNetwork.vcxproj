@@ -15,27 +15,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2B67090E-977B-31BF-60FD-D41ECCD02DF0}</ProjectGuid>
+    <ProjectGuid>{EFE5C525-5B9B-3E1B-E48F-38F25044351F}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Robot</RootNamespace>
+    <RootNamespace>HypoNetwork</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
@@ -56,46 +56,49 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\bin\Debug-windows-x86_64\</OutDir>
-    <IntDir>..\bin-int\Debug-windows-x86_64\Robot\</IntDir>
-    <TargetName>Robot</TargetName>
-    <TargetExt>.exe</TargetExt>
+    <IntDir>..\bin-int\Debug-windows-x86_64\HypoNetwork\</IntDir>
+    <TargetName>HypoNetwork</TargetName>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\Release-windows-x86_64\</OutDir>
-    <IntDir>..\bin-int\Release-windows-x86_64\Robot\</IntDir>
-    <TargetName>Robot</TargetName>
-    <TargetExt>.exe</TargetExt>
+    <IntDir>..\bin-int\Release-windows-x86_64\HypoNetwork\</IntDir>
+    <TargetName>HypoNetwork</TargetName>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\Dist-windows-x86_64\</OutDir>
-    <IntDir>..\bin-int\Dist-windows-x86_64\Robot\</IntDir>
-    <TargetName>Robot</TargetName>
-    <TargetExt>.exe</TargetExt>
+    <IntDir>..\bin-int\Dist-windows-x86_64\HypoNetwork\</IntDir>
+    <TargetName>HypoNetwork</TargetName>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>networkpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_NETWORK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\vendor\spdlog\include;..\vendor\glm\include;..\HypoSystem\src;src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>..\bin\Debug-windows-x86_64\HypoNetwork.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>networkpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_NETWORK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\vendor\spdlog\include;..\vendor\glm\include;..\HypoSystem\src;src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -105,17 +108,19 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>..\bin\Release-windows-x86_64\HypoNetwork.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>networkpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;HYPO_NETWORK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\vendor\spdlog\include;..\vendor\glm\include;..\HypoSystem\src;src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -125,46 +130,40 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>..\bin\Dist-windows-x86_64\HypoNetwork.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="vendor\hidapi\hidapi\hidapi.h" />
-    <ClInclude Include="vendor\hidapi\testgui\mac_support.h" />
-    <ClInclude Include="vendor\serial\include\serial\impl\unix.h" />
-    <ClInclude Include="vendor\serial\include\serial\impl\win.h" />
-    <ClInclude Include="vendor\serial\include\serial\serial.h" />
-    <ClInclude Include="vendor\serial\include\serial\v8stdint.h" />
+    <ClInclude Include="src\Hypo\Network\Export.h" />
+    <ClInclude Include="src\Hypo\Network\Socket\Socket.h" />
+    <ClInclude Include="src\Hypo\Network\Socket\SocketHandle.h" />
+    <ClInclude Include="src\Hypo\Network\Socket\TcpSocket.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsSocketImpl.h" />
+    <ClInclude Include="src\networkpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="vendor\hidapi\hidtest\hidtest.cpp" />
-    <ClCompile Include="vendor\hidapi\testgui\mac_support.cpp" />
-    <ClCompile Include="vendor\hidapi\testgui\test.cpp" />
+    <ClCompile Include="src\Hypo\Network\Socket\Socket.cpp" />
+    <ClCompile Include="src\Hypo\Network\Socket\TcpSocket.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsSocketImpl.cpp" />
+    <ClCompile Include="src\networkpch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shader.glsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HypoSystem\HypoSystem.vcxproj">
-      <Project>{CA5F30EF-B617-723C-1F1F-4B980BF60C2D}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\HypoWindow\HypoWindow.vcxproj">
-      <Project>{9D7960F7-8931-A244-F238-7BA0DE0F3D35}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\HypoGraphics\HypoGraphics.vcxproj">
-      <Project>{763A9624-629D-25C9-0B23-5E7FF764F14B}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Hypo3D\Hypo3D.vcxproj">
-      <Project>{7C509FB8-68F2-C98E-51AD-DDE23DEE50DF}</Project>
+    <ProjectReference Include="..\HypoWindow\vendor\GLFW\GLFW.vcxproj">
+      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Hypo3D\vendor\glad\glad.vcxproj">
       <Project>{DD62977C-C999-980D-7286-7E105E9C140F}</Project>
     </ProjectReference>
-    <ProjectReference Include="vendor\serial\Serial.vcxproj">
-      <Project>{A52ADFD0-91CC-09A7-7A87-1DFB66C890F7}</Project>
+    <ProjectReference Include="..\vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HypoSystem\HypoSystem.vcxproj">
+      <Project>{CA5F30EF-B617-723C-1F1F-4B980BF60C2D}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
