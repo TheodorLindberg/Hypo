@@ -13,6 +13,12 @@
     <Filter Include="Hypo\3D\Camera">
       <UniqueIdentifier>{236798F1-0F35-8CF7-F8C8-FC1DE435685C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hypo\3D\ComponentModel">
+      <UniqueIdentifier>{FEA63856-EAA0-61A8-D30D-F8B8BFA6C714}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\3D\ECS">
+      <UniqueIdentifier>{D5CE495B-4184-C250-CA78-BC27362DB954}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Hypo\3D\Model">
       <UniqueIdentifier>{8B12A255-F7D2-1D8C-C00D-67092C8D6268}</UniqueIdentifier>
     </Filter>
@@ -27,6 +33,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Hypo\3D.h">
+      <Filter>Hypo</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hypo\3D\Asset\AssetGroup.h">
       <Filter>Hypo\3D\Asset</Filter>
     </ClInclude>
@@ -82,6 +91,8 @@
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\hypo3dpch.h" />
+    <ClInclude Include="src\Hypo\3D\Scene\Scene.h" />
+    <ClInclude Include="src\Hypo\3D\Scene\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hypo\3D\Asset\AssetLoader.cpp">

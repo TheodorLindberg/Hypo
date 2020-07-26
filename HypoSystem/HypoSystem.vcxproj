@@ -80,10 +80,11 @@
       <PrecompiledHeaderFile>systempch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HYPO_PLATFORM_WINDOWS;HYPO_SYSTEM_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\imgui;..\vendor\spdlog\include;..\vendor\glm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\vendor\imgui;..\vendor\spdlog\include;..\vendor\GSL\include;..\vendor\glm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -98,13 +99,14 @@
       <PrecompiledHeaderFile>systempch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HYPO_PLATFORM_WINDOWS;HYPO_SYSTEM_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\imgui;..\vendor\spdlog\include;..\vendor\glm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\vendor\imgui;..\vendor\spdlog\include;..\vendor\GSL\include;..\vendor\glm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -120,13 +122,14 @@
       <PrecompiledHeaderFile>systempch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HYPO_PLATFORM_WINDOWS;HYPO_SYSTEM_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\imgui;..\vendor\spdlog\include;..\vendor\glm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\vendor\imgui;..\vendor\spdlog\include;..\vendor\GSL\include;..\vendor\glm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -140,6 +143,9 @@
     <ClInclude Include="src\Hypo\Config.h" />
     <ClInclude Include="src\Hypo\Core.h" />
     <ClInclude Include="src\Hypo\Hypo.h" />
+    <ClInclude Include="src\Hypo\System\Buffer\Buffer.h" />
+    <ClInclude Include="src\Hypo\System\Core\Exception.h" />
+    <ClInclude Include="src\Hypo\System\DataTypes\FlowControll.h" />
     <ClInclude Include="src\Hypo\System\DataTypes\ObjPtr.h" />
     <ClInclude Include="src\Hypo\System\DataTypes\ObjPtrMemoryManager.h" />
     <ClInclude Include="src\Hypo\System\DataTypes\Rect.h" />
@@ -150,10 +156,25 @@
     <ClInclude Include="src\Hypo\System\Events\KeyboardEvents.h" />
     <ClInclude Include="src\Hypo\System\Events\MouseEvents.h" />
     <ClInclude Include="src\Hypo\System\Exports.h" />
+    <ClInclude Include="src\Hypo\System\Streams\BinaryReader.h" />
+    <ClInclude Include="src\Hypo\System\Streams\BinaryWriter.h" />
+    <ClInclude Include="src\Hypo\System\Streams\MemoryStream.h" />
+    <ClInclude Include="src\Hypo\System\Streams\SendStream.h" />
+    <ClInclude Include="src\Hypo\System\Streams\Stream.h" />
+    <ClInclude Include="src\Hypo\System\Time\Clock.h" />
+    <ClInclude Include="src\Hypo\System\Time\ExecutionCounter.h" />
+    <ClInclude Include="src\Hypo\System\Time\Time.h" />
     <ClInclude Include="src\Hypo\System\Util\Log.h" />
     <ClInclude Include="src\systempch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hypo\System\Core\Exception.cpp" />
+    <ClCompile Include="src\Hypo\System\Streams\BinaryReader.cpp" />
+    <ClCompile Include="src\Hypo\System\Streams\BinaryWriter.cpp" />
+    <ClCompile Include="src\Hypo\System\Streams\MemorySteam.cpp" />
+    <ClCompile Include="src\Hypo\System\Time\Clock.cpp" />
+    <ClCompile Include="src\Hypo\System\Time\ExecutionCounter.cpp" />
+    <ClCompile Include="src\Hypo\System\Time\Time.cpp" />
     <ClCompile Include="src\Hypo\System\Util\Log.cpp" />
     <ClCompile Include="src\systempch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

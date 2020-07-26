@@ -7,43 +7,88 @@
     <Filter Include="Hypo\Network">
       <UniqueIdentifier>{DE13DF34-CA76-6ED9-73FC-A68F5F3E3A5C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hypo\Network\Packet">
+      <UniqueIdentifier>{E58E83CB-51F0-60D9-DA5D-A78B46BE9798}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Hypo\Network\Socket">
       <UniqueIdentifier>{D65F80D3-42C1-5DE1-CB2E-A493378F94A0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platform">
-      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Platform\Windows">
-      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    <Filter Include="Hypo\Network\TcpServer">
+      <UniqueIdentifier>{EBFF2D6A-D7F9-56BC-C066-EDCCACFFBC28}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Hypo\Network\Export.h">
       <Filter>Hypo\Network</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hypo\Network\IpAddress.h">
+      <Filter>Hypo\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\NetExceptions.h">
+      <Filter>Hypo\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\Packet\Packet.h">
+      <Filter>Hypo\Network\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\Packet\PacketSender.h">
+      <Filter>Hypo\Network\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\Socket\ServerSocket.h">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\Socket\ServerSocketImpl.h">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hypo\Network\Socket\Socket.h">
       <Filter>Hypo\Network\Socket</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hypo\Network\Socket\SocketHandle.h">
+    <ClInclude Include="src\Hypo\Network\Socket\SocketDefs.h">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\Socket\SocketImpl.h">
       <Filter>Hypo\Network\Socket</Filter>
     </ClInclude>
     <ClInclude Include="src\Hypo\Network\Socket\TcpSocket.h">
       <Filter>Hypo\Network\Socket</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsSocketImpl.h">
-      <Filter>Platform\Windows</Filter>
+    <ClInclude Include="src\Hypo\Network\Socket\TcpSocketImpl.h">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\TcpServer\TcpServer.h">
+      <Filter>Hypo\Network\TcpServer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\TcpServer\TcpServerConnection.h">
+      <Filter>Hypo\Network\TcpServer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\Network\TcpServer\TcpServerFactory.h">
+      <Filter>Hypo\Network\TcpServer</Filter>
     </ClInclude>
     <ClInclude Include="src\networkpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hypo\Network\IpAddress.cpp">
+      <Filter>Hypo\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\Network\NetExceptions.cpp">
+      <Filter>Hypo\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\Network\Socket\ServerSocket.cpp">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClCompile>
     <ClCompile Include="src\Hypo\Network\Socket\Socket.cpp">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\Network\Socket\SocketImpl.cpp">
       <Filter>Hypo\Network\Socket</Filter>
     </ClCompile>
     <ClCompile Include="src\Hypo\Network\Socket\TcpSocket.cpp">
       <Filter>Hypo\Network\Socket</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsSocketImpl.cpp">
-      <Filter>Platform\Windows</Filter>
+    <ClCompile Include="src\Hypo\Network\Socket\TcpSocketImpl.cpp">
+      <Filter>Hypo\Network\Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\Network\TcpServer\TcpServer.cpp">
+      <Filter>Hypo\Network\TcpServer</Filter>
     </ClCompile>
     <ClCompile Include="src\networkpch.cpp" />
   </ItemGroup>

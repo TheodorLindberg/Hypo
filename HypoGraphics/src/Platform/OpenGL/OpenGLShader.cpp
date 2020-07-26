@@ -695,7 +695,7 @@ namespace Hypo
 			it->second.currentSlotBound = newTextureSlot;
 			return;
 		}
-	}
+		}
 
 	bool OpenGLShader::CompatibleWithVertexArray(ObjPtr<class VertexArray>& vertexArray)
 	{

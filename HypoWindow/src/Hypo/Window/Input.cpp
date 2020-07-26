@@ -3,7 +3,7 @@
 
 namespace Hypo
 {
-
+	
 	bool Input::IsKeyPressed(int keycode)
 	{
 		return s_Instance->IsKeyPressedImpl(keycode);

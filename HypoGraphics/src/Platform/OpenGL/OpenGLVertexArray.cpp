@@ -130,6 +130,7 @@ namespace Hypo
 		}
 		m_Buffers.push_back(buffer);
 		glBindVertexArray(0);
+		buffer->Unbind();
 	}
 
 	uInt32 OpenGLVertexArray::GetIndicesCount()

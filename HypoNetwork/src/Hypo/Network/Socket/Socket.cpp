@@ -1,110 +1,162 @@
-#include "networkpch.h"
+﻿#include "networkpch.h"
 #include "Socket.h"
-
-#if defined(HYPO_PLATFORM_WINDOWS)
-#include <Platform/Windows/WindowsSocketImpl.h>
-
-
-#else
-#include <SFML/Network/Unix/SocketImpl.hpp>
-#endif
 
 
 namespace Hypo
 {
-	Socket::Socket(Type type) :
-		m_Type(type),
-		m_Socket(SocketImpl::InvalidSocket()),
-		m_IsBlocking(true)
-	{}
+	
+	Socket::Socket(const Socket& other)
+		:  m_Impl(other.m_Impl)
+	{
+		m_Impl->Duplicate();
+	}
+
+
+	Socket& Socket::operator=(const Socket& other)
+	{
+		if(this != &other)
+		{
+			if (m_Impl) m_Impl->Release();
+			m_Impl = other.m_Impl;
+			if (m_Impl) m_Impl->Duplicate();
+
+		}
+		return *this;
+	}
 
 	Socket::~Socket()
 	{
-		Close();
+		m_Impl->Release();
 	}
 
-	void Socket::SetBlocking(bool blocking)
+	
+
+	Socket::Socket(SocketImpl* impl)
+		: m_Impl(impl)
 	{
-		m_IsBlocking = blocking;
-		SocketImpl::SetBlocking(m_Socket, blocking);
-	}
-
-	bool Socket::IsBlocking() const
-	{
-		return m_IsBlocking;
-	}
-
-
-	SocketHandle Socket::GetHandle() const
-	{
-		return m_Socket;
-	}
-
-	void Socket::Create()
-	{
-		// Don't create the socket if it already exists
-		if (m_Socket == SocketImpl::InvalidSocket())
-		{
-			SocketHandle handle = socket(PF_INET, m_Type == TCP ? SOCK_STREAM : SOCK_DGRAM, 0);
-
-			if (handle == SocketImpl::InvalidSocket())
-			{
-				std:std::cout << "Failed to create socket" << std::endl;
-				return;
-			}
-
-			Create(handle);
-		}
-	}
-
-	void Socket::Create(SocketHandle handle)
-	{
-		// Don't create the socket if it already exists
-		if (m_Socket == SocketImpl::InvalidSocket())
-		{
-			// Assign the new handle
-			m_Socket = handle;
-
-			// Set the current blocking state
-			SetBlocking(m_IsBlocking);
-
-			if (m_Type == TCP)
-			{
-				// Disable the Nagle algorithm (i.e. removes buffering of TCP packets)
-				int yes = 1;
-				if (setsockopt(m_Socket, IPPROTO_TCP, TCP_NODELAY, reinterpret_cast<char*>(&yes), sizeof(yes)) == -1)
-				{
-					std::cout << "Failed to set socket option \"TCP_NODELAY\" ; "
-						<< "all your TCP packets will be buffered" << std::endl;
-				}
-
-				// On Mac OS X, disable the SIGPIPE signal on disconnection
-#ifdef SFML_SYSTEM_MACOS
-				if (setsockopt(m_socket, SOL_SOCKET, SO_NOSIGPIPE, reinterpret_cast<char*>(&yes), sizeof(yes)) == -1)
-				{
-					err() << "Failed to set socket option \"SO_NOSIGPIPE\"" << std::endl;
-				}
-#endif
-			}
-			else
-			{
-				// Enable broadcast by default for UDP sockets
-				int yes = 1;
-				if (setsockopt(m_Socket, SOL_SOCKET, SO_BROADCAST, reinterpret_cast<char*>(&yes), sizeof(yes)) == -1)
-				{
-					std::cout << "Failed to enable broadcast on UDP socket" << std::endl;
-				}
-			}
-		}
 	}
 
 	void Socket::Close()
 	{
-		// Close the socket
-		if (m_Socket != SocketImpl::InvalidSocket())
+		m_Impl->Close();
+	}
+
+	uInt16 Socket::GetLocalPort()const
+	{
+		return 0;
+	}
+
+	IpAddress Socket::GetPeerAddress()const
+	{
+		return 0;
+	}
+
+	int Socket::Select(SocketList& readList, SocketList& writeList, SocketList& exceptList, Time timeout)
+	{
+		fd_set fdRead;
+		fd_set fdWrite;
+		fd_set fdExcept;
+
+		int nfd = 0;
+		FD_ZERO(&fdRead);
+		for(auto& sock : readList)
 		{
-			SocketImpl::Close(m_Socket);
-			m_Socket = SocketImpl::InvalidSocket();
+			hypo_socket_t fd = sock.GetSocketFD();
+			if (fd != HYPO_INVALID_SOCKET)
+			{
+				if (int(fd) > nfd)
+					nfd = int(fd);
+				FD_SET(fd, &fdRead);
+			}
 		}
+		FD_ZERO(&fdWrite);
+		for (auto& sock : writeList)
+		{
+			hypo_socket_t fd = sock.GetSocketFD();
+			if (fd != HYPO_INVALID_SOCKET)
+			{
+				if (int(fd) > nfd)
+					nfd = int(fd);
+				FD_SET(fd, &fdWrite);
+			}
+		}
+		FD_ZERO(&fdExcept);
+		for (auto& sock : exceptList)
+		{
+			hypo_socket_t fd = sock.GetSocketFD();
+			if (fd != HYPO_INVALID_SOCKET)
+			{
+				if (int(fd) > nfd)
+					nfd = int(fd);
+				FD_SET(fd, &fdExcept);
+			}
+		}
+		if (nfd == 0) return 0;
+
+		Time remainingTime(timeout);
+		int rc;
+		do
+		{
+			struct timeval tv;
+			tv.tv_sec = (long)remainingTime.AsSeconds();
+			tv.tv_usec = (long)remainingTime.AsMicroseconds() % 1000000;
+			Time start;
+			rc = ::select(nfd + 1, &fdRead, &fdWrite, &fdExcept, &tv);
+			if (rc < 0 && SocketImpl::LastError() == HYPO_EINTR)
+			{
+				Time end;
+				Time waited = end - start;
+				if (waited < remainingTime)
+					remainingTime -= waited;
+				else
+					remainingTime = 0;
+			}
+		} while (rc < 0 && SocketImpl::LastError() == HYPO_EINTR);
+		if (rc < 0) SocketImpl::Error();
+
+		SocketList readyReadList;
+		for (SocketList::const_iterator it = readList.begin(); it != readList.end(); ++it)
+		{
+			hypo_socket_t fd = it->GetSocketFD();
+			if (fd != HYPO_INVALID_SOCKET)
+			{
+				if (FD_ISSET(fd, &fdRead))
+					readyReadList.push_back(*it);
+			}
+		}
+		std::swap(readList, readyReadList);
+		SocketList readyWriteList;
+		for (SocketList::const_iterator it = writeList.begin(); it != writeList.end(); ++it)
+		{
+			hypo_socket_t  fd = it->GetSocketFD();
+			if (fd != HYPO_INVALID_SOCKET)
+			{
+				if (FD_ISSET(fd, &fdWrite))
+					readyWriteList.push_back(*it);
+			}
+		}
+		std::swap(writeList, readyWriteList);
+		SocketList readyExceptList;
+		for (SocketList::const_iterator it = exceptList.begin(); it != exceptList.end(); ++it)
+		{
+			hypo_socket_t  fd = it->GetSocketFD();
+			if (fd != HYPO_INVALID_SOCKET)
+			{
+				if (FD_ISSET(fd, &fdExcept))
+					readyExceptList.push_back(*it);
+			}
+		}
+		std::swap(exceptList, readyExceptList);
+		return rc;
+	}
+
+	bool Socket::Valid() const
+	{
+		return m_Impl->Valid();
+	}
+
+	int Socket::Available()
+	{
+		return m_Impl->Available();
 	}
 }

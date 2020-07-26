@@ -1,58 +1,84 @@
-#pragma once
-#include "Hypo/Network/Export.h"
-#include "Hypo/Network/Socket/SocketHandle.h"
+﻿#pragma once
 
-
-
-#include <Hypo/Core.h>
-
-
+#include "SocketImpl.h"
+#include "Hypo/Network/IpAddress.h"
 namespace Hypo
 {
+
 	class HYPO_NETWORK_API Socket
 	{
 	public:
-		enum Status
-		{
-			Done,
-			Error,
-			Disconnected,
-			NotReady,
-			Partial
-		};
-		enum
-		{
-			AnyPort = 0
-		};
-	public:
+		using SocketList = std::vector<Socket>;
+		Socket() = delete;
+		Socket(const Socket& other);
+		Socket& operator= (const Socket& other);
 		virtual ~Socket();
 
-		void SetBlocking(bool blocking);
-		bool IsBlocking() const;
+		static int Select(SocketList& readList, SocketList& writeList, SocketList& exceptList, Time timeout);
+
+		bool Valid() const;
+		int Available();
+
+		uInt16 GetLocalPort() const;
+		IpAddress GetPeerAddress() const;
+
+		bool operator ==(const Socket& other) const;
+		bool operator !=(const Socket& other) const;
+		bool operator >(const Socket& other) const;
+		bool operator >=(const Socket& other) const;
+		bool operator <(const Socket& other) const;
+		bool operator <=(const Socket& other) const;
+
+		SocketImpl* Impl() const;
 
 	protected:
-		enum Type
-		{
-			TCP,
-			UDP
-		};
-		Socket(Type type);
-
-		SocketHandle GetHandle() const;
-
-		void Create();
-
-		void Create(SocketHandle handle);
+		Socket(SocketImpl* impl);
+		hypo_socket_t GetSocketFD() const;
 
 		void Close();
-		
-	private:
-		Type m_Type;
-		SocketHandle m_Socket;
-		bool m_IsBlocking;
 
+	private:
+		SocketImpl* m_Impl;
 	};
 
 
+	inline bool Socket::operator==(const Socket& other) const
+	{
+		return m_Impl == other.m_Impl;
+	}
 
+	inline bool Socket::operator!=(const Socket& other)const
+	{
+		return m_Impl != other.m_Impl;
+	}
+
+	inline bool Socket::operator>(const Socket& other)const
+	{
+		return m_Impl < other.m_Impl;
+	}
+
+	inline bool Socket::operator>=(const Socket& other)const
+	{
+		return m_Impl >= other.m_Impl;
+	}
+
+	inline bool Socket::operator<(const Socket& other)const
+	{
+		return m_Impl < other.m_Impl;
+	}
+
+	inline bool Socket::operator<=(const Socket& other)const
+	{
+		return m_Impl <= other.m_Impl;
+	}
+
+	inline hypo_socket_t Socket::GetSocketFD() const
+	{
+		return m_Impl->SockFD();
+	}
+
+	inline SocketImpl* Socket::Impl() const
+	{
+		return m_Impl;
+	}
 }

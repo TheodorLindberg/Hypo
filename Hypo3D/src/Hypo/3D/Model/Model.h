@@ -16,8 +16,8 @@ namespace  Hypo
 	class HYPO_3D_API SimpleModel : public Transformable, public Drawable
 	{
 	public:
-		SimpleModel(Mesh& mesh, Shader::Ptr& shader);
-		SimpleModel(Mesh& mesh, Shader::Ptr& shader, Texture2D::Ptr& texture);
+		SimpleModel(const Mesh& mesh, Shader::Ptr& shader);
+		SimpleModel(const Mesh& mesh, Shader::Ptr& shader, Texture2D::Ptr& texture);
 	private:
 		void Submit() override;
 		Shader::Ptr& GetShader() override { return m_Shader; }

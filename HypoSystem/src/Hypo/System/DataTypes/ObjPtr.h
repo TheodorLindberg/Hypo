@@ -1,6 +1,8 @@
 #pragma once
 #include "Hypo/System/Exports.h"
 #include "ObjPtrMemoryManager.h"
+#include <atomic>
+#include <iostream>
 
 namespace Hypo
 {
@@ -19,8 +21,8 @@ namespace Hypo
 	class  ObjPtr
 	{
 	private:
-		T* data;
-		RefCounter* counter;
+		T* data = nullptr;
+		RefCounter* counter = nullptr;
 	public:
 		using Type = T;
 		ObjPtr()
@@ -133,5 +135,68 @@ namespace Hypo
 	ObjPtr<T> MakeNullPtr()
 	{
 		return ObjPtr<T>();
+	}
+
+
+	class HYPO_SYSTEM_API RefCountedObject
+		/// A base class for objects that employ
+		/// reference counting based garbage collection.
+		///
+		/// Reference-counted objects inhibit construction
+		/// by copying and assignment.
+	{
+	public:
+		RefCountedObject() = default;
+		/// Creates the RefCountedObject.
+		/// The initial reference count is one.
+
+		void Duplicate() const;
+		/// Increments the object's reference count.
+
+		void Release() const throw();
+		/// Decrements the object's reference count
+		/// and deletes the object if the count
+		/// reaches zero.
+
+		int ReferenceCount() const;
+		/// Returns the reference count.
+
+	protected:
+		virtual ~RefCountedObject() = default;
+		/// Destroys the RefCountedObject.
+
+	private:
+		RefCountedObject(const RefCountedObject&);
+		RefCountedObject& operator = (const RefCountedObject&);
+
+		mutable std::atomic_int m_Counter = 1;
+	};
+
+
+	//
+	// inlines
+	//
+	inline int RefCountedObject::ReferenceCount() const
+	{
+		return m_Counter;
+	}
+
+
+	inline void RefCountedObject::Duplicate() const
+	{
+		++m_Counter;
+	}
+
+
+	inline void RefCountedObject::Release() const throw()
+	{
+		try
+		{
+			if (--m_Counter == 0) delete this;
+		}
+		catch (...)
+		{
+			std::cout << "ERROR REALEASING" << std::endl;
+		}
 	}
 }

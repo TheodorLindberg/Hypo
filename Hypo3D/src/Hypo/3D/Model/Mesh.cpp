@@ -49,16 +49,20 @@ namespace Hypo
 	Mesh::Mesh(gsl::span<const ElementIndex> indices, gsl::span<const float> vertices, VertexTypeFlags vertexFlags, MeshType type)
 		:m_Flags(vertexFlags), m_Type(type)
 	{
+		UnBind();
+
 		auto index = IndexBuffer::Create(indices, BufferUsage::Static);
 		auto vertex = VertexBuffer::Create(vertices, BufferUsage::Static);
 		vertex->SetLayout(CreateLayoutFromVertexFlags(vertexFlags));
 		m_VertexArray = VertexArray::Create();
+		m_VertexArray->Bind();
 		m_VertexArray->SetIndexBuffer(index);
 		m_VertexArray->AddVertexBuffer(vertex);
+		m_VertexArray->Unbind();
 		UnBind();
 	}
 
-	Mesh::Mesh(const std::vector<Index>&& indices, const std::vector<Vec3F>&& positions,
+	Mesh::Mesh(std::vector<Index>&& indices, const std::vector<Vec3F>&& positions,
 		const std::vector<Vec2F>&& texCoords, MeshType type)
 		: m_Flags(VertexPositions | VertexTexCoords ), m_Type(type)
 	{		
@@ -95,7 +99,7 @@ namespace Hypo
 		const std::vector<Vec4F>&& colors, MeshType type)
 		: m_Flags(VertexPositions | VertexColors), m_Type(type)
 	{
-		HYPO_CORE_ASSERT(positions.size() != colors.size(), "[Mesh] verticies components vector sizes is diffrent! Make sure the positions texCoord normal vectors have the same length!")
+		HYPO_CORE_ASSERT(positions.size() == colors.size(), "[Mesh] verticies components vector sizes is diffrent! Make sure the positions texCoord normal vectors have the same length!")
 		struct Vertex
 		{
 			Vec3F position;
@@ -127,7 +131,7 @@ namespace Hypo
 		: m_Flags(VertexPositions | VertexNormals | VertexTexCoords), m_Type(type)
 	{
 
-		HYPO_CORE_ASSERT(positions.size() != normals.size() && positions.size() != texCoords.size(), "[Mesh] verticies components vector sizes is diffrent! Make sure the positions texCoord normal vectors have the same length!")
+		HYPO_CORE_ASSERT(positions.size() == normals.size() || positions.size() == texCoords.size(), "[Mesh] verticies components vector sizes is diffrent! Make sure the positions texCoord normal vectors have the same length!")
 		struct Vertex
 		{
 			Vec3F position;
@@ -162,7 +166,7 @@ namespace Hypo
 		const std::vector<Vec3F>&& normals, const std::vector<Vec2F>&& texCoords, const std::vector<Vec3F>&& tangents, MeshType type)
 		: m_Flags(VertexPositions | VertexNormals | VertexTexCoords | VertexTangents), m_Type(type)
 	{
-		HYPO_CORE_ASSERT(positions.size() != normals.size() && positions.size() != texCoords.size(), "[Mesh] verticies components vector sizes is diffrent! Make sure the positions texCoord normal vectors have the same length!")
+		HYPO_CORE_ASSERT(positions.size() == normals.size() && positions.size() == texCoords.size(), "[Mesh] verticies components vector sizes is diffrent! Make sure the positions texCoord normal vectors have the same length!")
 			struct Vertex
 		{
 			Vec3F position;
@@ -200,7 +204,7 @@ namespace Hypo
 		const std::vector<Vec3F>&& biTangents, MeshType type)
 		: m_Flags(VertexPositions | VertexNormals | VertexTexCoords | VertexTangents | VertexBiTangents), m_Type(type)
 	{
-		HYPO_CORE_ASSERT(positions.size() != normals.size() && positions.size() != texCoords.size(), "[Mesh] verticies components vector sizes is diffrent! Make sure the positions texCoord normal vectors have the same length!")
+		HYPO_CORE_ASSERT(positions.size() == normals.size() && positions.size() == texCoords.size(), "[Mesh] verticies components vector sizes is diffrent! Make sure the positions texCoord normal vectors have the same length!")
 			struct Vertex
 		{
 			Vec3F position;
@@ -244,8 +248,9 @@ namespace Hypo
 		m_VertexArray->Bind();
 	}
 
-	void Mesh::UnBind()
+	void Mesh::UnBind() const
 	{
+		
 	}
 
 	void Mesh::SetupVertexArray(const std::vector<Index>&& indices, float* vertices, std::size_t size,
@@ -260,13 +265,16 @@ namespace Hypo
 		m_VertexArray = VertexArray::Create();
 		m_VertexArray->SetIndexBuffer(index);
 		m_VertexArray->AddVertexBuffer(vertex);
-		UnBind();
+		m_VertexArray->Unbind();
+		index->Unbind();
+		vertex->Unbind();
 	}
 
 	Mesh MeshFactory::CreatePlane(VertexTypeFlags flags, float size, std::array<Vec4F,4> color)
 	{
-		std::vector<Vec3F> positions = { {size,  size, 0.f },{size, -size, 0.f }, {-size,-size,0.f}, {-size, size, 0.f} };
+		std::vector<Vec3F> positions = { {size,  0, size },{size, 0, -size}, {-size,0,-size}, {-size, 0, size} };
 		static std::vector<Vec2F> texCoord = {{1.f, 1.f}, {1.f,0.f}, {0.f,0.f}, {0.f,1.f} };
+		static std::vector<Vec3F> normals = { {0.f,0.f, 1.f}, {0.f,0.f,0.f}, {0.f,0.f,1.f}, {0.f,0.f,1.f} };
 
 		static std::vector<Index> indices = { 0,1,3,  1,2,3 };
 
@@ -283,6 +291,8 @@ namespace Hypo
 		}
 		case VertexPosTexNorm:
 		{
+			return Mesh{ std::move(indices), std::move(positions), std::move(normals),std::move(texCoord) };
+			
 
 		}
 		case VertexPosTexNormTang:
@@ -351,9 +361,11 @@ namespace Hypo
 			case VertexPosCol:
 			{
 
+				return Mesh(std::move(indices), std::move(vertices), std::move(colors),MeshType::TriangleStrip);
 			}
 			case VertexPosTexNorm:
 			{
+				return Mesh(std::move(indices), std::move(vertices), std::move(normals), std::move(uvs), MeshType::TriangleStrip);
 
 			}
 			case VertexPosTexNormTang:
@@ -372,34 +384,59 @@ namespace Hypo
 
 	Mesh MeshFactory::CreateCube(VertexTypeFlags flags, float size, std::array<Vec4F, 4> colors)
 	{
-		float vertices[] = { 
-			size, size, size,   1,1,
-			-size, size, size,  0, 1,
-			- size, -size, size, 0, 0,
-			size, -size, size,  1, 0 ,  // v0-v1-v2-v3
-			size, size, size,	0, 1,
-			size, -size, size,	0, 0,
-			size, -size, -size,	1, 0,
-			size, size, -size,  1, 1,   // v0-v3-v4-v5
-			size, size, size,	1, 0,
-			size, size, -size,	1, 1,
-			- size, size, -size,	0, 1,
-			- size, size, size,  0, 0,    // v0-v5-v6-v1
-			- size, size, size,	1, 1,
-			- size, size, -size,	0, 1,
-			- size, -size, -size,0, 0,
-			- size, -size, size, 1, 0,    // v1-v6-v7-v2
-			- size, -size, -size,1, 1,
-			size, -size, -size,	0, 1,
-			size, -size, size,	0, 0,
-			- size, -size, size, 1, 0,    // v7-v4-v3-v2
-			size, -size, -size,	0, 0,
-			- size, -size, -size,1, 0,
-			- size, size, -size,	1, 1,
-			size, size, -size ,  0, 1    // v4-v7-v6-v5
+		std::vector<Vec3F> positions = { 
+			{size, size, size   } ,
+			{-size, size, size  } ,
+			{-size, -size, size },
+			{size, -size, size   },     // v0-v1-v2-v3
+			{size, size, size},
+			{size, -size, size},
+			{size, -size, -size},
+			{size, size, -size},      // v0-v3-v4-v5
+			{size, size, size},
+			{size, size, -size},
+			{- size, size, -size},
+			{- size, size, size},      // v0-v5-v6-v1
+			{- size, size, size},
+			{- size, size, -size},
+			{- size, -size, -size},
+			{- size, -size, size},     // v1-v6-v7-v2
+			{- size, -size, -size},
+			{size, -size, -size},
+			{size, -size, size},
+			{- size, -size, size},     // v7-v4-v3-v2
+			{size, -size, -size},
+			{- size, -size, -size},
+			{- size, size, -size},
+			{size, size, -size },     // v4-v7-v6-v5
 		};
-
-		Index indices[] = {
+		std::vector<Hypo::Vec2F> uvs = {
+			{1, 1},
+			{0, 1},
+			{0, 0},
+			{1, 0},
+			{0, 1},
+			{0, 0},
+			{1, 0},
+			{1, 1},
+			{1, 0},
+			{1, 1},
+			{0, 1},
+			{0, 0},
+			{1, 1},
+			{0, 1},
+			{0, 0},
+			{1, 0},
+			{1, 1},
+			{0, 1},
+			{0, 0},
+			{1, 0},
+			{0, 0},
+			{1, 0},
+			{1, 1},
+			{0, 1}
+		};
+		std::vector<ElementIndex> indices = {
 			 0, 1, 2,
 			0, 2, 3,
 			4, 5, 6,
@@ -413,20 +450,54 @@ namespace Hypo
 			20, 21, 22,
 			20, 22, 23
 		};
-		flags = VertexPosTex;
-		return Mesh(indices, vertices, flags);
+		std::vector<Vec3F> normals = {
+			{0.0f, 0.0f, -1.0f},
+			{0.0f, 0.0f, -1.0f},
+			{0.0f, 0.0f, -1.0f},
+			{0.0f, 0.0f, -1.0f},
 
+			{0.0f, 0.0f, 1.0f},
+			{0.0f, 0.0f, 1.0f},
+			{0.0f, 0.0f, 1.0f},
+			{0.0f, 0.0f, 1.0f},
+
+			{-1.0f, 0.0f, 0.0f},
+			{-1.0f, 0.0f, 0.0f},
+			{-1.0f, 0.0f, 0.0f},
+			{-1.0f, 0.0f, 0.0f},
+
+			{1.0f, 0.0f, 0.0f},
+			{1.0f, 0.0f, 0.0f},
+			{1.0f, 0.0f, 0.0f},
+			{1.0f, 0.0f, 0.0f},
+
+			{0.0f, -1.0f, 0.0f},
+			{0.0f, -1.0f, 0.0f},
+			{0.0f, -1.0f, 0.0f},
+			{0.0f, -1.0f, 0.0f},
+
+			{0.0f, 1.0f, 0.0f} ,
+			{0.0f, 1.0f, 0.0f} ,
+			{0.0f, 1.0f, 0.0f} ,
+			{0.0f, 1.0f, 0.0f} ,
+		};
 		switch (flags)
 		{
 		case VertexPositions:
 		{
+			return Mesh({ indices.data(), indices.size() }, { (float*)positions.data(), positions.size()  * 3}, VertexPositions, MeshType::Triangles);
 		}
 		case VertexPosCol:
 		{
 
 		}
+		case VertexPosTex:
+		{
+			return Mesh(std::move(indices), std::move(positions), std::move(uvs), MeshType::Triangles);
+		}
 		case VertexPosTexNorm:
 		{
+			return Mesh(std::move(indices), std::move(positions), std::move(normals), std::move(uvs),  MeshType::Triangles);
 
 		}
 		case VertexPosTexNormTang:
@@ -447,32 +518,4 @@ namespace Hypo
 
 /*
    // normals         
- 0.0f, 0.0f, -1.0f,
-	0.0f, 0.0f, -1.0f,
-	0.0f, 0.0f, -1.0f,
-	0.0f, 0.0f, -1.0f,
-
-	0.0f, 0.0f, 1.0f,
-	0.0f, 0.0f, 1.0f,
-	0.0f, 0.0f, 1.0f,
-	0.0f, 0.0f, 1.0f,
-
-	-1.0f, 0.0f, 0.0f,
-	-1.0f, 0.0f, 0.0f,
-	-1.0f, 0.0f, 0.0f,
-	-1.0f, 0.0f, 0.0f,
-
-	1.0f, 0.0f, 0.0f,
-	1.0f, 0.0f, 0.0f,
-	1.0f, 0.0f, 0.0f,
-	1.0f, 0.0f, 0.0f,
-
-	0.0f, -1.0f, 0.0f,
-	0.0f, -1.0f, 0.0f,
-	0.0f, -1.0f, 0.0f,
-	0.0f, -1.0f, 0.0f,
-
-	0.0f, 1.0f, 0.0f,
-	0.0f, 1.0f, 0.0f,
-	0.0f, 1.0f, 0.0f,
-	0.0f, 1.0f, 0.0f,*/
+ */

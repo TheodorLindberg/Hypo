@@ -49,7 +49,7 @@ using VertexTypeFlags = uInt8;
 		Mesh(gsl::span<const ElementIndex> indices, gsl::span<const float> vertices, VertexTypeFlags vertexFlags, MeshType type = MeshType::Triangles);
 		
 		// TODO: All constructors except the position and tex coord needs to be update  
-		Mesh(const std::vector<Index>&& indices, const std::vector<Vec3F>&& positions, const std::vector<Vec2F>&& texCoords, MeshType type = MeshType::Triangles);
+		Mesh( std::vector<Index>&& indices, const std::vector<Vec3F>&& positions, const std::vector<Vec2F>&& texCoords, MeshType type = MeshType::Triangles);
 		Mesh(const std::vector<Index>&& indices, const std::vector<Vec3F>&& positions, const std::vector<Vec4F>&& colors, MeshType type = MeshType::Triangles);
 		Mesh(const std::vector<Index>&& indices, const std::vector<Vec3F>&& positions, const std::vector<Vec3F>&& normals, const std::vector<Vec2F>&& texCoords, MeshType type = MeshType::Triangles);
 		Mesh(const std::vector<Index>&& indices, const std::vector<Vec3F>&& positions, const std::vector<Vec3F>&& normals, const std::vector<Vec2F>&& texCoords, const std::vector<Vec3F>&& tangents, MeshType type = MeshType::Triangles);
@@ -57,7 +57,7 @@ using VertexTypeFlags = uInt8;
 		explicit Mesh(VertexArray::Ptr va, VertexTypeFlags flags);
 
 		void Bind() const;
-		static void UnBind();
+		void UnBind() const;
 
 		inline void SetMeshType(MeshType type) { m_Type = type; }
 		inline MeshType GetMeshType() const { return m_Type; }

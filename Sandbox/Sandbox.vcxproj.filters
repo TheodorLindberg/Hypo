@@ -15,10 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Packet.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SolarSystem.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="src\Main.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Main2.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main3.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SolarSystem.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -40,7 +54,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\textures\earth.jpg">
+      <Filter>res\textures</Filter>
+    </Image>
     <Image Include="res\textures\references-outerra2.jpg">
+      <Filter>res\textures</Filter>
+    </Image>
+    <Image Include="res\textures\sun.jpg">
+      <Filter>res\textures</Filter>
+    </Image>
+    <Image Include="res\textures\venus.jpg">
       <Filter>res\textures</Filter>
     </Image>
     <Image Include="res\textures\wall.jpg">

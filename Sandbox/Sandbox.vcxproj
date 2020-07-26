@@ -79,15 +79,17 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\vendor\bullet3-2.89\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;..\Hypo3D\vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\vendor\bullet3-2.89\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -95,19 +97,21 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\vendor\bullet3-2.89\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;..\Hypo3D\vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\vendor\bullet3-2.89\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -115,24 +119,32 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\vendor\bullet3-2.89\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;..\Hypo3D\vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\vendor\bullet3-2.89\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Packet.h" />
+    <ClInclude Include="src\SolarSystem.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Main2.cpp" />
+    <ClCompile Include="src\Main3.cpp" />
+    <ClCompile Include="src\SolarSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\TransformPositionShader.glsl" />
@@ -142,7 +154,10 @@
     <None Include="res\shaders\simpleMeshShader.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\textures\earth.jpg" />
     <Image Include="res\textures\references-outerra2.jpg" />
+    <Image Include="res\textures\sun.jpg" />
+    <Image Include="res\textures\venus.jpg" />
     <Image Include="res\textures\wall.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +178,15 @@
     </ProjectReference>
     <ProjectReference Include="..\Hypo3D\vendor\glad\glad.vcxproj">
       <Project>{DD62977C-C999-980D-7286-7E105E9C140F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\vendor\bullet3-2.89\src\BulletDynamics\BulletDynamics.vcxproj">
+      <Project>{45122E0F-31E0-2115-1A74-923B06E1FD79}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\vendor\bullet3-2.89\src\BulletCollision\BulletCollision.vcxproj">
+      <Project>{B91153C5-259D-C089-2EAE-437E9AB81C8A}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\vendor\bullet3-2.89\src\LinearMath\LinearMath.vcxproj">
+      <Project>{EAF25DFD-D6AA-9F4A-3FB2-78A62B893A3B}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

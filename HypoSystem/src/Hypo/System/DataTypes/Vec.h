@@ -20,6 +20,11 @@ namespace Hypo
 			x(x),
 			y(y)
 		{}
+		_Vec2(std::pair<T,T> pair)
+			:
+			x(pair.first),
+			y(pair.second)
+		{}
 		template<typename T2, typename T3>
 		_Vec2(T2 x, T3 y)
 			:

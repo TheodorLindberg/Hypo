@@ -48,10 +48,10 @@ namespace Hypo
 			Shader::Ptr m_IntermediateTextureShader;
 
 			UniformBuffer::Ptr m_TransformBuffer;
+			UniformBuffer::Ptr m_PointLightsBuffer;
 			UniformBuffer::Ptr m_IntermediateColorBuffer;
 
 
-			UniformBuffer::Ptr m_PointLightsBuffer;
 		};
 
 

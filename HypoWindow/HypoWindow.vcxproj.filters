@@ -24,6 +24,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Hypo\Window.h">
+      <Filter>Hypo</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hypo\Window\Context\GraphicsContext.h">
       <Filter>Hypo\Window\Context</Filter>
     </ClInclude>

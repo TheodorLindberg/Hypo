@@ -7,11 +7,23 @@
     <Filter Include="Hypo\System">
       <UniqueIdentifier>{D90BD4A9-45C1-4C9F-CEB5-46763A6A43A3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hypo\System\Buffer">
+      <UniqueIdentifier>{A29FABAF-8E83-6C05-F7E3-6658E3E65687}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\System\Core">
+      <UniqueIdentifier>{D17FBB94-BD78-DAE6-E6AA-BF6BD202BAF2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Hypo\System\DataTypes">
       <UniqueIdentifier>{37FCFF07-A368-BB02-6C5C-5360D887DD6A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Hypo\System\Events">
       <UniqueIdentifier>{9DC9BCB6-89AD-7D0C-F20D-785FDE10688E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\System\Streams">
+      <UniqueIdentifier>{87FC40C0-F35D-1ECE-7CCB-6480E82B558D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\System\Time">
+      <UniqueIdentifier>{17B8C494-03B1-E3E6-2CE3-C86B183BC3F2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Hypo\System\Util">
       <UniqueIdentifier>{C672C594-B26B-E4E6-DB9D-C96BC7F5C3F2}</UniqueIdentifier>
@@ -26,6 +38,15 @@
     </ClInclude>
     <ClInclude Include="src\Hypo\Hypo.h">
       <Filter>Hypo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Buffer\Buffer.h">
+      <Filter>Hypo\System\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Core\Exception.h">
+      <Filter>Hypo\System\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\DataTypes\FlowControll.h">
+      <Filter>Hypo\System\DataTypes</Filter>
     </ClInclude>
     <ClInclude Include="src\Hypo\System\DataTypes\ObjPtr.h">
       <Filter>Hypo\System\DataTypes</Filter>
@@ -57,12 +78,57 @@
     <ClInclude Include="src\Hypo\System\Exports.h">
       <Filter>Hypo\System</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hypo\System\Streams\BinaryReader.h">
+      <Filter>Hypo\System\Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Streams\BinaryWriter.h">
+      <Filter>Hypo\System\Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Streams\MemoryStream.h">
+      <Filter>Hypo\System\Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Streams\SendStream.h">
+      <Filter>Hypo\System\Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Streams\Stream.h">
+      <Filter>Hypo\System\Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Time\Clock.h">
+      <Filter>Hypo\System\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Time\ExecutionCounter.h">
+      <Filter>Hypo\System\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\System\Time\Time.h">
+      <Filter>Hypo\System\Time</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hypo\System\Util\Log.h">
       <Filter>Hypo\System\Util</Filter>
     </ClInclude>
     <ClInclude Include="src\systempch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hypo\System\Core\Exception.cpp">
+      <Filter>Hypo\System\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\System\Streams\BinaryReader.cpp">
+      <Filter>Hypo\System\Streams</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\System\Streams\BinaryWriter.cpp">
+      <Filter>Hypo\System\Streams</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\System\Streams\MemorySteam.cpp">
+      <Filter>Hypo\System\Streams</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\System\Time\Clock.cpp">
+      <Filter>Hypo\System\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\System\Time\ExecutionCounter.cpp">
+      <Filter>Hypo\System\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\System\Time\Time.cpp">
+      <Filter>Hypo\System\Time</Filter>
+    </ClCompile>
     <ClCompile Include="src\Hypo\System\Util\Log.cpp">
       <Filter>Hypo\System\Util</Filter>
     </ClCompile>

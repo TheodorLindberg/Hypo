@@ -38,10 +38,10 @@ namespace Hypo
 		inline Vec3F& GetRotation() { return m_Rotation; };
 		inline Vec3F& GetOrigin() { return m_Origin; };
 
-		inline void Move( Vec3F& movement) { m_Position += movement; };
-		inline void Scale(Vec3F& scaling) { m_Scaling += scaling; };
-		inline void Rotate(Vec3F& rotation) { m_Rotation += rotation; };
-		inline void MoveOrigin(Vec3F& movement) { m_Origin += movement; };
+		inline void Move(const Vec3F& movement) { m_Position += movement; };
+		inline void Scale(const Vec3F& scaling) { m_Scaling += scaling; };
+		inline void Rotate(const Vec3F& rotation) { m_Rotation += rotation; };
+		inline void MoveOrigin(const Vec3F& movement) { m_Origin += movement; };
 
 		glm::mat4& GetTransform();
 

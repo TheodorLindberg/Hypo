@@ -4,6 +4,13 @@
 
 namespace Hypo
 {
+
+	enum class CameraProjection
+	{
+		Orthographic,
+		Perspective
+	};
+
 	class Camera
 	{
 	public:
@@ -96,8 +103,8 @@ namespace Hypo
 		const glm::vec3 GetForwardVector();
 
 	private:
-		void UpdateMatricies();
-	private:
+		virtual void UpdateMatricies();
+	protected:
 		Vec3F m_Position = { 0,0,0 };
 		Vec3F m_Orientation = { 0,0,0 };
 		bool m_ViewNeedUpdate = true;

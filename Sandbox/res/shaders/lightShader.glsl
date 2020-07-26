@@ -127,6 +127,7 @@ void main()
 	// phase 3: spot light
 	//result += CalcSpotLight(spotLight, norm, FragPos, viewDir);
 
+	color = vec4(vec3(texture(texture1, v_TexCoord)), 1.f);
 	color = vec4(result, 1.f);
 }
 

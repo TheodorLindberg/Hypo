@@ -1,28 +1,31 @@
 #pragma once
-#include "Hypo/Network/Export.h"
-#include "Hypo/Network/Socket/Socket.h"
+#include "Socket.h"
+#include "Hypo/System/Streams/SendStream.h"
 
 namespace Hypo
 {
-	class HYPO_NETWORK_API TcpSocket : public Socket
+	class HYPO_NETWORK_API TcpSocket : public Socket, public SendStream
 	{
 	public:
 		TcpSocket();
+		TcpSocket(SocketImpl* impl);
+		TcpSocket(IpAddress& address, unsigned short port);
 
-		unsigned short GetLocalPort() const;
-		uInt32 GetRemoteAddress() const;
-		unsigned short GetRemotePort() const;
+		TcpSocket(const TcpSocket& socket);
 
 
-		Status Connect(const uInt32 remoteAddress, unsigned short remotePort, uInt32 timeout);
-		
+		virtual ~TcpSocket();
+
+		TcpSocket& operator = (const Socket& socket);
+
+		void Connect(IpAddress& address, unsigned short port);
+
 		void Disconnect();
 		
-		Status Send(const void* data, std::size_t size);
-		Status Send(const void* data, std::size_t size, std::size_t& sent);
+		int Available();
 
-		Status Receive(void* data, std::size_t size, std::size_t& received);
+		int Receive(void* data, int size);
+		int Send(const void* data, int size) override;
+	private:
 	};
-
-	
 }

@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -105,6 +106,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -127,6 +129,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -138,16 +141,31 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Hypo\Network\Export.h" />
+    <ClInclude Include="src\Hypo\Network\IpAddress.h" />
+    <ClInclude Include="src\Hypo\Network\NetExceptions.h" />
+    <ClInclude Include="src\Hypo\Network\Packet\Packet.h" />
+    <ClInclude Include="src\Hypo\Network\Packet\PacketSender.h" />
+    <ClInclude Include="src\Hypo\Network\Socket\ServerSocket.h" />
+    <ClInclude Include="src\Hypo\Network\Socket\ServerSocketImpl.h" />
     <ClInclude Include="src\Hypo\Network\Socket\Socket.h" />
-    <ClInclude Include="src\Hypo\Network\Socket\SocketHandle.h" />
+    <ClInclude Include="src\Hypo\Network\Socket\SocketDefs.h" />
+    <ClInclude Include="src\Hypo\Network\Socket\SocketImpl.h" />
     <ClInclude Include="src\Hypo\Network\Socket\TcpSocket.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsSocketImpl.h" />
+    <ClInclude Include="src\Hypo\Network\Socket\TcpSocketImpl.h" />
+    <ClInclude Include="src\Hypo\Network\TcpServer\TcpServer.h" />
+    <ClInclude Include="src\Hypo\Network\TcpServer\TcpServerConnection.h" />
+    <ClInclude Include="src\Hypo\Network\TcpServer\TcpServerFactory.h" />
     <ClInclude Include="src\networkpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hypo\Network\IpAddress.cpp" />
+    <ClCompile Include="src\Hypo\Network\NetExceptions.cpp" />
+    <ClCompile Include="src\Hypo\Network\Socket\ServerSocket.cpp" />
     <ClCompile Include="src\Hypo\Network\Socket\Socket.cpp" />
+    <ClCompile Include="src\Hypo\Network\Socket\SocketImpl.cpp" />
     <ClCompile Include="src\Hypo\Network\Socket\TcpSocket.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsSocketImpl.cpp" />
+    <ClCompile Include="src\Hypo\Network\Socket\TcpSocketImpl.cpp" />
+    <ClCompile Include="src\Hypo\Network\TcpServer\TcpServer.cpp" />
     <ClCompile Include="src\networkpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

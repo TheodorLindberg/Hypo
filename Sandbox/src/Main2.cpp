@@ -1,59 +1,108 @@
-#include "Hypo/Hypo.h"
-#include <Hypo/Window/Input.h>
-#include <iostream>
-#include <Hypo/Network/Socket/TcpSocket.h>
-#include "Hypo/Window/Window.h"
-
-struct Ip
-{
-	union 
-	{
-		struct
-		{
-
-			Hypo::uInt8 b1;
-			Hypo::uInt8 b2;
-			Hypo::uInt8 b3;
-			Hypo::uInt8 b4;
-		};
-		Hypo::uInt32 ip;
-	};
-};
-
-int main()
-{
-	Ip ip;
-	ip.b1 = 127;
-	ip.b2 = 0;
-	ip.b3 = 0;
-	ip.b4 = 1;
-	/*
-	do
-	{
-		std::cout << "Type the address or name of the server to connect to: ";
-		std::cin >> server;
-	} while (server == sf::IpAddress::None);
-	*/
-	// Create a socket for communicating with the server
-	Hypo::TcpSocket socket;
-
-	// Connect to the server
-	if (socket.Connect(ip.ip, 9977, 0) != Hypo::Socket::Done)
-		return -1;
-	std::cout << "Connected to server " << ip.ip << std::endl;
-
-
-	// Send an answer to the server
-	const char out[] = "Hi, I'm a client";
-	if (socket.Send(out, sizeof(out)) != Hypo::Socket::Done)
-		return -1;
-	std::cout << "Message sent to the server: \"" << out << "\"" << std::endl;
-
-	// Receive a message from the server
-	char in[128];
-	std::size_t received;
-	if (socket.Receive(in, sizeof(in), received) != Hypo::Socket::Done)
-		return -1;
-	std::cout << "Message received from the server: \"" << in << "\"" << std::endl;
-	return 0;
-}
+//#include "Hypo/Hypo.h"
+//#include <Hypo/Window/Input.h>
+//#include <iostream>
+//#include <Hypo/Network/Socket/TcpSocket.h>
+//#include "Hypo/Window/Window.h"
+//
+//#include <thread>
+//#include <conio.h>
+//#include "Hypo/Network/Socket/ServerSocket.h"
+//#include "Hypo/Network/TcpServer/TcpServer.h"
+//#include "Hypo/System/Streams/BinaryWriter.h"
+//
+//#include <sstream>
+//#include "Hypo/System/Streams/BinaryReader.h"
+//
+//#include "Packet.h"
+//
+//class EchoServerConnection : public Hypo::TcpServerConnection
+//{
+//public:
+//	EchoServerConnection(Hypo::TcpSocket& socket, Hypo::TcpServer& server)
+//		: TcpServerConnection(socket), m_Server(server), m_Stream(&socket)
+//	{
+//		std::cout << "New connection" << std::endl;
+//
+//	}
+//
+//	void OnReadable() override
+//	{
+//		char* buf[1024];
+//		auto received = m_Socket.Receive(buf, sizeof(buf));
+//
+//		for(auto& conn : m_Server.GetConnections())
+//		{
+//			m_Stream->Send(buf, received);
+//		}
+//
+//		std::cout << "Client: " << m_Socket.GetLocalPort() << " sent: " << std::string(reinterpret_cast<const char*>(buf), received) << std::endl << std::endl;
+//	}
+//	void OnDisconnect() override
+//	{
+//		std::cout << "Client disconnecting" << std::endl;
+//	}
+//	void OnShutdown() override
+//	{
+//		std::cout << "Server shutting down" << std::endl;
+//		m_Socket.Disconnect();
+//	}
+//private:
+//	Hypo::SendStream* m_Stream;
+//	Hypo::TcpServer& m_Server;
+//};
+//
+//class EchoServerFactory : public Hypo::TcpServerFactory
+//{
+//public:
+//	Hypo::TcpServerConnection* Handle(Hypo::TcpSocket& socket, Hypo::TcpServer& server) override
+//	{
+//		return new EchoServerConnection(socket, server);
+//	}
+//};
+//
+//int main()
+//{
+//	std::cout << "Starting server" << std::endl;
+//
+//
+//
+//	SendChatMessagePacket packet;
+//	packet.name = "Hello";
+//
+//	Hypo::Buffer<char> buf(200);
+//	Hypo::MemoryBinaryWriter writer1(buf);
+//
+//	writer1 << "Hello this is me";
+//
+//	Hypo::MemoryBinaryReader reader1(buf);
+//
+//	std::string text;
+//	reader1 >> text;
+//	std::cout << text;
+//
+//
+//
+//	std::stringstream stream;
+//	
+//	std::ostream& output(stream);
+//
+//
+//	Hypo::BinaryWriter writer(stream);
+//
+//	writer << &packet;
+//
+//	//Read
+//	Hypo::BinaryReader reader(stream);
+//	SendChatMessagePacket packet2;
+//	Hypo::uInt32 packetId, packetSize;
+//
+//	reader >> packetId >> packetSize;
+//
+//	packet2.Read(reader);
+//
+//
+//
+// 	Hypo::TcpServer server(new EchoServerFactory, "localhost", 12345);
+//	server.Run();
+//	return 0;
+//}

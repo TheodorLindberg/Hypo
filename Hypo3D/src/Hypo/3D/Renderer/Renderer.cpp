@@ -89,9 +89,6 @@ namespace Hypo
 
 	void Renderer::Submit(Drawable& drawable)
 	{
-		auto& shader = drawable.GetShader();
-		shader->Bind();
-		//shader->BindUniformBuffer(m_ActiveSceneData->m_TransformUniforms);
 		drawable.Submit();
 	}
 
@@ -138,7 +135,9 @@ namespace Hypo
 		GetSceneRendererData()->m_TransformBuffer->Set("u_ModelMatrix", transform);
 		
 		shader->BindUniformBuffer(GetSceneRendererData()->m_TransformBuffer);
+		shader->BindUniformBuffer(GetSceneRendererData()->m_PointLightsBuffer);
 		RenderCommand::DrawIndexed(mesh.m_VertexArray, mesh.GetMeshType());
+		mesh.m_VertexArray->Unbind();
 		mesh.UnBind();
 		shader->UnBind();
 	}
@@ -150,6 +149,7 @@ namespace Hypo
 		GetSceneRendererData()->m_TransformBuffer->Set("u_ModelMatrix", transform);
 		shader->BindTexture(texture, textureName);
 		shader->BindUniformBuffer(GetSceneRendererData()->m_TransformBuffer);
+		shader->BindUniformBuffer(GetSceneRendererData()->m_PointLightsBuffer);
 		RenderCommand::DrawIndexed(mesh.m_VertexArray, mesh.GetMeshType());
 		mesh.UnBind();
 		shader->UnBind();
@@ -167,11 +167,19 @@ namespace Hypo
 	
 	void Renderer::RenderCube(Vec3F position, Vec3F size, Vec4F color,float rotX, float rotY, float rotZ)
 	{	
-		static Mesh& cubeMesh = MeshFactory::CreateCube(VertexPositions, 1.f);
+		static const Mesh& cubeMesh = MeshFactory::CreateCube(VertexPositions, 1.f);
 		auto transform = Transform::CreateTransform(position, size, { rotX, rotY, rotZ }, { 0,0,0 });
 		GetSceneRendererData()->m_IntermediateColorBuffer->Set("u_Color", color);
 		GetSceneRendererData()->m_IntermediateColorShader->BindUniformBuffer(GetSceneRendererData()->m_IntermediateColorBuffer);
-		Submit(GetSceneRendererData()->m_IntermediateColorShader, transform, cubeMesh);
+		
+		auto shader = GetSceneRendererData()->m_IntermediateColorShader;
+		shader->Bind();
+		shader->BindUniformBuffer(GetSceneRendererData()->m_TransformBuffer);
+		GetSceneRendererData()->m_TransformBuffer->Set("u_ModelMatrix", transform);
+		cubeMesh.m_VertexArray->Bind();
+		RenderCommand::DrawIndexed(cubeMesh.m_VertexArray);
+		cubeMesh.m_VertexArray->Unbind();
+		shader->UnBind();
 	}
 
 	std::unique_ptr<Renderer::SceneData>& Renderer::GetSceneData()
