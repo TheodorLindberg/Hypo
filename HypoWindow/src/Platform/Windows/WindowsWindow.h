@@ -27,6 +27,7 @@ namespace Hypo
 		Vec2U GetSize() const override;
 		Vec2I GetPosition() const override;
 
+		RectI GetViewRect() const override;
 		//Setters
 		void SetSize(Vec2U newSize) override;
 		void SetPosition(Vec2I newPosition) override;
@@ -72,7 +73,7 @@ namespace Hypo
 		void Shutdown();
 	public:
 		const WindowEventFlowControl& GetEventFlowControl() const override { return m_EventFlowControl;  };
-		WindowEventFlowControl& GetEventFlowControl() override {return m_EventFlowControl; };
+		WindowEventFlowControl& GetEventFlowControl() override {return m_EventFlowControl; }
 	private:
 
 

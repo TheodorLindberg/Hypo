@@ -67,6 +67,8 @@ namespace Hypo
 
 		virtual Vec2U GetSize() const = 0;
 		virtual Vec2I GetPosition() const = 0;
+
+		virtual RectI GetViewRect() const = 0;
 		
 		virtual void* GetGladProc() { return nullptr; };
 		

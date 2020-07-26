@@ -4,8 +4,6 @@
 #include <glm/ext/scalar_constants.inl>
 #include <glm/ext/matrix_clip_space.inl>
 #include <glm/ext/matrix_transform.inl>
-#include <Hypo/3D/ECS/Entity.h>
-#include "Hypo/3D/ECS/Components.h"
 
 namespace Hypo
 {
@@ -67,7 +65,7 @@ namespace Hypo
 			Orientate(-80 * dt, 0, 0);
 
 
-		Vec2I mouseDelta = m_LastMousePos - Vec2I{Input::GetMousePosition()};
+		Vec2F mouseDelta = m_LastMousePos - Input::GetMousePosition();
 		m_LastMousePos = { Input::GetMousePosition() };
 
 		float sensitivity = 10;
@@ -83,8 +81,8 @@ namespace Hypo
 
 	void FollowCamera::Update(float dt)
 	{
-		auto mouseDelta = m_LastMousePos - Vec2I{Input::GetMousePosition()};
-		m_LastMousePos = Vec2I{ Input::GetMousePosition() };
+		auto mouseDelta = m_LastMousePos - Input::GetMousePosition();
+		m_LastMousePos = Input::GetMousePosition();
 
 		if (Hypo::Input::IsMouseButtonPressed(HYPO_MOUSE_BUTTON_RIGHT)) {
 			float pitchChange = mouseDelta.y * 0.1f;
@@ -94,7 +92,7 @@ namespace Hypo
 			float angleChange = mouseDelta.x * 0.3f;
 			angleAroundPlayer += angleChange;
 		}
-		auto& targetTransform = m_Target->GetComponent<TransformComponent>()->transform;
+		auto& targetTransform = m_Target.GetComponent<TransformComponent>();
 
 		float theta = targetTransform.GetRotation().y * 180 / glm::pi<float>() + angleAroundPlayer;
 		yaw = 180 - theta;

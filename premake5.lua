@@ -354,7 +354,6 @@ project "Hypo3D"
 		"HypoSystem",
 		"HypoWindow",
 		"HypoGraphics",
-		"%{IncludeDir.entt}"
 	}
 	files
 	{

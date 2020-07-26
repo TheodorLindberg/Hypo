@@ -14,7 +14,7 @@ namespace Hypo
 		return s_Instance->IsMouseButtonPressedImpl(button);
 	}
 
-	std::pair<float, float> Input::GetMousePosition()
+	Vec2F Input::GetMousePosition()
 	{
 		return s_Instance->GetMousePositionImpl();
 	}

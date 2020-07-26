@@ -79,6 +79,11 @@ namespace Hypo
 		return Vec2I{x,y};
 	}
 
+	RectI WindowsWindow::GetViewRect() const
+	{
+		return RectFromSize<int>(GetPosition(), Vec2I{ GetSize() });
+	}
+
 	void WindowsWindow::SetSize(Vec2U newSize)
 	{
 		glfwSetWindowSize(m_Window, newSize.x, newSize.y);

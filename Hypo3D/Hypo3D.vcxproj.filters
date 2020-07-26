@@ -13,17 +13,14 @@
     <Filter Include="Hypo\3D\Camera">
       <UniqueIdentifier>{236798F1-0F35-8CF7-F8C8-FC1DE435685C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Hypo\3D\ComponentModel">
-      <UniqueIdentifier>{FEA63856-EAA0-61A8-D30D-F8B8BFA6C714}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Hypo\3D\ECS">
-      <UniqueIdentifier>{D5CE495B-4184-C250-CA78-BC27362DB954}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Hypo\3D\Model">
       <UniqueIdentifier>{8B12A255-F7D2-1D8C-C00D-67092C8D6268}</UniqueIdentifier>
     </Filter>
     <Filter Include="Hypo\3D\Renderer">
       <UniqueIdentifier>{116D4FC7-FD65-6E19-2698-539E12F04D25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hypo\3D\Scene">
+      <UniqueIdentifier>{68160856-D4D6-838C-9D11-CD090991C868}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
@@ -87,12 +84,19 @@
     <ClInclude Include="src\Hypo\3D\Renderer\Transform.h">
       <Filter>Hypo\3D\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hypo\3D\Scene\Components.h">
+      <Filter>Hypo\3D\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\3D\Scene\Entity.h">
+      <Filter>Hypo\3D\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hypo\3D\Scene\Scene.h">
+      <Filter>Hypo\3D\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\hypo3dpch.h" />
-    <ClInclude Include="src\Hypo\3D\Scene\Scene.h" />
-    <ClInclude Include="src\Hypo\3D\Scene\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hypo\3D\Asset\AssetLoader.cpp">
@@ -124,6 +128,9 @@
     </ClCompile>
     <ClCompile Include="src\Hypo\3D\Renderer\Transform.cpp">
       <Filter>Hypo\3D\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hypo\3D\Scene\Scene.cpp">
+      <Filter>Hypo\3D\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
       <Filter>Platform\OpenGL</Filter>

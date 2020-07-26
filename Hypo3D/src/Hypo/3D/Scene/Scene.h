@@ -1,13 +1,25 @@
 #pragma once
 #include <entt/entt.hpp>
+#include "Components.h"
+#include "Hypo/3D/Exports.h"
+
 namespace Hypo
 {
-	class Scene
+
+	class Entity;
+	class HYPO_3D_API Scene
 	{
 	public:
-		Scene() = default;
+		Scene();
 		~Scene() = default;
+
+
+		void Update(float dt);
+		void Render();
+		Entity CreateEntity(const std::string& name = std::string());
 	private:
+		friend class Entity;
 		entt::registry m_Registry;
 	};
+
 }

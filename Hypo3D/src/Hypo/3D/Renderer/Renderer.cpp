@@ -73,7 +73,7 @@ namespace Hypo
 
 		sceneRendererData->m_PointLightsBuffer = UniformBuffer::Create(pointLightBinder);
 		auto& buffer = sceneRendererData->m_PointLightsBuffer;
-		for(int i = 0; i < 5; i++)
+		for(int i = 0; i < lights.PointLights.size(); i++)
 		{
 			PointLight& light = lights.PointLights[i];
 			std::string s = "lights[" +std::to_string(i) +"].";

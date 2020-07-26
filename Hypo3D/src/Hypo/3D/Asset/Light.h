@@ -9,8 +9,8 @@ namespace Hypo
 		Vec3F Position = {0,0,0};
 
 		float Constant = 1.f;
-		float Linear = 0.09;
-		float Quadratic = 0.032;
+		float Linear = 0.09f;
+		float Quadratic = 0.032f;
 
 		Vec3F Ambient = {0.05f, 0.05f,0.05f};
 		Vec3F Diffuse = {0.8f,0.8f,0.8f};
