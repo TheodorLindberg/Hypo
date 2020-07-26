@@ -30,7 +30,7 @@ namespace Hypo
 			HYPO_CORE_WARN("GL Warning: type = {0}, message = {1}", type, message);
 		}
 		else if (severity == 0x826B /* DEBUG_SEVERITY_NOTIFICATION */) {
-			HYPO_CORE_DEBUG("GL Notification: type = {0}, message = {1}", type, message);
+			//HYPO_CORE_DEBUG("GL Notification: type = {0}, message = {1}", type, message);
 
 		}
 	}
@@ -231,6 +231,7 @@ namespace Hypo
 		// During init, enable debug output
 		glEnable(GL_DEBUG_OUTPUT);
 		glDebugMessageCallback(MessageCallback, 0);
+		ResetState();
 	}
 
 	void OpenGLContext::SwapBuffers()

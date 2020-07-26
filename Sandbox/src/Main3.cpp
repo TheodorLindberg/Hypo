@@ -4,6 +4,8 @@
 #include <bullet/btBulletDynamicsCommon.h>
 #include "Hypo/3D/Scene/Scene.h"
 #include "Hypo/3D/Scene/Entity.h"
+#include "Hypo/System/Time/Clock.h"
+#include "Hypo/System/Time/FpsCounter.h"
 
 //static constexpr float WALK_SPEED = 20;
 //static constexpr float RUN_SPEED = 60;
@@ -47,22 +49,18 @@
 //	//player->applyCentralForce({ dx * 20, 5, dz* 20 });	
 //}
 
+
 using namespace Hypo;
 int main()
 {
-	
-	Hypo::Log::Init();
-	auto* window = Hypo::Window::Create(Hypo::WindowProps{"ECS system"});
 
-	window->SetVSync(false);
+	Hypo::Log::Init();
+	auto* window = Hypo::Window::Create(Hypo::WindowProps{ "ECS system" });
+
 	Hypo::init(window->GetGladProc());
 	Hypo::InitRenderer(window->GetGladProc());
 
-	
 
-	auto meshShader = Hypo::AssetManager::RetrieveShaderAsset("MeshShader", "res\\shaders\\lightShader.glsl");
-	auto wallTexture = Hypo::AssetManager::RetrieveTexture2DAsset("brick_wall","res\\textures\\wall.jpg" );
-	auto forestTexture = Hypo::AssetManager::RetrieveTexture2DAsset("forrest", "res\\textures\\references-outerra2.jpg");
 
 	Hypo::Scene scene;
 #if 0
@@ -145,57 +143,118 @@ int main()
 	//player->GetComponent<TransformComponent>()->transform.SetPosition({ 0, 4, 0 });
 #endif
 
+
 	auto cubeMesh = MeshFactory::CreateCube(VertexPosTexNorm);
+	auto earthTexture = AssetManager::RetrieveTexture2DAsset("earth-texture", "res/textures/sun.jpg");
+	auto wallTexture = AssetManager::RetrieveTexture2DAsset("wall-texture", "res/textures/wall.jpg");
+
+
 
 	auto player = scene.CreateEntity("Player");
-	player.AddComponent<MeshComponent>(cubeMesh);
+	player.AddComponent<MeshComponent>().Mesh = cubeMesh;
+	player.AddComponent<Render3DComponent>();
 
-	Hypo::FollowCamera camera(player);
+	auto object = scene.CreateEntity("Object");
+	object.AddComponent<MeshComponent>().Mesh = cubeMesh;
+	object.AddComponent<MaterialComponent>().Texture = earthTexture;
+	object.AddComponent<Render3DComponent>();
+	object.GetComponent<TransformComponent>().SetPosition({ -1,1,-3 });
+
+	auto plane = scene.CreateEntity("Object");
+	plane.AddComponent<MeshComponent>().Mesh = cubeMesh;
+	plane.AddComponent<MaterialComponent>().Texture = wallTexture;
+	plane.AddComponent<Render3DComponent>();
+	plane.GetComponent<TransformComponent>().SetPosition({ 0,-3,0 });
+	plane.GetComponent<TransformComponent>().SetScaling({ 10.f,0.1f,10.f });
+
+	{
+		std::vector<Hypo::Vec3F> lightPositions = {
+				{1.2f,1.1f,2.2f},
+				{-3.f,1.5f,-3.1f},
+				{3.4f,3.2f,-1.3f},
+				{5.7f,2.1f,2.2f},
+				{-2.1f,1.4f,-2.5f},
+				{1.f,2.f,-2.5f}
+		};
+
+		for (int i = 0; i < lightPositions.size(); i++)
+		{
+			Hypo::PointLight light;
+			light.Position = lightPositions[i];
+
+			auto entity = scene.CreateEntity("Light" + std::to_string(i));
+			entity.AddComponent<PointLightComponent>().Light = light;
+			entity.AddComponent<MeshComponent>().Mesh = cubeMesh;
+			entity.AddComponent<DebugRenderComponent>().Color = Vec4F{ 0.1f, 0.9f, 0.4f, 1.f };
+			entity.GetComponent<TransformComponent>().SetScaling({ 0.1,0.1, 0.1 });
+			entity.GetComponent<TransformComponent>().SetPosition(lightPositions[i]);
+		}
+	}
+
+	FollowCamera camera(player);
 
 	auto cameraEntity = scene.CreateEntity("Camera");
 	cameraEntity.AddComponent<CameraComponent>(&camera);
 
 
 
+
+
+	Clock fpsClock;
+	FPSCounter frameCounter;
+	window->EnableImGui();
+	window->SetVSync(true);
+	window->GetGraphicsContext()->EnableCullFace(CullFace::Back);
 	bool running = true;
-	float dt = 1.f / 60.f;
 	while (running)
 	{
-		Hypo::Event event;
-		while (window->PollEvent(event))
+		float dt = fpsClock.Reset().AsSeconds();
+		frameCounter.Frame(dt);
+
+		Event e;
+		while (window->PollEvent(e))
 		{
-			if (event.type == Hypo::EventType::WindowClose)
-			{
-				running = false;
-				goto end;
-			}
+			if (e.type == EventType::WindowClose)
+				goto quit;
 		}
-
-
-		if (!running)
-		{
-			break;
-		}
-
-
-
+		RenderCommand::SetClearColor({ 0.2f,0.4f,0.2f,1.f });
+		RenderCommand::Clear(RendererAPI::CLEAR_COLOR | RendererAPI::CLEAR_DEPTH);
 		camera.SetViewRect(window->GetViewRect());
 		camera.Update(dt);
-
 		scene.Update(dt);
 
-		Hypo::RenderCommand::SetClearColor({ 0.1,0.3,0.1,1.f });
-		Hypo::RenderCommand::Clear(Hypo::RendererAPI::CLEAR_COLOR | Hypo::RendererAPI::CLEAR_DEPTH);
-
-		window->GetGraphicsContext()->ResetState();
-		window->GetGraphicsContext()->EnableCullFace(Hypo::CullFace::Disabled);
-		window->GetGraphicsContext()->EnableDepthTest(true);
 
 		scene.Render();
 
-		window->Display();
-	}
+		//ImGui
+		{
+		window->BeginImGui();
+		
+		ImGui::Begin("fps");
+		ImGui::Text("fps %i", frameCounter.CurrentFPS);
+		ImGui::Text("peak fps %i", frameCounter.PeakFPS);
+		ImGui::Text("low fps %i", frameCounter.LowFPS);
+		ImGui::Text("average fps %i", frameCounter.AverageFPS);
 
-	end:
+		ImGui::Text("frame time %f", frameCounter.CurrentFrameTime);
+		ImGui::Text("peak frame time %f", frameCounter.PeakFrameTime);
+		ImGui::Text("low frame time %f", frameCounter.LowFrameTime);
+		ImGui::Text("average frame time %f", frameCounter.AverageFrameTime);
+
+		if (ImGui::Button("Reset"))
+			frameCounter.Reset();
+		ImGui::End();
+		}
+
+		window->EndImGui();
+
+		window->Display();
+
+	}
+quit:
+	window->DisableImGui();
+	running = false;
 	delete window;
+
+	return 0;
 }

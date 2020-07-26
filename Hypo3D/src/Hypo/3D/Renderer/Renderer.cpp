@@ -167,7 +167,7 @@ namespace Hypo
 	
 	void Renderer::RenderCube(Vec3F position, Vec3F size, Vec4F color,float rotX, float rotY, float rotZ)
 	{	
-		static const Mesh& cubeMesh = MeshFactory::CreateCube(VertexPositions, 1.f);
+		static Mesh::Ptr cubeMesh = MeshFactory::CreateCube(VertexPositions, 1.f);
 		auto transform = Transform::CreateTransform(position, size, { rotX, rotY, rotZ }, { 0,0,0 });
 		GetSceneRendererData()->m_IntermediateColorBuffer->Set("u_Color", color);
 		GetSceneRendererData()->m_IntermediateColorShader->BindUniformBuffer(GetSceneRendererData()->m_IntermediateColorBuffer);
@@ -176,9 +176,25 @@ namespace Hypo
 		shader->Bind();
 		shader->BindUniformBuffer(GetSceneRendererData()->m_TransformBuffer);
 		GetSceneRendererData()->m_TransformBuffer->Set("u_ModelMatrix", transform);
-		cubeMesh.m_VertexArray->Bind();
-		RenderCommand::DrawIndexed(cubeMesh.m_VertexArray);
-		cubeMesh.m_VertexArray->Unbind();
+		cubeMesh->m_VertexArray->Bind();
+		RenderCommand::DrawIndexed(cubeMesh->m_VertexArray);
+		cubeMesh->m_VertexArray->Unbind();
+		shader->UnBind();
+	}
+
+	void Renderer::DebugSubmit(Shader::Ptr& shader, glm::mat4& transform, Mesh::Ptr mesh, Vec4F color)
+	{
+		shader->Bind();
+
+		GetSceneRendererData()->m_TransformBuffer->Set("u_ModelMatrix", transform);
+		shader->BindUniformBuffer(GetSceneRendererData()->m_TransformBuffer);
+
+		GetSceneRendererData()->m_IntermediateColorBuffer->Set("u_Color", color);
+		shader->BindUniformBuffer(GetSceneRendererData()->m_IntermediateColorBuffer);
+
+		mesh->m_VertexArray->Bind();
+		RenderCommand::DrawIndexed(mesh->m_VertexArray);
+		mesh->m_VertexArray->Unbind();
 		shader->UnBind();
 	}
 

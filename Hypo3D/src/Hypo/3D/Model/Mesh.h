@@ -43,6 +43,8 @@ using VertexTypeFlags = uInt8;
 	class HYPO_3D_API Mesh
 	{
 	public:
+		using Ptr = ObjPtr<Mesh>;
+
 		friend class Renderer;
 		friend class Scene;
 		explicit Mesh() = default;
@@ -74,9 +76,9 @@ using VertexTypeFlags = uInt8;
 	{
 	public:
 		//TODO: Implement more geometry shapes and include things such as normals and tangents for the meshes
-		static Mesh CreatePlane(VertexTypeFlags flags = VertexPosTex, float size = 0.5, std::array<Vec4F,4> colors = { Vec4F{0,0,0,1},{0,0,0,1},{0,0,0,1},{0,0,0,1} });
-		static Mesh CreateUVSphere(VertexTypeFlags flags, unsigned short slices, unsigned short stacks, float radius);
-		static Mesh CreateCube(VertexTypeFlags flags = VertexPosTex, float size = 0.5, std::array<Vec4F, 4> colors = { Vec4F{0,0,0,1},{0,0,0,1},{0,0,0,1},{0,0,0,1} });
+		static Mesh::Ptr CreatePlane(VertexTypeFlags flags = VertexPosTex, float size = 0.5, std::array<Vec4F,4> colors = { Vec4F{0,0,0,1},{0,0,0,1},{0,0,0,1},{0,0,0,1} });
+		static Mesh::Ptr CreateUVSphere(VertexTypeFlags flags, unsigned short slices, unsigned short stacks, float radius);
+		static Mesh::Ptr CreateCube(VertexTypeFlags flags = VertexPosTex, float size = 0.5, std::array<Vec4F, 4> colors = { Vec4F{0,0,0,1},{0,0,0,1},{0,0,0,1},{0,0,0,1} });
 		
 	};
 }

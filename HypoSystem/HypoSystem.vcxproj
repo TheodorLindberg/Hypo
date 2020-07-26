@@ -163,6 +163,7 @@
     <ClInclude Include="src\Hypo\System\Streams\Stream.h" />
     <ClInclude Include="src\Hypo\System\Time\Clock.h" />
     <ClInclude Include="src\Hypo\System\Time\ExecutionCounter.h" />
+    <ClInclude Include="src\Hypo\System\Time\FpsCounter.h" />
     <ClInclude Include="src\Hypo\System\Time\Time.h" />
     <ClInclude Include="src\Hypo\System\Util\Log.h" />
     <ClInclude Include="src\systempch.h" />

@@ -1,0 +1,20 @@
+﻿cl : command line warning D9025: overriding '/MD' with '/MDd'
+  IDMath.cpp
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\details\IDLinearMathInterface.hpp(51,77): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\IDMath.cpp(262,31): warning C4244: 'initializing': conversion from 'double' to 'idScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\IDMath.cpp(262,25): warning C4244: 'initializing': conversion from 'double' to 'const idScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\IDMath.cpp(455,4): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\IDMath.cpp(498,9): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+  MultiBodyTree.cpp
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\details\IDLinearMathInterface.hpp(51,77): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\MultiBodyTree.cpp(277,32): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+  MultiBodyTreeImpl.cpp
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\details\IDLinearMathInterface.hpp(51,77): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\details\MultiBodyTreeImpl.cpp(23,27): warning C4305: '=': truncation from 'double' to 'idScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\details\MultiBodyTreeImpl.cpp(939,30): warning C4244: 'argument': conversion from 'const double' to 'const idScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\details\MultiBodyTreeImpl.cpp(945,30): warning C4244: 'argument': conversion from 'const double' to 'const idScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\details\MultiBodyTreeImpl.cpp(979,30): warning C4244: 'argument': conversion from 'const double' to 'const idScalar', possible loss of data
+  MultiBodyTreeInitCache.cpp
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\details\IDLinearMathInterface.hpp(51,77): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+  Generating Code...
+  BulletInverseDynamics.vcxproj -> C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletInverseDynamics\bin\Debug\BulletInverseDynamics.lib

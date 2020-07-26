@@ -4,5 +4,3 @@
 #include <Hypo/3D/Renderer/Renderer.h>
 
 #include <Hypo/3D/Camera/CameraController.h>
-
-#include <Hypo/3D/Model/Model.h>

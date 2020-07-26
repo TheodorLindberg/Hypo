@@ -320,6 +320,10 @@ namespace Hypo
 		{
 			return *_ptr;
 		}
+		C& GetRef() 
+		{
+			return *_ptr;
+		}
 		operator C* ()
 		{
 			return _ptr;

@@ -106,6 +106,7 @@
       <Filter>Hypo\System\Util</Filter>
     </ClInclude>
     <ClInclude Include="src\systempch.h" />
+    <ClInclude Include="src\Hypo\System\Time\FpsCounter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hypo\System\Core\Exception.cpp">

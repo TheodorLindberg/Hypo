@@ -186,7 +186,7 @@ namespace Hypo
 		{
 			HYPO_CORE_CRITICAL("Could not create window!");
 		}
-		m_Context = GraphicsContext::Create(m_Window);
+		m_Context = GraphicsContext::Create(m_Window, contextSettings);
 
 	
 		glfwSetWindowUserPointer(m_Window, &m_Data);

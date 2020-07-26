@@ -8,7 +8,7 @@ namespace Hypo
 	public:
 		void SetClearColor(const Vec4F& color) override;
 		void Clear(ClearFlags flags) override;
-		void DrawIndexed(const VertexArray::Ptr& vertexArray, MeshType type) override;
+		void DrawIndexed(VertexArray::Ptr& vertexArray, MeshType type) override;
 		//void DrawInstanced(const BatchRendererBuffer::Ptr& batchRendererBuffer) override;
 	private:
 	};

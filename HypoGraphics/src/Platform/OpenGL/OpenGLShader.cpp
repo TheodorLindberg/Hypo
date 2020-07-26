@@ -473,7 +473,7 @@ namespace Hypo
 			HYPO_CORE_WARN("Cannot bind uniform buffer {}", buffer->GetBinderName());
 				return false;
 			}*/
-			OpenGLUniformBuffer& openGLbuffer = reinterpret_cast<OpenGLUniformBuffer&>(buffer.GetRef());
+			OpenGLUniformBuffer& openGLbuffer = buffer.CastToRef<OpenGLUniformBuffer>();
 			glUseProgram(m_RendererID);
 			glBindBufferBase(GL_UNIFORM_BUFFER, it->second.blockIdx, openGLbuffer.GetBuffer().GetRendererID());
 			return true;
@@ -494,7 +494,7 @@ namespace Hypo
 				HYPO_CORE_WARN("Cannot bind uniform buffer {}", buffer->GetBinderName());
 				return false;
 			}
-			OpenGLUniformBuffer& openGLbuffer = reinterpret_cast<OpenGLUniformBuffer&>(buffer.GetRef());
+			OpenGLUniformBuffer& openGLbuffer = buffer.CastToRef<OpenGLUniformBuffer>();
 			glUseProgram(m_RendererID);
 			glBindBufferBase(GL_UNIFORM_BUFFER, it->second.blockIdx + index, openGLbuffer.GetBuffer().GetRendererID());
 			return true;

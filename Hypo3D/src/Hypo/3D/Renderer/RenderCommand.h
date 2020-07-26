@@ -14,7 +14,7 @@ namespace Hypo
 		{
 			s_RendererAPI->SetClearColor(color);
 		}
-		static inline void DrawIndexed(const VertexArray::Ptr& vertexArray, MeshType type = MeshType::Triangles)
+		static inline void DrawIndexed(VertexArray::Ptr& vertexArray, MeshType type = MeshType::Triangles)
 		{
 			s_RendererAPI->DrawIndexed(vertexArray, type);
 		}

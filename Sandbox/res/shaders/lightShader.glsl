@@ -91,7 +91,7 @@ layout(std140) uniform DirLightBlock
 
 layout(std140) uniform PointLightsBlock
 {
-	PointLight lights[5];
+	PointLight lights[6];
 } pointLights;
 
 layout(std140) uniform SpotLightBlock

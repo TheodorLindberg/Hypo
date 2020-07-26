@@ -60,12 +60,6 @@
     <ClInclude Include="src\Hypo\3D\Model\Mesh.h">
       <Filter>Hypo\3D\Model</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hypo\3D\Model\Model.h">
-      <Filter>Hypo\3D\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Hypo\3D\Model\ModelLayout.h">
-      <Filter>Hypo\3D\Model</Filter>
-    </ClInclude>
     <ClInclude Include="src\Hypo\3D\Renderer\Drawable.h">
       <Filter>Hypo\3D\Renderer</Filter>
     </ClInclude>
@@ -112,9 +106,6 @@
       <Filter>Hypo\3D\Camera</Filter>
     </ClCompile>
     <ClCompile Include="src\Hypo\3D\Model\Mesh.cpp">
-      <Filter>Hypo\3D\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Hypo\3D\Model\Model.cpp">
       <Filter>Hypo\3D\Model</Filter>
     </ClCompile>
     <ClCompile Include="src\Hypo\3D\Renderer\RenderCommand.cpp">

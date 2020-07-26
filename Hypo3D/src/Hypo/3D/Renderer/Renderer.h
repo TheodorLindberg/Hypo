@@ -31,6 +31,7 @@ namespace Hypo
 		//Simple mesh renderer
 		static void RenderCube(Vec3F position, Vec3F size, Vec4F color = {1.f,1.f,1.f,1.f}, float rotX = 0, float rotY = 0, float rotZ = 0);
 		inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
+		static void DebugSubmit(Shader::Ptr& shader, glm::mat4& transform, Mesh::Ptr mesh, Vec4F color);
 	public:
 
 		struct SceneData

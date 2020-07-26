@@ -78,7 +78,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ENTT_API_IMPORT ;HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\vendor\bullet3-2.89\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;..\Hypo3D\vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -96,7 +96,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ENTT_API_IMPORT ;HYPO_PLATFORM_WINDOWS;IMGUI_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;..\vendor\glm\include;..\vendor\spdlog\include;..\vendor\imgui;..\Hypo3D\vendor\glad\include;..\vendor\bullet3-2.89\include;..\HypoWindow\src;..\HypoSystem\src;..\HypoGraphics\src;..\HypoNetwork\src;..\Hypo3D\src;..\vendor\GSL\include;..\Hypo3D\vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -138,13 +138,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Packet.h" />
-    <ClInclude Include="src\SolarSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Main2.cpp" />
     <ClCompile Include="src\Main3.cpp" />
-    <ClCompile Include="src\SolarSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\TransformPositionShader.glsl" />

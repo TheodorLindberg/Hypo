@@ -1,0 +1,469 @@
+﻿cl : command line warning D9025: overriding '/MD' with '/MDd'
+  btDefaultSoftBodySolver.cpp
+  btDeformableBackwardEulerObjective.cpp
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,108): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,85): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,62): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(152,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(153,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(154,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,108): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,85): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,62): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(264,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(265,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(266,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(336,28): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(30,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(32,217): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(81,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(82,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(112,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(113,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(137,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(143,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(146,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(147,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(232,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(242,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(243,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableGravityForce.h(68,31): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableGravityForce.h(70,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(84,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(85,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(86,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(29,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(88,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(89,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(90,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(218,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(219,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(220,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(221,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(252,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(263,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(264,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(265,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(266,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(294,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(303,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(304,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(305,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(306,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\LinearMath\btImplicitQRSVD.h(492,22): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(31,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(89,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(90,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(91,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(92,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(219,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(220,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(221,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(222,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(253,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(264,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(265,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(266,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(267,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(295,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(304,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(305,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(306,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(307,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(314,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(315,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(323,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(324,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(327,76): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(335,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(336,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(339,81): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.h(108,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.h(114,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.cpp(69,22): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.cpp(69,73): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.cpp(112,67): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.cpp(155,38): warning C4244: '+=': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.cpp(182,23): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.cpp(182,66): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  btDeformableBodySolver.cpp
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,108): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,85): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,62): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(152,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(153,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(154,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,108): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,85): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,62): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(264,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(265,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(266,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(336,28): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(30,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(32,217): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(81,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(82,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(112,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(113,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(137,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(143,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(146,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(147,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(232,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(242,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(243,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableGravityForce.h(68,31): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableGravityForce.h(70,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(84,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(85,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(86,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(29,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(88,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(89,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(90,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(218,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(219,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(220,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(221,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(252,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(263,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(264,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(265,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(266,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(294,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(303,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(304,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(305,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(306,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\LinearMath\btImplicitQRSVD.h(492,22): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(31,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(89,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(90,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(91,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(92,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(219,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(220,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(221,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(222,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(253,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(264,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(265,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(266,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(267,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(295,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(304,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(305,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(306,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(307,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(314,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(315,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(323,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(324,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(327,76): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(335,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(336,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(339,81): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.h(108,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.h(114,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBodySolver.cpp(28,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBodySolver.cpp(61,51): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBodySolver.cpp(77,38): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBodySolver.cpp(119,67): warning C4244: '+=': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBodySolver.cpp(158,18): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btConjugateGradient.h(35,1): warning C4305: '=': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btConjugateGradient.h(32): message : while compiling class template member function 'btConjugateGradient<btDeformableBackwardEulerObjective>::btConjugateGradient(const int)'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBodySolver.cpp(24): message : see reference to function template instantiation 'btConjugateGradient<btDeformableBackwardEulerObjective>::btConjugateGradient(const int)' being compiled
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBodySolver.h(42): message : see reference to class template instantiation 'btConjugateGradient<btDeformableBackwardEulerObjective>' being compiled
+  btDeformableContactConstraint.cpp
+  btDeformableContactProjection.cpp
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,108): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,85): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,62): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(152,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(153,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(154,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,108): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,85): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,62): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(264,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(265,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(266,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(336,28): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(30,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(32,217): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(81,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(82,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(112,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(113,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(137,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(143,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(146,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(147,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(232,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(242,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(243,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableGravityForce.h(68,31): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableGravityForce.h(70,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(84,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(85,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(86,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(29,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(88,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(89,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(90,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(218,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(219,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(220,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(221,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(252,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(263,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(264,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(265,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(266,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(294,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(303,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(304,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(305,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(306,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\LinearMath\btImplicitQRSVD.h(492,22): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(31,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(89,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(90,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(91,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(92,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(219,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(220,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(221,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(222,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(253,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(264,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(265,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(266,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(267,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(295,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(304,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(305,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(306,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(307,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(314,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(315,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(323,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(324,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(327,76): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(335,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(336,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(339,81): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.h(108,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.h(114,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(216,7): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(226,8): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(226,16): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(227,8): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(227,16): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(232,8): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(232,15): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(239,7): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(239,15): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(445,44): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(458,45): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(470,44): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableContactProjection.cpp(478,45): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+  btDeformableMultiBodyConstraintSolver.cpp
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,108): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,85): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,62): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(152,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(153,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(154,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,108): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,85): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,62): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(264,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(265,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(266,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(336,28): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(30,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(32,217): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(81,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(82,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(112,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(113,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(137,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(143,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(146,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(147,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(232,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(242,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(243,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableGravityForce.h(68,31): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableGravityForce.h(70,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(84,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(85,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(86,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(29,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(88,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(89,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(90,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(218,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(219,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(220,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(221,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(252,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(263,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(264,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(265,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(266,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(294,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(303,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(304,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(305,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(306,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\LinearMath\btImplicitQRSVD.h(492,22): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(31,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(89,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(90,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(91,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(92,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(219,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(220,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(221,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(222,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(253,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(264,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(265,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(266,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(267,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(295,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(304,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(305,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(306,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(307,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(314,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(315,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(323,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(324,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(327,76): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(335,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(336,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(339,81): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.h(108,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.h(114,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  btDeformableMultiBodyDynamicsWorld.cpp
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,108): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,85): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(119,62): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(152,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(153,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(154,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,108): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,85): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(230,62): warning C4244: 'argument': conversion from 'double' to 'const btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(264,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(265,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(266,36): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLagrangianForce.h(336,28): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(30,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(32,217): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(81,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(82,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(112,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(113,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(137,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(143,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(146,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(147,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(232,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(242,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMassSpringForce.h(243,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableGravityForce.h(68,31): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableGravityForce.h(70,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(84,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(85,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(86,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableCorotatedForce.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(29,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(87,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(88,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(89,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(90,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(218,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(219,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(220,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(221,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(252,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(263,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(264,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(265,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(266,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(294,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(303,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(304,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(305,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableLinearElasticityForce.h(306,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\LinearMath\btImplicitQRSVD.h(492,22): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(31,1): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(89,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(90,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(91,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(92,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(219,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(220,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(221,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(222,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(253,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(264,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(265,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(266,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(267,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(295,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(304,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(305,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(306,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(307,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(314,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(315,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(323,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(324,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(327,76): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(335,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(336,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableNeoHookeanForce.h(339,81): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.h(108,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableBackwardEulerObjective.h(114,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btDeformableMultiBodyDynamicsWorld.cpp(54,43): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+  btSoftBody.cpp
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBody.cpp(119,30): warning C4305: '=': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBody.cpp(3082,42): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBody.cpp(3488,86): warning C4244: 'argument': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBody.cpp(3736,36): warning C4244: '=': conversion from 'double' to 'btScalar', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBody.cpp(3930,47): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBody.cpp(3931,47): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBody.cpp(3953,48): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBody.cpp(3973,49): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBody.cpp(3997,38): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+  btSoftBodyConcaveCollisionAlgorithm.cpp
+  btSoftBodyHelpers.cpp
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBodyHelpers.cpp(580,29): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBodyHelpers.cpp(581,29): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBodyHelpers.cpp(1275,30): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBodyHelpers.cpp(1283,34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBodyHelpers.cpp(1299,24): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBodyHelpers.cpp(1308,28): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBodyHelpers.cpp(1310,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\btSoftBodyHelpers.cpp(1313,69): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  btSoftBodyRigidBodyCollisionConfiguration.cpp
+  btSoftMultiBodyDynamicsWorld.cpp
+  btSoftRigidCollisionAlgorithm.cpp
+  btSoftRigidDynamicsWorld.cpp
+  btSoftSoftCollisionAlgorithm.cpp
+  Generating Code...
+  BulletSoftBody.vcxproj -> C:\Users\theod\Desktop\Hypo\vendor\bullet3-2.89\src\BulletSoftBody\bin\Debug\BulletSoftBody.lib

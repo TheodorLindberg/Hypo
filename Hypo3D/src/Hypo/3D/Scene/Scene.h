@@ -17,9 +17,9 @@ namespace Hypo
 		void Update(float dt);
 		void Render();
 		Entity CreateEntity(const std::string& name = std::string());
-	private:
-		friend class Entity;
+	public:
 		entt::registry m_Registry;
+		friend class Entity;
 	};
 
 }

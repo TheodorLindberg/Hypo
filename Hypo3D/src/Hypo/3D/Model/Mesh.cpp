@@ -270,11 +270,11 @@ namespace Hypo
 		vertex->Unbind();
 	}
 
-	Mesh MeshFactory::CreatePlane(VertexTypeFlags flags, float size, std::array<Vec4F,4> color)
+	Mesh::Ptr MeshFactory::CreatePlane(VertexTypeFlags flags, float size, std::array<Vec4F,4> color)
 	{
 		std::vector<Vec3F> positions = { {size,  0, size },{size, 0, -size}, {-size,0,-size}, {-size, 0, size} };
 		static std::vector<Vec2F> texCoord = {{1.f, 1.f}, {1.f,0.f}, {0.f,0.f}, {0.f,1.f} };
-		static std::vector<Vec3F> normals = { {0.f,0.f, 1.f}, {0.f,0.f,0.f}, {0.f,0.f,1.f}, {0.f,0.f,1.f} };
+		static std::vector<Vec3F> normals = { {0.f,-1.f, 0.f}, {0.f,-1.f,0.f}, {0.f,-1.f,0.f}, {0.f,-1.f,0.f} };
 
 		static std::vector<Index> indices = { 0,1,3,  1,2,3 };
 
@@ -282,8 +282,7 @@ namespace Hypo
 		{									   
 		case VertexPosTex:					
 			{
-				Mesh mesh{ std::move(indices), std::move(positions), std::move(texCoord) };
-				return mesh;
+				return new Mesh(std::move(indices), std::move(positions), std::move(texCoord));
 			}
 		case VertexPosCol:
 		{
@@ -291,7 +290,7 @@ namespace Hypo
 		}
 		case VertexPosTexNorm:
 		{
-			return Mesh{ std::move(indices), std::move(positions), std::move(normals),std::move(texCoord) };
+			return new Mesh{ std::move(indices), std::move(positions), std::move(normals),std::move(texCoord) };
 			
 
 		}
@@ -305,10 +304,10 @@ namespace Hypo
 		}
 		}
 		HYPO_CORE_WARN("Could not create plane!");
-		return Mesh{};
+		return nullptr;
 	}
 
-	Mesh MeshFactory::CreateUVSphere(VertexTypeFlags flags, unsigned short slices, unsigned short stacks, float radius)
+	Mesh::Ptr MeshFactory::CreateUVSphere(VertexTypeFlags flags, unsigned short slices, unsigned short stacks, float radius)
 	{
 		size_t vertexCount = static_cast<std::size_t>((stacks + 1) * (slices + 1));
 		std::vector<Vec3F> vertices(vertexCount);
@@ -356,16 +355,16 @@ namespace Hypo
 		{
 			case VertexPosTex:
 			{
-				return Mesh(std::move(indices), std::move(vertices), std::move(uvs), MeshType::TriangleStrip);
+				return new Mesh(std::move(indices), std::move(vertices), std::move(uvs), MeshType::TriangleStrip);
 				}
 			case VertexPosCol:
 			{
 
-				return Mesh(std::move(indices), std::move(vertices), std::move(colors),MeshType::TriangleStrip);
+				return new Mesh(std::move(indices), std::move(vertices), std::move(colors),MeshType::TriangleStrip);
 			}
 			case VertexPosTexNorm:
 			{
-				return Mesh(std::move(indices), std::move(vertices), std::move(normals), std::move(uvs), MeshType::TriangleStrip);
+				return new Mesh(std::move(indices), std::move(vertices), std::move(normals), std::move(uvs), MeshType::TriangleStrip);
 
 			}
 			case VertexPosTexNormTang:
@@ -378,11 +377,11 @@ namespace Hypo
 			}
 		}
 		HYPO_CORE_WARN("Could not create sphere!");
-		return Mesh{};
+		return nullptr;
 
 	}
 
-	Mesh MeshFactory::CreateCube(VertexTypeFlags flags, float size, std::array<Vec4F, 4> colors)
+	Mesh::Ptr MeshFactory::CreateCube(VertexTypeFlags flags, float size, std::array<Vec4F, 4> colors)
 	{
 		std::vector<Vec3F> positions = { 
 			{size, size, size   } ,
@@ -485,7 +484,7 @@ namespace Hypo
 		{
 		case VertexPositions:
 		{
-			return Mesh({ indices.data(), indices.size() }, { (float*)positions.data(), positions.size()  * 3}, VertexPositions, MeshType::Triangles);
+			return new Mesh({ indices.data(), indices.size() }, { (float*)positions.data(), positions.size()  * 3}, VertexPositions, MeshType::Triangles);
 		}
 		case VertexPosCol:
 		{
@@ -493,11 +492,11 @@ namespace Hypo
 		}
 		case VertexPosTex:
 		{
-			return Mesh(std::move(indices), std::move(positions), std::move(uvs), MeshType::Triangles);
+			return new Mesh(std::move(indices), std::move(positions), std::move(uvs), MeshType::Triangles);
 		}
 		case VertexPosTexNorm:
 		{
-			return Mesh(std::move(indices), std::move(positions), std::move(normals), std::move(uvs),  MeshType::Triangles);
+			return new Mesh(std::move(indices), std::move(positions), std::move(normals), std::move(uvs),  MeshType::Triangles);
 
 		}
 		case VertexPosTexNormTang:
@@ -510,7 +509,7 @@ namespace Hypo
 		}
 		}
 		HYPO_CORE_WARN("Could not create cube!");
-		return Mesh{};
+		return nullptr;
 
 	}
 }

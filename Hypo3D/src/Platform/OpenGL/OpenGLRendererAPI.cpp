@@ -31,7 +31,7 @@ namespace Hypo
 		glClear(openGLFlags);
 	}
 
-	void OpenGLRendererAPI::DrawIndexed(const VertexArray::Ptr& vertexArray, MeshType type)
+	void OpenGLRendererAPI::DrawIndexed(VertexArray::Ptr& vertexArray, MeshType type)
 	{
 		int mode = 0;
 		switch(type)

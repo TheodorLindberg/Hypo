@@ -27,7 +27,7 @@ namespace Hypo
 		virtual void SetClearColor(const Vec4F& color) = 0;
 		virtual void Clear(ClearFlags flags) = 0;
 
-		virtual void DrawIndexed(const VertexArray::Ptr& vertexArray, MeshType type = MeshType::Triangles) = 0;
+		virtual void DrawIndexed(VertexArray::Ptr& vertexArray, MeshType type = MeshType::Triangles) = 0;
 		static API GetAPI();;
 	private:
 		static API s_API;

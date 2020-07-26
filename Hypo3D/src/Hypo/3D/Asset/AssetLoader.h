@@ -5,7 +5,7 @@
 namespace Hypo
 {
 	template<typename AssetPtr>
-	class Asset
+	class  HYPO_3D_API Asset
 	{
 	public:
 		AssetPtr asset;
